@@ -1,0 +1,31 @@
+Role: Act as a Senior Certification Specialist and Web Developer.
+
+Task: Create a single, self-contained HTML file for a Life in UK practice exam.
+
+Content Requirements:
+
+I am assuming that 40 question are asked in the actual exam of ITIL Version 4, if there is a different number then based on that change the number of question answer below. 
+
+Generate 5 varied sets of each, 40 high-probability multiple-choice questions covering all official exam domains. 
+
+Each question must have 4 options (A, B, C, D).
+
+Provide the Correct Answer and a concise explanation for every question.
+
+Include a "Last-Minute Cram/Refresher" section at the top with key definitions, acronyms, and critical numbers to memorize.
+
+Formatting & Technical Requirements (Strict):
+
+One Single Line: Format the question and the 4 options on a single line to ensure high density and scannability.
+
+Next Line Answer: Place the correct answer and explanation on the immediate next line.
+
+Minimalist Style: Use a "brute-force" monospace style (font-family: monospace) with basic CSS (13px font size) so I can scan the entire document quickly.
+
+No Hidden Logic: Do not use collapsible tags; display all text clearly so I can scroll and read at high speed.
+
+Structure: Group the questions by their official Exam Domains (e.g., Service Value Chain, 7 Guiding Principles, etc.).
+
+Self-Contained: All CSS and HTML must be in one block.
+
+Tone: Professional, technical, and optimized for rapid retention.
