@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AWS SAA-C03 Practice Exam</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #1a1a1a;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        h1,
+        h2,
+        h3 {
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .cram-section {
+            background-color: #eee;
+            padding: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #000;
+        }
+
+        .domain-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .q-block {
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .q-line {
+            font-weight: bold;
+            white-space: normal;
+        }
+
+        .a-line {
+            color: #005500;
+            margin-top: 2px;
+            padding-left: 20px;
+        }
+
+        .set-header {
+            margin-top: 50px;
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+                border: none;
+            }
+        }
+
+        #save-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="save-toast">Position Saved</div>
+    <div class="container">
+        <a href="index.html"
+            style="display:inline-block;margin-bottom:20px;text-decoration:none;color:#000;font-weight:bold;border:1px solid #000;padding:5px 10px;border-radius:3px;">←
+            Back to Dashboard</a>
+
+        <h1>AWS Unified (SAA-C03 + DVA-C02)<br>The "Mega-Set"</h1>
+
+        <div class="cram-section">
+            <h3>🧠 AWS Unified Topic Mindmap (SAA + DVA)</h3>
+            <pre
+                style="font-size: 11px; white-space: pre; overflow-x: auto; background: #fff; padding: 10px; border: 1px dotted #ccc;">
+AWS UNIFIED (ARCHITECT & DEVELOPER)
+├── CORE INFRA (SAA Focus)
+│   ├── Compute: EC2 (Instances/Spot), Auto Scaling, ELB
+│   ├── Storage: S3 (Classes/Security), EBS, EFS, FSx
+│   ├── Network: VPC, Route 53, CloudFront, Global Accelerator
+│   └── Database: RDS (Multi-AZ/Read Replica), Aurora
+├── SERVERLESS & APIS (DVA Focus)
+│   ├── Lambda: Versions/Aliases, Layers, Powertools, Event Source Mapping
+│   ├── API Gateway: Stages, Usage Plans, Mapping Templates, CORS, Websockets
+│   ├── EventBridge: Rules, Pipes, Scheduler, Schema Registry
+│   └── Step Functions: Standard vs Express, Saga Pattern, Wait States
+├── DATA & ANALYTICS
+│   ├── DynamoDB: Partition/Sort Keys, LSI/GSI, DAX, Streams, TTL
+│   ├── Kinesis: Data Streams (Shards/Consumers), Firehose
+│   ├── SQS/SNS: Fan-out, FIFO vs Standard, DLQ, Visibility Timeout
+│   └── ElastiCache: Redis (Pub/Sub, Sorted Sets) vs Memcached
+├── DEVELOPER TOOLS (CI/CD)
+│   ├── CodeCommit: Git triggers, PRs, PR Approval Rules
+│   ├── CodeBuild: buildspec.yml, Env Vars, Caching, Local Build
+│   ├── CodeDeploy: appspec.yml, Hooks (BeforeInstall, AfterAllowTraffic), Blue/Green
+│   ├── CodePipeline: Artifacts, Manual Approval, Multi-Region, Custom Actions
+│   └── X-Ray: Tracing, Segments, Subsegments, Annotations vs Metadata, Daemon
+└── SECURITY & OBSERVABILITY
+    ├── IAM: Roles vs Resource Policies, Cognito (User/Identity Pools)
+    ├── Secrets: Secrets Manager (Rotation) vs Parameter Store (Hierarchy/SecureString)
+    ├── Encryption: KMS (Envelope Enc), CloudHSM, ACM
+    └── Monitoring: CloudWatch (Alarms, Logs, Insights, Synthetics)
+            </pre>
+        </div>
+
+        <div class="cram-section">
+            <h3>📚 Key Official Resources</h3>
+            <p>🔗 <a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html" target="_blank"
+                    style="color:blue">AWS Well-Architected Framework</a> - The core "why" of architecture.</p>
+            <p>🔗 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html" target="_blank"
+                    style="color:blue">S3 User Guide</a> - Critical for storage class & encryption details.</p>
+            <p>🔗 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html" target="_blank"
+                    style="color:blue">Amazon VPC User Guide</a> - Networking scenarios rely heavily on this.</p>
+            <p>🔗 <a href="https://aws.amazon.com/ec2/instance-types/" target="_blank" style="color:blue">EC2 Instance
+                    Types</a> - Memorize the families (General, Compute, Memory).</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>1. The 6 Pillars of Well-Architected Framework</h3>
+            <p><strong>Operational Excellence</strong>: IAC, annotate documentation, frequent small changes, anticipate
+                failure.</p>
+            <p><strong>Security</strong>: IAM roles (not users), protecting data in transit/rest, principle of least
+                privilege.</p>
+            <p><strong>Reliability</strong>: Auto-scaling, Multi-AZ, horizontal scaling, automatic recovery.</p>
+            <p><strong>Performance Efficiency</strong>: Serverless, right instance types, global reach (CloudFront),
+                experimentation.</p>
+            <p><strong>Cost Optimization</strong>: Spot instances, savings plans, auto-scaling, managed services.</p>
+            <p><strong>Sustainability</strong>: Maximizing utilization, efficient hardware/code practices.</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>2. Key Architecture Patterns</h3>
+            <p><strong>High Availability (HA)</strong>: Use Multi-AZ (RDS, ASG covers multiple AZs).</p>
+            <p><strong>Fault Tolerance</strong>: Application keeps running even if components fail (S3, SQS decoupled
+                architecture).</p>
+            <p><strong>Decoupling</strong>: SQS (Queue), SNS (Pub/Sub) to break bad dependencies.</p>
+            <p><strong>Disaster Recovery (DR)</strong>: Backup & Restore (Slowest), Pilot Light (DB running), Warm
+                Standby (Scaled down), Multi-Site Active/Active (Fastest).</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>3. Storage Cheatsheet</h3>
+            <p><strong>S3</strong>: Object storage. Infinite scale. Standard, IA, Glacier (Archive). Static websites.
+            </p>
+            <p><strong>EBS</strong>: Block storage for one EC2. Persistence. GP3 (General), IO2 (High Performance).
+                Snapshots.</p>
+            <p><strong>EFS</strong>: Linux Network File System (NFS). Shared across multiple EC2s. POSIX.</p>
+            <p><strong>FSx for Windows</strong>: SMB share for Windows instances.</p>
+            <p><strong>Storage Gateway</strong>: Hybrid cloud. File (S3 view), Volume (iSCSI), Tape.</p>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 1 (Questions 1-24)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q1. A company needs to host a static website with the lowest possible cost. (A) EC2 with
+                ALB (B) S3 Bucket (C) ECS Fargate (D) RDS</div>
+            <div class="a-line">Answer: B - S3 Static Website Hosting is the most cost-effective and scalable solution
+                for static content.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q2. Which DB service is best for a high-traffic e-commerce shopping cart needing
+                single-digit ms latency? (A) RDS MySQL (B) DynamoDB (C) Redshift (D) Neptune</div>
+            <div class="a-line">Answer: B - DynamoDB is high-performance NoSQL, perfect for key-value data like shopping
+                carts with millisecond latency.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q3. You need to store archived data for 7 years to meet compliance, access time can be
+                12 hours. (A) S3 Standard (B) S3 Glacier Instant Retrieval (C) S3 Deep Archive (D) S3
+                Intelligent-Tiering</div>
+            <div class="a-line">Answer: C - Deep Archive is lowest cost for long-term retention where retrieval time of
+                12+ hours is acceptable.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q4. Application EC2 instances are in a private subnet. They need to download updates
+                from internet. (A) Internet Gateway (B) NAT Gateway (C) Egress-Only Internet Gateway (D) VPS Peering
+            </div>
+            <div class="a-line">Answer: B - NAT Gateway allow private instances to initiate outbound IPv4 traffic to
+                internet but blocks inbound.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q5. You want to decouple an image processing system. Uploads should trigger processing
+                asynchronously. (A) Direct EC2 call (B) SQS + Lambda (C) RDS trigger (D) ALB sticky sessions</div>
+            <div class="a-line">Answer: B - S3 event -> SQS queue -> Lambda consumer is a classic decoupled, serverless
+                pattern.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q6. Files need to be accessible by multiple Linux EC2 instances simultaneously across
+                AZs. (A) EBS (B) EFS (C) Instance Store (D) S3 Glacier</div>
+            <div class="a-line">Answer: B - EFS (Elastic File System) provides a shared NFS file system for Linux
+                instances across AZs.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q7. A global application needs users to be routed to the nearest AWS region with low
+                latency. (A) Route 53 Geolocation (B) CloudFront (C) AWS Global Accelerator (D) VPN</div>
+            <div class="a-line">Answer: C - Global Accelerator uses AWS global network and static IPs to route to
+                optimal endpoint. (Route 53 Geolocation also works but GA is often preferred for TCP/UDP performance).
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q8. You need a data warehouse to analyze petabytes of data using SQL. (A) RDS (B)
+                DynamoDB (C) Redshift (D) ElastiCache</div>
+            <div class="a-line">Answer: C - Redshift is AWS's petabyte-scale data warehouse solution (OLAP).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q9. Manage encryption keys for AWS services and control rotation. (A) AWS Artifact (B)
+                KMS (C) Secrets Manager (D) Shield</div>
+            <div class="a-line">Answer: B - KMS (Key Management Service) is used to create and manage cryptographic
+                keys.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q10. Temporary access to S3 objects for mobile users without embedding credentials. (A)
+                IAM User (B) S3 Bucket Policy (C) Cognito Identity Pool / Presigned URLs (D) NACL</div>
+            <div class="a-line">Answer: C - Cognito Identity Pools or Presigned URLs allow temporary, secure access for
+                unauthenticated or federated users.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q11. Securely store database credentials and rotate them automatically. (A) KMS (B)
+                Parameter Store (C) Secrets Manager (D) S3 Encrypted</div>
+            <div class="a-line">Answer: C - Secrets Manager supports automatic rotation of secrets (DB credentials),
+                Parameter Store does not rotate natively without Lambda.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q12. Ensure an EBS volume can be recovered in another region for DR. (A) Take Snapshot
+                -> Copy to Region (B) Unmount and Move (C) Use TGW (D) VPC Peering</div>
+            <div class="a-line">Answer: A - You make a snapshot, and then copy that snapshot to the target region to
+                restore a volume there.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q13. Restrict access to an S3 bucket to only traffic coming from a specific VPC
+                Endpoint. (A) Security Group (B) Bucket Policy with aws:sourceVpce condition (C) NACL (D) IAM Role</div>
+            <div class="a-line">Answer: B - Bucket Policies can deny requests that don't come from a specific VPC
+                Endpoint ID.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q14. Run a containerized application with no server management. (A) EC2 (B) Fargate (C)
+                ECS on EC2 (D) EKS on EC2</div>
+            <div class="a-line">Answer: B - AWS Fargate is the serverless compute engine for containers (ECS/EKS).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q15. Migrate an on-premise Oracle DB to Aurora PostgreSQL with minimal downtime. (A)
+                Dump and Restore (B) AWS DMS (Database Migration Service) with SCT (C) DataSync (D) Snowball</div>
+            <div class="a-line">Answer: B - DMS handles data replication for minimal downtime; SCT (Schema Conversion
+                Tool) converts the schema.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q16. Protect a web application from SQL injection and XSS attacks. (A) Security Groups
+                (B) WAF (Web Application Firewall) (C) Shield Standard (D) GuardDuty</div>
+            <div class="a-line">Answer: B - WAF allows you to inspect traffic at Layer 7 and block SQLi, XSS, etc.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q17. High performance file system for Lustre (HPC) workloads. (A) EFS (B) FSx for Lustre
+                (C) S3 (D) EBS io2</div>
+            <div class="a-line">Answer: B - FSx for Lustre is optimized for compute-intensive workloads (HPC, ML).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q18. Route traffic based on user location to a specific version of the website (e.g.
+                French). (A) Latency Routing (B) Geolocation Routing (C) Weighted Routing (D) Failover Routing</div>
+            <div class="a-line">Answer: B - Geolocation routing lets you route traffic based on the geographic location
+                of the request.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q19. Monitor EC2 memory usage. (A) CloudWatch Default Metrics (B) CloudTrail (C)
+                CloudWatch Custom Metric (Unified Agent) (D) Config</div>
+            <div class="a-line">Answer: C - Memory is NOT a default EC2 metric (Hypervisor doesn't see inside OS). You
+                need the CloudWatch Agent.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q20. Send email notifications to admins when CPU > 80%. (A) CloudWatch Alarm -> SNS (B)
+                CloudTrail -> S3 (C) EventBridge -> Lambda (D) VPC Flow Logs</div>
+            <div class="a-line">Answer: A - CloudWatch Alarm monitors the metric and publishes to an SNS topic which
+                emails subscribers.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q21. Connect an on-premise data center to VPC using private dedicated connection. (A)
+                VPN (B) Direct Connect (C) Internet Gateway (D) VPC Peering</div>
+            <div class="a-line">Answer: B - Direct Connect (DX) is a dedicated physical fiber link, avoiding the public
+                internet.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q22. Automate creation of AWS infrastructure using code. (A) CloudFormation (B)
+                CodeBuild (C) Config (D) Systems Manager</div>
+            <div class="a-line">Answer: A - CloudFormation (or Terraform/CDK) enables Infrastructure as Code (IaC).
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q23. Which service helps you check service limits (quotas) and trusted advisor checks?
+                (A) AWS Trusted Advisor (B) Service Quotas (C) Inspector (D) Artifact</div>
+            <div class="a-line">Answer: A - Trusted Advisor checks for cost, performance, security, and service limits.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q24. A single fixed IP address is needed for whitelisting by a 3rd party API, but you
+                have ASG in private subnets. (A) Private IP (B) NAT Gateway IP (C) EIP on Instances (D) ALB IP</div>
+            <div class="a-line">Answer: B - Traffic from private instances goes through the NAT Gateway, which has a
+                static Elastic IP (EIP) you can whitelist.</div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 2 (Questions 25-48)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q25. Requirement for "Read after Write" consistency for new objects. (A) DynamoDB (B)
+                EFS (C) S3 (D) ElastiCache</div>
+            <div class="a-line">Answer: C - S3 now provides strong read-after-write consistency for all object
+                operations (PUTs and DELETEs).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q26. Process real-time streaming data (clickstream). (A) SQS (B) Kinesis Data Streams
+                (C) Glacier (D) Batch</div>
+            <div class="a-line">Answer: B - Kinesis is designed for real-time big data streaming ingestion.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q27. Run a SQL query directly on JSON data sitting in S3 without loading it. (A)
+                Redshift (B) Athena (C) Aurora (D) Glue</div>
+            <div class="a-line">Answer: B - Amazon Athena is a serverless query service to analyze data in S3 using
+                standard SQL.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q28. Fastest way to transfer 500 TB of data to AWS where internet is slow. (A) VPN (B)
+                Snowball Edge (C) Multipart Upload (D) Direct Connect</div>
+            <div class="a-line">Answer: B - Snowball / Snowmobile is faster for massive data transfer when bandwidth is
+                limited (Sneakernet).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q29. Ensure RDS database is encrypted. (A) Enable encryption at creation (B) Encrypt via
+                OS (C) Use SSL (D) S3 Replication</div>
+            <div class="a-line">Answer: A - RDS encryption (using KMS) must be defined at instance/volume creation time
+                (or by copying snapshot as encrypted).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q30. Control traffic at the subnet level (Stateless firewall). (A) Security Group (B)
+                NACL (Network ACL) (C) WAF (D) Route Table</div>
+            <div class="a-line">Answer: B - NACLs are stateless and operate at the subnet boundary. Security Groups are
+                stateful and operate at the ENI/Instance level.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q31. Provide desktop-as-a-service (DaaS) to employees. (A) Workspace (B) AppStream 2.0
+                (C) EC2 (D) Connect</div>
+            <div class="a-line">Answer: A - Amazon WorkSpaces is a managed, secure Desktop-as-a-Service (DaaS) solution.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q32. Analyze logs for potential threats (e.g. crypto mining, unusual API calls). (A)
+                Inspector (B) Macie (C) GuardDuty (D) Shield</div>
+            <div class="a-line">Answer: C - GuardDuty is an intelligent threat detection service that analyzes
+                CloudTrail, VPC Flow Logs, and DNS logs.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q33. Store credit card data (PCI-DSS) with dedicated hardware requirement. (A) Dedicated
+                Instances (B) Dedicated Hosts (C) Spot Instances (D) Reserved Instances</div>
+            <div class="a-line">Answer: B - Dedicated Hosts provide physical server visibility and affinity, often
+                required for strict compliance/licensing.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q34. Distribute incoming application traffic across multiple targets in multiple AZs.
+                (A) Auto Scaling (B) ELB (Elastic Load Balancer) (C) Route 53 (D) CloudFormation</div>
+            <div class="a-line">Answer: B - ELK/ALB/NLB distributes traffic to healthy targets.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q35. Cache dynamic API responses to reduce load on DB. (A) CloudFront (B) ElastiCache
+                (C) S3 (D) DAX</div>
+            <div class="a-line">Answer: B - ElastiCache (Redis/Memcached) is used to cache DB queries/sessions. DAX is
+                specifically for DynamoDB.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q36. Serverless orchestration of workflows (state machine). (A) Lambda (B) Step
+                Functions (C) Batch (D) SQS</div>
+            <div class="a-line">Answer: B - Step Functions lets you coordinate multiple AWS services into serverless
+                workflows (State Machine).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q37. Identify PII (Personally Identifiable Information) in S3 buckets. (A) GuardDuty (B)
+                Macie (C) Inspector (D) Shield</div>
+            <div class="a-line">Answer: B - Amazon Macie uses ML to discover and protect sensitive data (PII) in S3.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q38. Block a specific IP address from accessing your subnet. (A) Security Group (B) NACL
+                (C) IAM Policy (D) Route 53</div>
+            <div class="a-line">Answer: B - Only NACLs support "DENY" rules. Security Groups are "ALLOW" only.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q39. Long-term storage for backup tapes replacement. (A) S3 Standard (B) Storage Gateway
+                Tape Gateway (C) EBS Snapshots (D) Snowball</div>
+            <div class="a-line">Answer: B - Tape Gateway (VTL) allows you to keep using existing backup software but
+                store "tapes" in S3/Glacier.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q40. Access AWS services from a VPC without traffic traversing the public internet. (A)
+                VPC Endpoint (PrivateLink) (B) NAT Gateway (C) IGW (D) VPN</div>
+            <div class="a-line">Answer: A - VPC Endpoints allow private connections to supported AWS services (S3,
+                DynamoDB, API Gateway, etc.).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q41. Mount a filesystem to an EC2 instance that is high performance and temporary
+                (cache). (A) EBS (B) Instance Store (Ephemeral) (C) EFS (D) S3</div>
+            <div class="a-line">Answer: B - Instance Store is physically attached to the host (fastest) but data is lost
+                on stop/terminate. Great for cache/buffers.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q42. Which ALB feature allows routing based on the URL path (e.g. /images vs /api)? (A)
+                Host-based routing (B) Path-based routing (C) Query string routing (D) Geo routing</div>
+            <div class="a-line">Answer: B - Path-based routing allows directing traffic to different target groups based
+                on URL path.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q43. Optimize costs for steady-state usage EC2 running 24/7 for 3 years. (A) Spot
+                Instances (B) On-Demand (C) Reserved Instances / Savings Plans (D) Dedicated Hosts</div>
+            <div class="a-line">Answer: C - RIs or Savings Plans offer significant (up to 72%) discounts for committed
+                usage.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q44. Deploy code changes automatically when pushed to a repo, run tests, and deploy. (A)
+                CodeCommit (B) CodePipeline (C) CloudTrail (D) X-Ray</div>
+            <div class="a-line">Answer: B - CodePipeline orchestrates the CI/CD stages (Source -> Build -> Deploy).
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q45. Centralize and view logs from all EC2 instances and Lambda functions. (A)
+                CloudWatch Logs (B) S3 (C) CloudTrail (D) VPC Flow Logs</div>
+            <div class="a-line">Answer: A - CloudWatch Logs centralizes log streams from various sources.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q46. Trace user requests as they travel through microservices architecture. (A)
+                CloudWatch (B) X-Ray (C) Inspector (D) Ping</div>
+            <div class="a-line">Answer: B - AWS X-Ray helps developers analyze and debug production, distributed
+                applications (tracing).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q47. Automatically rotate secrets for RDS. (A) Secrets Manager (B) Systems Manager
+                Parameter Store (C) KMS (D) IAM</div>
+            <div class="a-line">Answer: A - Secrets Manager has native built-in rotation integration for RDS.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q48. Improve read performance of a database receiving many SELECT queries. (A) Multi-AZ
+                (B) Read Replicas (C) Sharding (D) Larger Instance</div>
+            <div class="a-line">Answer: B - Read Replicas allow you to offload read traffic from the primary instance.
+                Multi-AZ is for HA/DR, not performance.</div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 3 (Questions 49-74)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q49. A legacy application requires multicast networking support. (A) VPC with Multicast
+                Hub (B) Transit Gateway (C) Direct Connect (D) VPN</div>
+            <div class="a-line">Answer: B - AWS Transit Gateway is the only service that natively supports IP multicast.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q50. You need to store objects. Data must be resilient if an entire AZ is destroyed, but
+                cost is critical. (A) S3 One Zone-IA (B) S3 Standard-IA (C) S3 Standard (D) EBS</div>
+            <div class="a-line">Answer: B - S3 Standard-IA stores data across 3+ AZs (resilient to AZ loss) but is
+                cheaper than Standard. One Zone-IA dies with the AZ.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q51. EC2 instance needs to access S3 bucket in another account. (A) IAM Role on Instance
+                + Bucket Policy in other account (B) Access Keys (C) VPC Peering (D) Copy data</div>
+            <div class="a-line">Answer: A - Cross-account access requires an IAM Role in the source and a Bucket Policy
+                in the destination granting access to that Role.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q52. Secure a highly sensitive DB. Ensure admins cannot delete the DB instances
+                accidentally or maliciously. (A) MFA Delete (B) IAM Condition (C) Service Control Policy (SCP) (D)
+                Deletion Protection</div>
+            <div class="a-line">Answer: D - Enabling "Deletion Protection" on the RDS instance prevents it from being
+                deleted until the flag is unchecked.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q53. A user has a Policy allowing "S3:*" but is part of a Group with a Policy "Deny
+                S3:DeleteObject". Effect? (A) Allowed (B) Denied (C) Prompted (D) Error</div>
+            <div class="a-line">Answer: B - Explicit DENY always trumps ALLOW.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q54. Company requires all EBS volumes to be encrypted. How to enforce this for new
+                volumes? (A) CloudWatch Event (B) IAM Policy (C) EBS Encryption by Default (Account Setting) (D) Lambda
+            </div>
+            <div class="a-line">Answer: C - Enabling "EBS Encryption by Default" in the EC2 dashboard ensures every new
+                volume created in that region is encrypted.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q55. Website uses CloudFront. You need to geo-restrict content to US only. (A) Route 53
+                (B) WAF (C) CloudFront Geo Restriction (D) S3 Bucket Policy</div>
+            <div class="a-line">Answer: C - CloudFront has a native "Geo Restriction" (whitelist/blacklist) feature.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q56. DB layer needs auto-scaling for *read* traffic. (A) Multi-AZ (B) Read Replicas +
+                Aurora Auto Scaling (C) Larger Instance (D) Sharding</div>
+            <div class="a-line">Answer: B - Amazon Aurora can automatically add/remove Read Replicas based on
+                CPU/Connections logic.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q57. Which service provides a shared file system for Windows servers? (A) EFS (B) FSx
+                for Windows File Server (C) S3 (D) Storage Gateway</div>
+            <div class="a-line">Answer: B - FSx for Windows File Server provides fully managed native Microsoft Windows
+                file systems (SMB).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q58. Connect 100 VPCs together. VPC Peering is becoming a mesh nightmare. (A) Transit
+                Gateway (B) Direct Connect (C) VPN Hub (D) VPC Endpoints</div>
+            <div class="a-line">Answer: A - Transit Gateway (TGW) acts as a central hub (router) to connect thousands of
+                VPCs and on-prem networks.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q59. Disaster Recovery: RPO/RTO can be minutes. Low cost is not primary driver. (A)
+                Backup & Restore (B) Pilot Light (C) Warm Standby (D) Multi-Region Active-Passive</div>
+            <div class="a-line">Answer: C - Warm Standby implies a scaled-down version is always running, allowing
+                faster failover than Pilot Light (minutes).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q60. You need to run a script once a day for 10 minutes. (A) EC2 Reserved (B) EC2 Spot
+                (C) Lambda (if < 15min) (D) EventBridge Scheduler + Lambda</div>
+                    <div class="a-line">Answer: D - EventBridge Scheduler triggers the Lambda function daily. Lambda is
+                        perfect for short, scheduled tasks.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q61. Protect S3 data from accidental deletion/overwrites. (A) Replication (B)
+                    Versioning (C) Encryption (D) MFA</div>
+                <div class="a-line">Answer: B - S3 Versioning keeps multiple variants of an object. If you delete, it
+                    inserts a delete marker, which can be undone.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q62. Application needs extreme performance storage (100,000 IOPS) on EC2. (A) gp3
+                    (B) io2 Block Express (C) st1 (D) sc1</div>
+                <div class="a-line">Answer: B - io2 Block Express is the highest performance EBS volume type, designed
+                    for mission-critical sub-millisecond latency.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q63. Share a specific S3 object with a user for 10 minutes only. (A) IAM Role (B)
+                    Presigned URL (C) Bucket Policy (D) ACL</div>
+                <div class="a-line">Answer: B - Presigned URLs grant temporary access to a specific private object.
+                </div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q64. What is the difference between Security Group (SG) and NACL? (A) SG is
+                    Stateless, NACL is Stateful (B) SG is Stateful, NACL is Stateless (C) No difference (D) SG works at
+                    VPC level</div>
+                <div class="a-line">Answer: B - Security Groups are Stateful (return traffic allowed auto). NACLs are
+                    Stateless (must allow return explicitly).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q65. Decrypt data inside an EC2 instance (enclave) securely. (A) KMS (B) Nitro
+                    Enclaves (C) CloudHSM (D) Macie</div>
+                <div class="a-line">Answer: B - AWS Nitro Enclaves create isolated compute environments to protect
+                    highly sensitive data during processing.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q66. Host a static website using custom domain and HTTPS. (A) S3 + Route 53 (B) S3 +
+                    CloudFront + ACM (C) EC2 + Apache (D) Lightsail</div>
+                <div class="a-line">Answer: B - S3 by itself supports HTTP. For HTTPS with a custom domain, you MUST
+                    front it with CloudFront and use an ACM certificate.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q67. Monitor for PII data leaking into a bucket. (A) Macie (B) GuardDuty (C)
+                    Inspector (D) WAF</div>
+                <div class="a-line">Answer: A - Macie is the data security service that discovers sensitive data (PII,
+                    PHI) in S3.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q68. EC2 in private subnet needs to access S3. Compliance says "Traffic must NOT
+                    leave Amazon network". (A) NAT Gateway (B) VPC Endpoint (Gateway) (C) Internet Gateway (D) VPN</div>
+                <div class="a-line">Answer: B - Gateway Endpoint for S3 routes traffic privately within AWS network. NAT
+                    Gateway would work but traffic leaves subnet to NAT (though still in AWS, Endpoint is strictly
+                    private routing).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q69. High Velocity data ingestion (IoT sensors). (A) SQS (B) Kinesis Data Streams
+                    (C) SNS (D) S3</div>
+                <div class="a-line">Answer: B - Kinesis Data Streams is built for massive ingestion of real-time data
+                    streams.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q70. "Fan-out" architecture: One message needs to trigger a Lambda, an Email, and an
+                    SQS queue. (A) SQS (B) SNS (C) Kinesis (D) Step Functions</div>
+                <div class="a-line">Answer: B - SNS (Simple Notification Service) is Pub/Sub. You publish once, and it
+                    "fans out" to all subscribers (Lambda, Email, SQS).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q71. Cost effective DB for purely key-value lookups, millions/sec. (A) RDS (B)
+                    DynamoDB (C) Redshift (D) Neptune</div>
+                <div class="a-line">Answer: B - DynamoDB is the choice for high-scale, key-value workloads.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q72. Prevent users from disabling CloudTrail logs in a specific account in an
+                    Organization. (A) IAM Policy (B) Service Control Policy (SCP) (C) CloudWatch Alarm (D) Config Rule
+                </div>
+                <div class="a-line">Answer: B - SCPs (Organization level) act as guardrails. A Deny on
+                    "cloudtrail:StopLogging" in SCP prevents ANY user (even root) in the account from doing it.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q73. Global application. Writes go to US-East, Reads happen locally in Europe/Asia.
+                    (A) RDS Multi-AZ (B) Aurora Global Database (C) DynamoDB Global Tables (D) S3 Replication</div>
+                <div class="a-line">Answer: B - Aurora Global DB allows a primary writer in one region and low-latency
+                    read replicas in others.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q74. Limit the max number of requests from a single IP to your API. (A) Shield (B)
+                    WAF Rate-based Rule (C) NACL (D) Security Group</div>
+                <div class="a-line">Answer: B - AWS WAF supports "Rate-based rules" to block IPs that exceed a threshold
+                    (e.g. 2000 req/5min).</div>
+            </div>
+
+            <div class="set-header">PRACTICE EXAM SET 4 (Questions 75-100)</div>
+
+            <div class="q-block">
+                <div class="q-line">Q75. You need to ensure an EC2 instance is placed on a distinct physical rack. (A)
+                    Cluster Placement Group (B) Spread Placement Group (C) Partition Placement Group (D) Dedicated Host
+                </div>
+                <div class="a-line">Answer: B - Spread Placement Groups strictly place each instance on a separate rack.
+                    (Partition distributes across groups of racks).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q76. A company wants to prevent ANY public access to S3 buckets at the account
+                    level. (A) Bucket Policy (B) S3 Block Public Access (C) IAM (D) NACL</div>
+                <div class="a-line">Answer: B - S3 Block Public Access can be configured at the Account level to
+                    override any bucket/object permissions.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q77. Store JSON documents, flexible schema, query by any attribute. (A) S3 (B)
+                    DynamoDB (C) DocumentDB (D) RDS</div>
+                <div class="a-line">Answer: C - Amazon DocumentDB is MongoDB-compatible and designed specifically for
+                    JSON document storage/querying.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q78. Transfer 50 TB data from on-prem to S3 over internet is too slow. VPN is flaky.
+                    (A) Direct Connect public VIF (B) AWS Snowball Edge Storage Optimized (C) Site-to-Site VPN (D)
+                    Database Migration Service</div>
+                <div class="a-line">Answer: B - For 50TB with poor connectivity, physical transfer via Snowball is the
+                    standard recommendation.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q79. Which Load Balancer is best for millions of requests/sec with ultra-low latency
+                    (TCP/UDP)? (A) ALB (B) NLB (C) CLB (D) GWLB</div>
+                <div class="a-line">Answer: B - Network Load Balancer (NLB) operates at Layer 4 and handles millions of
+                    requests/sec with extremely low latency.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q80. Grant an EC2 instance permissions to upload to S3. (A) Store keys in code (B)
+                    IAM User (C) IAM Role attached to Instance Profile (D) Bucket Policy</div>
+                <div class="a-line">Answer: C - Never store keys on EC2. Attach an IAM Role.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q81. Authenticate users for your ALB-fronted app using Google/Facebook. (A) Cognito
+                    User Pools (B) IAM (C) Directory Service (D) Shield</div>
+                <div class="a-line">Answer: A - ALB integrates natively with Amazon Cognito to handle OIDC/SAML
+                    authentication.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q82. Run a short task (30s) every time an object is uploaded to S3. (A) EC2 (B)
+                    Lambda (C) ECS (D) AppRunner</div>
+                <div class="a-line">Answer: B - S3 Event Notifications triggering Lambda is the most efficient,
+                    cost-effective serverless pattern.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q83. "Serverless" SQL database that scales down to zero when not used. (A) RDS MySQL
+                    (B) Aurora Serverless (C) DynamoDB (D) Redshift Serverless</div>
+                <div class="a-line">Answer: B - Aurora Serverless v2 scales capacity up/down instantly; v1 can pause
+                    (scale to zero).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q84. Coordinate microservices where some steps might take hours (human approval).
+                    (A) Lambda (B) Step Functions (C) SQS (D) SNS</div>
+                <div class="a-line">Answer: B - Step Functions "Standard Workflows" can run for up to 1 year, perfect
+                    for human approval steps (callbacks).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q85. Audit configuration changes to AWS resources over time. (A) CloudTrail (B)
+                    Config (C) CloudWatch (D) Inspector</div>
+                <div class="a-line">Answer: B - AWS Config records the *configuration state* of resources (timeline of
+                    changes), whereas CloudTrail records API *calls*.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q86. Centralized DNS management for multiple VPCs. (A) Route 53 Resolver (B) Host
+                    files (C) AD Connector (D) Direct Connect</div>
+                <div class="a-line">Answer: A - Route 53 Resolver (Outbound/Inbound endpoints) manages DNS between VPCs
+                    and on-premise networks.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q87. Encrypt an existing unencrypted DB snapshot. (A) You can't (B) Copy the
+                    snapshot and check "Encrypt" (C) Modify the snapshot settings (D) Use S3</div>
+                <div class="a-line">Answer: B - You cannot encrypt an existing snapshot in place. You must copy it and
+                    enable encryption on the copy.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q88. Which Route 53 policy for Active-Passive failover? (A) Weighted (B) Failover
+                    (C) Latency (D) Geolocation</div>
+                <div class="a-line">Answer: B - Failover routing policy is for Active-Passive (Primary -> Secondary if
+                    Primary unhealthy).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q89. Improve performance for users downloading large files from S3 across the globe.
+                    (A) S3 Transfer Acceleration (B) Direct Connect (C) VPN (D) Multipart Upload</div>
+                <div class="a-line">Answer: A - S3 Transfer Acceleration uses CloudFront edge locations to route data to
+                    S3 faster over the AWS backbone.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q90. Securely access Linux instances without opening Port 22 (SSH). (A) Systems
+                    Manager Session Manager (B) EC2 Instance Connect (C) Putty (D) Bastion Host</div>
+                <div class="a-line">Answer: A - Session Manager allows browser-based shell access via IAM, logging
+                    commands to CloudWatch/S3, with NO inbound ports needed.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q91. What is the SLA for S3 Standard Durability? (A) 99.9% (B) 99.99% (C) 11 9s
+                    (99.999999999%) (D) 100%</div>
+                <div class="a-line">Answer: C - 11 9s of Durability (not to be confused with Availability, which is
+                    99.99%).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q92. Application needs a Graph Database. (A) DynamoDB (B) Neptune (C) RDS (D)
+                    Timestream</div>
+                <div class="a-line">Answer: B - Amazon Neptune is the managed Graph Database service (Gremlin/SPARQL).
+                </div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q93. Store Time-Series data (IoT telemetry). (A) DynamoDB (B) Timestream (C) RDS (D)
+                    QLDB</div>
+                <div class="a-line">Answer: B - Amazon Timestream is a serverless time-series database.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q94. You need an immutable ledger for banking transactions. (A) Blockchain (B) QLDB
+                    (Quantum Ledger DB) (C) RDS (D) DynamoDB</div>
+                <div class="a-line">Answer: B - QLDB provides a transparent, immutable, cryptographically verifiable
+                    transaction log.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q95. Accelerate UDP traffic for online gaming globally. (A) CloudFront (B) Global
+                    Accelerator (C) Route 53 (D) Direct Connect</div>
+                <div class="a-line">Answer: B - Global Accelerator supports TCP/UDP and works well for non-HTTP gaming
+                    use cases. CloudFront is HTTP/S.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q96. Identify underutilized EC2 instances to save money. (A) Cost Explorer (B)
+                    Trusted Advisor / Compute Optimizer (C) Budgets (D) CloudTrail</div>
+                <div class="a-line">Answer: B - Trusted Advisor and Compute Optimizer specifically recommend rightsizing
+                    for underutilized resources.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q97. Mount S3 bucket as a local drive? (A) Not native (B) File Gateway (C) Volume
+                    Gateway (D) Tape Gateway</div>
+                <div class="a-line">Answer: B - File Gateway exposes S3 as an NFS/SMB share. (Mountpoint for S3 is a
+                    newer agent, but File Gateway is the classic infrastructure answer).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q98. Difference between SQS Standard and FIFO? (A) FIFO is cheaper (B) Standard
+                    guarantees order (C) FIFO guarantees order and exactly-once processing (D) Standard is slower</div>
+                <div class="a-line">Answer: C - FIFO = First In First Out (Strict Order) + Exactly-Once. Standard = Best
+                    Effort order + At-Least-Once (duplicates possible).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q99. You need to pre-warm an ALB for a massive spike (Flash Sale). (A) It happens
+                    auto (B) Contact AWS Support (C) Use NLB (D) Adding instances</div>
+                <div class="a-line">Answer: B - While ALBs scale, for *instant* massive spikes, you should contact AWS
+                    Support to pre-warm the load balancer heat.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q100. Best practice for Root User? (A) Use it daily (B) Create Access Keys for it
+                    (C) Lock it away (MFA), delete keys, use only for account tasks (D) Share it</div>
+                <div class="a-line">Answer: C - Lock away the root user. It has unlimited power and cannot be restricted
+                    by IAM policies.</div>
+            </div>
+
+            <br><br>
+            <div
+                style="background-color:#2d3748; color:white; padding:20px; border-radius:10px; text-align:center; border: 3px solid #d53f8c; margin-top:40px;">
+                <h2 style="border:none; margin:0; color:#fff;">🚀 DEVELOPER ASSOCIATE TRACK (DVA-C02)</h2>
+                <p style="margin:5px 0 0 0; color:#cbd5e0;">Additional Concepts & Questions for Developers</p>
+            </div>
+
+            <div class="cram-section" style="border-color: #d53f8c; background-color: #fff5f7;">
+                <h3>⚡ Developer Cheat Sheet</h3>
+                <p><strong>Lambda</strong>: 15 min max timeout. <code>/tmp</code> size 512MB-10GB.
+                    <strong>Layers</strong> for dependencies. <strong>Aliases</strong> for traffic shifting.</p>
+                <p><strong>API Gateway</strong>: 10,000 RPS (soft limit). 29s max timeout. <strong>Stage
+                        Variables</strong> for env config. <strong>CORS</strong> enablement needed for cross-origin.</p>
+                <p><strong>DynamoDB</strong>: <strong>RCU</strong> (4KB chunks), <strong>WCU</strong> (1KB chunks).
+                    <strong>LSI</strong> (created ONLY at table creation, share capacity). <strong>GSI</strong> (created
+                    anytime, own capacity). <strong>DAX</strong> = Cache.</p>
+                <p><strong>CI/CD Files</strong>: <strong>buildspec.yml</strong> (CodeBuild),
+                    <strong>appspec.yml</strong> (CodeDeploy).</p>
+                <p><strong>X-Ray</strong>: <strong>Annotations</strong> (Indexed/Searchable: "GameID").
+                    <strong>Metadata</strong> (Not indexed). <strong>Daemon</strong> listens on UDP 2000.</p>
+                <p><strong>KMS</strong>: <strong>Envelope Encryption</strong> -> <code>GenerateDataKey</code> returns
+                    Plaintext + Encrypted key.</p>
+                <p><strong>S3 Encryption</strong>: <strong>SSE-S3</strong> (Managed Keys), <strong>SSE-KMS</strong>
+                    (Customer Managed), <strong>SSE-C</strong> (Client Key provided in correct header).</p>
+            </div>
+
+            <div class="set-header" style="background: #702459;">DEVELOPER TRACK - SET 5 (Questions 101-125)</div>
+
+            <div class="q-block">
+                <div class="q-line">Q101. You need to deploy a Lambda function that connects to an RDS database in a
+                    Private Subnet. (A) Assign a Public IP to Lambda (B) Configure Lambda with VPC Subnets and Security
+                    Group (C) Use NAT Gateway (D) Use API Gateway</div>
+                <div class="a-line">Answer: B - To access resources in a VPC (RDS, ElastiCache), the Lambda function
+                    must be configured with the VPC's Subnets and Security Groups.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q102. Which DynamoDB feature allows you to query data by a non-key attribute? (A)
+                    Partition Key (B) Sort Key (C) Global Secondary Index (GSI) (D) Scan</div>
+                <div class="a-line">Answer: C - GSIs allow you to create an alternate index with a different
+                    Partition/Sort Key to support efficient queries on non-primary attributes.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q103. Update an AWS CloudFormation stack but preview changes before applying them.
+                    (A) Change Set (B) Stack Set (C) Drift Detection (D) Nested Stack</div>
+                <div class="a-line">Answer: A - "Change Sets" allow you to preview how proposed changes to a stack might
+                    impact your running resources before you execute them.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q104. You need to debug performance issues in a distributed microservices
+                    application. You want to see the "Waterfalls" of service calls. (A) CloudTrail (B) X-Ray (C)
+                    CloudWatch Logs (D) VPC Flow Logs</div>
+                <div class="a-line">Answer: B - AWS X-Ray provides end-to-end tracing capabilities, visualizing the
+                    service map and latency "waterfalls" for each request.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q105. Securely store and retrieve database passwords in code without hardcoding. You
+                    also need *automatic rotation*. (A) Systems Manager Parameter Store (B) Secrets Manager (C)
+                    Environment Variables (D) S3 Encryption</div>
+                <div class="a-line">Answer: B - Secrets Manager is specifically designed for secrets (DB creds) and
+                    supports *native automatic rotation* (unlike Parameter Store).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q106. Your API Gateway is receiving too many requests, overwhelming your backend.
+                    (A) Enable Caching (B) Configure Throttling (Rate Limiting) (C) Use Usage Plans (D) All of the above
+                </div>
+                <div class="a-line">Answer: D - All are valid, but Throttling (account-level or stage-level) is the
+                    primary mechanism to protect the backend from spikes.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q107. Which CodeDeploy Hook runs *before* traffic is shifted to the new replacement
+                    task set? (A) BeforeInstall (B) AfterInstall (C) BeforeAllowTraffic (D) ApplicationStop</div>
+                <div class="a-line">Answer: C - `BeforeAllowTraffic` is used (often with Lambda) to run validation tests
+                    on the new deployment *before* the Load Balancer routes actual traffic.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q108. Lambda function is failing because the deployment package is 100MB (too
+                    large). (A) Request limit increase (B) Use S3 to upload ZIP (C) Use Lambda Layers (D) Use EC2</div>
+                <div class="a-line">Answer: C - Lambda Layers allow you to separate dependencies (numpy, pandas, SDKs)
+                    from your function code, keeping the deployment package small.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q109. Ensure writes to DynamoDB are durable across multiple regions (Active-Active).
+                    (A) DynamoDB Streams (B) Global Tables (C) DAX (D) Read Replicas</div>
+                <div class="a-line">Answer: B - DynamoDB Global Tables provide a fully managed, multi-region, and
+                    multi-active database (writes in any region replicate to all others).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q110. You need to enable Cross-Origin Resource Sharing (CORS) for your Serverless
+                    API. (A) Enable CORS on S3 (B) Enable CORS on API Gateway methods (C) Enable CORS on Lambda (D) Use
+                    CloudFront</div>
+                <div class="a-line">Answer: B - If using API Gateway, you must Enable CORS on the resources/methods to
+                    allow browsers to call the API from a different domain.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q111. Which buildspec.yml phase is used to install dependencies? (A) pre_build (B)
+                    build (C) install (D) post_build</div>
+                <div class="a-line">Answer: C - The `install` phase is dedicated to installing package dependencies
+                    (e.g. `npm install`, `pip install`).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q112. Handle "Hot Partitions" in DynamoDB caused by a bad Partition Key design. (A)
+                    Increase WCU (B) Use DAX (C) Improve Key Design (add random suffix/sharding) (D) Use S3</div>
+                <div class="a-line">Answer: C - The root cause of hot partitions is uneven data distribution. The fix is
+                    to choose a better Partition Key or use "Write Sharding".</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q113. Authenticate users to your API Gateway using a 3rd party (e.g. Auth0) token.
+                    (A) IAM Authorizer (B) Cognito User Pool Authorizer (C) Lambda Authorizer (Custom) (D) Resource
+                    Policy</div>
+                <div class="a-line">Answer: C - Lambda Authorizers (formerly Custom Authorizers) allow you to validate
+                    bearer tokens from any 3rd party provider using custom logic.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q114. Trace an item change in DynamoDB and trigger a Lambda function. (A) Kinesis
+                    Data Streams (B) DynamoDB Streams (C) CloudWatch Events (D) SNS</div>
+                <div class="a-line">Answer: B - DynamoDB Streams captures a time-ordered sequence of item modifications
+                    (INSERT, MODIFY, DELETE) which can trigger Lambda.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q115. Your Lambda function needs to process items from a Kinesis Data Stream in
+                    order. (A) Use FIFO Queue (B) Kinesis guarantees order per Shard (C) Use Step Functions (D) Use SQS
+                </div>
+                <div class="a-line">Answer: B - Kinesis guarantees order *within a shard*. Lambda processes records from
+                    each shard sequentially.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q116. Which deployment strategy shifts traffic 10% every 10 minutes? (A) Canary (B)
+                    Linear (C) All-at-Once (D) Blue/Green</div>
+                <div class="a-line">Answer: B - Linear deployment shifts traffic in equal increments over a set time
+                    (e.g. "Linear10PercentEvery10Minutes"). Canary is usually a small step then jump.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q117. X-Ray: You want to add custom data to a trace that you can *search* and filter
+                    by (e.g. "GameID"). (A) Metadata (B) Annotations (C) Segments (D) Subsegments</div>
+                <div class="a-line">Answer: B - "Annotations" are key-value pairs indexed for use with filter
+                    expressions. "Metadata" is not indexed.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q118. Optimize DynamoDB cost for a table with infrequent, unpredictable access. (A)
+                    Provisioned Capacity (B) On-Demand Capacity (C) Reserved Capacity (D) Auto Scaling</div>
+                <div class="a-line">Answer: B - On-Demand capacity is best for unpredictable ("spiky") or infrequent
+                    workloads as you pay only for what you use (per request).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q119. Secure your S3 bucket so ONLY CloudFront can access it (prevent direct
+                    access). (A) Signed URLs (B) Origin Access Control (OAC) / Identity (OAI) (C) Bucket Policy (D) WAF
+                </div>
+                <div class="a-line">Answer: B - Configuring CloudFront OAC (recommended) or OAI and updating the S3
+                    Bucket Policy restricts access to only the CloudFront distribution.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q120. Which CLI command allows you to assume an IAM Role? (A) aws iam create-role
+                    (B) aws sts assume-role (C) aws get-session-token (D) aws configure</div>
+                <div class="a-line">Answer: B - `aws sts assume-role` returns the temporary security credentials
+                    (AccessKey, SecretKey, SessionToken) for the role.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q121. Serverless "Choreography" pattern: Services communicate via events without a
+                    central coordinator. (A) Step Functions (B) EventBridge (C) Batch (D) SWF</div>
+                <div class="a-line">Answer: B - EventBridge (Event Bus) enables the "Choreography" pattern where
+                    services publish/subscribe to events loosely decoupled. (Step Functions is "Orchestration").</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q122. Encrypt environment variables in a Lambda function helper. (A) Use KMS (B) Use
+                    S3 (C) Use RDS (D) Use Base64</div>
+                <div class="a-line">Answer: A - Lambda environment variables are encrypted at rest by default, but you
+                    can use "Helpers" to encrypt sensitive vars using a specific KMS key.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q123. Which Elastic Beanstalk deployment policy requires NO downtime and maintains
+                    full capacity? (A) All at once (B) Rolling (C) Rolling with additional batch (D) Immutable</div>
+                <div class="a-line">Answer: C - "Rolling with additional batch" launches a new batch of instances first,
+                    ensuring capacity never drops below 100% during deployment.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q124. Store the state of a user's shopping cart session (Speed is priority). (A) S3
+                    (B) ElastiCache (Redis) (C) Glacier (D) EFS</div>
+                <div class="a-line">Answer: B - Redis is the standard for in-memory session stores (shopping carts)
+                    requiring sub-millisecond access.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q125. A developer accidentally committed a 500MB file to CodeCommit. How to fix? (A)
+                    git rm (B) git filter-branch (or BFG Repo-Cleaner) (C) Delete repo (D) Ignore</div>
+                <div class="a-line">Answer: B - To completely remove a large file from git history (to reduce repo
+                    size), you must use `git filter-branch` or the BFG tool.</div>
+            </div>
+
+            <div class="set-header">DEVELOPER TRACK - SET 6 (Questions 126-150)</div>
+
+            <div class="q-block">
+                <div class="q-line">Q126. You need to route API Gateway traffic to different versions of Lambda (v1, v2)
+                    based on a "canary" weight. (A) Use Lambda Aliases (B) Use Route 53 (C) Use ALB (D) Use CloudFront
+                </div>
+                <div class="a-line">Answer: A - Lambda Aliases support "Traffic Shifting" (routing weights) between two
+                    function versions.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q127. Which S3 Bucket Policy Principle grants access to "Anyone"? (A) "Principal":
+                    "Everyone" (B) "Principal": "*" (C) "Principal": "Public" (D) "Principal": "Anonymous"</div>
+                <div class="a-line">Answer: B - A wildcard `*` in the Principal field means any anonymous user (Public
+                    Access).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q128. Handle duplicate messages in an SQS Standard Queue. (A) They don't happen (B)
+                    Use Idempotency in the consumer (C) Use FIFO (D) Delete queue</div>
+                <div class="a-line">Answer: B - Standard Queues guarantee "At-Least-Once" delivery (duplicates
+                    possible). The application must handle idempotency (converting duplicates to no-op).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q129. Instrument your application code to send custom metrics to CloudWatch. (A)
+                    Embedded Metric Format (EMF) (B) CloudTrail (C) X-Ray (D) VPC Flow Logs</div>
+                <div class="a-line">Answer: A - CloudWatch Embedded Metric Format (EMF) allows generating custom metrics
+                    from logs asynchronously, avoiding API blocking.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q130. You need to run a Docker container for 15 minutes to process a file. (A)
+                    Lambda (B) Fargate (ECS) Task (C) EC2 Reserved (D) AppRunner</div>
+                <div class="a-line">Answer: B - Lambda has a 15-minute timeout. If the job runs exactly or slightly
+                    over, Fargate Tasks are safer and still serverless.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q131. Which API Gateway type is lowest cost and optimized for Lambda? (A) REST API
+                    (B) HTTP API (C) WebSocket API (D) Private API</div>
+                <div class="a-line">Answer: B - HTTP APIs are designed to be lighter, faster, and cheaper (up to 71%)
+                    than REST APIs for serverless workloads.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q132. What file defines the SAM (Serverless Application Model) infrastructure? (A)
+                    buildspec.yml (B) template.yaml (C) appspec.yml (D) serverless.json</div>
+                <div class="a-line">Answer: B - SAM uses a `template.yaml` (extension of CloudFormation) to define
+                    functions, APIs, and tables.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q133. Limit a specific tenant to 50 requests/sec on your API. (A) Usage Plans & API
+                    Keys (B) WAF (C) Shield (D) IAM</div>
+                <div class="a-line">Answer: A - API Gateway Usage Plans (linked to API Keys) allow granular throttling
+                    and quotas per client/tenant.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q134. Ensure CodePipeline stops if a test fails. (A) It does automatically (B)
+                    Manual intervention (C) SNS (D) CloudWatch</div>
+                <div class="a-line">Answer: A - If any action (like CodeBuild running tests) fails, the Pipeline stops
+                    execution at that stage.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q135. Your app needs to support "Sticky Sessions" (Session Affinity). (A) ALB (B)
+                    NLB (C) Route 53 (D) Global Accelerator</div>
+                <div class="a-line">Answer: A - Application Load Balancers (ALB) verify session cookies to route the
+                    user to the same target instance.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q136. Monitor the deep internals of your Java app (JVM heap, garbage collection,
+                    threads). (A) CloudWatch Default (B) CloudWatch Application Insights / Profiler (C) CloudTrail (D)
+                    Config</div>
+                <div class="a-line">Answer: B - Application Insights / FindBugs / Profiler provide deep runtime
+                    visibility into code performance (Java, Python, etc.).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q137. Which IAM Policy element creates an "Exception" to a statement? (A) NotAction
+                    / NotResource / NotPrincipal (B) Exception (C) Deny (D) Allow</div>
+                <div class="a-line">Answer: A - `NotResource` allows the policy to apply to "everything EXCEPT this".
+                    (e.g. Allow * on NotResource: ProductionBucket).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q138. Efficiently query S3 data using "S3 Select". (A) It retrieves the whole object
+                    (B) It filters data *on the S3 server side* sending back only the result (C) It uses Athena (D) It
+                    uses Redshift</div>
+                <div class="a-line">Answer: B - S3 Select improves performance by filtering CSV/JSON content within S3,
+                    transferring less data over the network.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q139. Automate the creation of a "Dev" environment every morning. (A) CloudFormation
+                    (B) Console click (C) EBS Snapshots (D) Route 53</div>
+                <div class="a-line">Answer: A - Infrastructure as Code (CloudFormation/CDK) is the standard for
+                    ephemeral environment creation.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q140. Which database supports Graph data (relationships)? (A) RDS (B) Neptune (C)
+                    DynamoDB (D) DocumentDB</div>
+                <div class="a-line">Answer: B - Amazon Neptune is a fully managed Graph database (social networks,
+                    recommendation engines).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q141. Your Lambda reads from a Kinesis Stream. You get
+                    "ProvisionedThroughputExceededException". (A) Increase Lambda memory (B) Increase Kinesis Shards (C)
+                    Reduce Lambda timeout (D) Configure Retry</div>
+                <div class="a-line">Answer: B - Throughput is bound by shards (1MB/sec write, 2MB/sec read). To scale
+                    up, you must "Reshard" (split shards) to increase capacity.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q142. A developer needs to upload a 5GB file to S3 effectively. (A) PUT Object (B)
+                    Multipart Upload (C) Zip it (D) Email it</div>
+                <div class="a-line">Answer: B - Multipart Upload is recommended for >100MB and *required* for singular
+                    objects >5GB (though S3 limit is 5TB, simple PUT tops out at 5GB).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q143. Decouple a monolithic app. Order Service must accept orders even if Inventory
+                    Service is down. (A) REST API (B) SQS Queue (C) Direct Call (D) Shared DB</div>
+                <div class="a-line">Answer: B - A queue buffers the requests. The Inventory service can process them
+                    when it recovers.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q144. Which tool allows you to debug Lambda locally? (A) AWS SAM CLI (B) AWS Console
+                    (C) CloudShell (D) CodeStar</div>
+                <div class="a-line">Answer: A - `sam local invoke` and `sam local start-api` allow testing Lambda/API
+                    Gateway locally using Docker.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q145. Store user session state for an app scaling across multiple regions. (A)
+                    DynamoDB Global Tables (B) S3 (C) EBS (D) Instance Store</div>
+                <div class="a-line">Answer: A - Global Tables provide multi-master replication, ideal for session state
+                    that needs to follow the user globally.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q146. Secure your API key in a mobile app. (A) Hardcode it (B) Store in S3 (C) You
+                    can't secure it fully on client; use Cognito/Authentication flow instead (D) Use WAF</div>
+                <div class="a-line">Answer: C - Anything on a mobile device can be extracted. The best practice is to
+                    exchange user credentials (Cognito) for temporary AWS keys.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q147. Perform "Blue/Green" deployment on ECS. (A) CodeDeploy (B) CodeBuild (C)
+                    CodeCommit (D) CloudTrail</div>
+                <div class="a-line">Answer: A - CodeDeploy can completely manage traffic shifting (Blue/Green) for ECS
+                    services and Lambda functions.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q148. Optimistic Locking in DynamoDB prevents overwrites. It uses: (A) Version
+                    Number attribute (B) Timestamp (C) Read Locks (D) Global Lock</div>
+                <div class="a-line">Answer: A - You pass a condition `attribute_exists` checking a Version Number. If
+                    the version on server > version you have, the write fails.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q149. "Cold Start" in Lambda is mitigated by: (A) Provisioned Concurrency (B) More
+                    Memory (C) Keep-warm scripts (D) Ignoring it</div>
+                <div class="a-line">Answer: A - Provisioned Concurrency keeps a specified number of environments
+                    initialized and ready to respond in double-digit ms.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q150. Which CLI pagination option handles large output? (A) --no-paginate (B)
+                    --starting-token / --max-items (C) --filter (D) --zip</div>
+                <div class="a-line">Answer: B - To handle large lists, you use `--max-items` to limit page size and
+                    `--starting-token` (NextToken) to fetch the next page.</div>
+            </div>
+
+            <div class="set-header">ARCHITECT TRACK - SET 7 (Questions 151-175)</div>
+
+            <div class="q-block">
+                <div class="q-line">Q151. Connect your on-premise data center to VPC using both Direct Connect (Primary)
+                    and VPN (Backup). (A) Use Transit Gateway or VGW (B) Use only VPN (C) Use two Direct Connects (D)
+                    Use Internet</div>
+                <div class="a-line">Answer: A - This is a classic Hybrid HA pattern. If DX fails, BGP routing fails over
+                    to the Site-to-Site VPN.</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q152. Improve CloudFront performance for dynamic content (PUT/POST) that cannot be
+                    cached. (A) S3 Transfer Acceleration (B) CloudFront Dynamic Caching (C) Lambda@Edge (D) Use
+                    CloudFront as a fast proxy using AWS backbone</div>
+                <div class="a-line">Answer: D - Even without caching, CloudFront accelerates dynamic content by routing
+                    traffic over the optimized AWS global network (shielding from public internet jitter).</div>
+            </div>
+
+            <div class="q-block">
+                <div class="q-line">Q153. Multi-Region Disaster Recovery with RTO < 15 mins. (A) Backup & Restore (B)
+                        Pilot Light (C) Warm Standby (D) Active-Active</div>
+                        <div class="a-line">Answer: C - Warm Standby keeps a scaled-down version of the app running.
+                            Scaling it up takes minutes, fitting the <15 min RTO. (Pilot Light usually takes
+                                longer).</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q154. You need to migrate 200 TB of data to S3 but can't use a physical
+                                device (Security policy). You have a 10Gbps Direct Connect. (A) Snowball (B) DataSync
+                                (C) S3 Console (D) FTP</div>
+                            <div class="a-line">Answer: B - AWS DataSync is an online transfer service optimized to
+                                maximize saturation of the 10Gbps DX link for large transfers.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q155. Resolve DNS queries from your On-premise network for AWS private
+                                hosted zones. (A) Route 53 Inbound Resolver Endpoint (B) Route 53 Outbound Resolver
+                                Endpoint (C) Conditional Forwarder (D) Public Zone</div>
+                            <div class="a-line">Answer: A - The Inbound Endpoint allows on-premise DNS servers to
+                                forward queries to Route 53 for AWS private domains.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q156. Microservices architecture. Service A needs to call Service B.
+                                Discovery should be dynamic. (A) Hardcode IP (B) AWS Cloud Map / Route 53 (C) Text file
+                                (D) Excel</div>
+                            <div class="a-line">Answer: B - AWS Cloud Map allows services to register themselves and
+                                others to discover them via API or DNS (Service Discovery).</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q157. Securely access AWS services from an EC2 instance in a private
+                                subnet, keeping traffic private. (A) NAT Gateway (B) VPC Endpoint (Interface or Gateway)
+                                (C) Egress-Only IGW (D) VPN</div>
+                            <div class="a-line">Answer: B - VPC Endpoints are the most secure way for private access.
+                                (Gateway for S3/Dynamo, Interface for others).</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q158. Which routing policy routes traffic to the endpoint with the
+                                lowest network latency? (A) Geolocation (B) Geoproximity (C) Latency (D) Weighted</div>
+                            <div class="a-line">Answer: C - Latency routing measures the round-trip time from the user
+                                to the AWS region and routes to the fastest one.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q159. Create a specialized firewall rule to block traffic from a
+                                specific country (e.g. Embargoed nation) for the *entire* VPC. (A) Security Group (B)
+                                WAF (C) Network Firewall (D) NACL</div>
+                            <div class="a-line">Answer: C - AWS Network Firewall provides stateful, managed network
+                                protection for your VPC, including domain/IP filtering (Suricata compatible). NACL is
+                                too simple (no geo), WAF is Layer 7 only.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q160. Share a Directory Service (Microsoft AD) across multiple accounts.
+                                (A) AD Connector (B) Simple AD (C) Directory Sharing (D) Trust Relationship</div>
+                            <div class="a-line">Answer: C - AWS Managed Microsoft AD allows you to share the directory
+                                with other AWS accounts (Seamless Domain Join).</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q161. Migrate a VMware vSphere setup to AWS "As-is" (Lift & Shift)
+                                quickly. (A) EC2 Import (B) VMware Cloud on AWS (C) DMS (D) Re-platform</div>
+                            <div class="a-line">Answer: B - VMC on AWS allows you to run your VMware stack directly on
+                                bare-metal AWS infrastructure without changing code or tooling.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q162. Cost Optimization: You have a stable workload but need flexibility
+                                to change instance families later. (A) Standard RI (B) Convertible RI (C) Spot (D)
+                                Savings Plan (Compute)</div>
+                            <div class="a-line">Answer: D - Compute Savings Plans offer similar discounts to Convertible
+                                RIs but with much greater flexibility (move between Fargate, Lambda, EC2 families).
+                            </div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q163. S3 Object Lock requires which feature to be enabled? (A)
+                                Encryption (B) Versioning (C) Logging (D) MFA</div>
+                            <div class="a-line">Answer: B - Object Lock (WORM - Write Once Read Many) works on specific
+                                version IDs, so Versioning is a prerequisite.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q164. Control access to a specific API Gateway stage using IP
+                                whitelisting. (A) Security Group (B) Resource Policy on API Gateway (C) NACL (D) IAM
+                            </div>
+                            <div class="a-line">Answer: B - API Gateway Resource Policies allow you to define Allow/Deny
+                                rules based on source IP ranges (CIDR blocks).</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q165. Decouple a monolithic legacy app where the consumer is SLOWER than
+                                the producer. (A) SNS (B) SQS (C) Kinesis (D) EventBridge</div>
+                            <div class="a-line">Answer: B - A Queue (SQS) is the classic buffer. It absorbs the burst
+                                from the fast producer and lets the slow consumer process at its own pace.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q166. A company needs to run thousands of batch computing jobs. (A) AWS
+                                Batch (B) Lambda (C) Step Functions (D) Systems Manager</div>
+                            <div class="a-line">Answer: A - AWS Batch dynamically provisions the optimal quantity and
+                                type of compute resources (e.g., CPU or memory optimized instances) based on volume.
+                            </div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q167. Which service provides centralized backup management for EBS, RDS,
+                                DynamoDB, EFS? (A) AWS Backup (B) S3 (C) Glacier (D) Snapshot Manager</div>
+                            <div class="a-line">Answer: A - AWS Backup is a policy-based service to centralize and
+                                automate data protection across AWS services.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q168. Grant a 3rd party auditor Read-Only access to your account. (A)
+                                Creating IAM User + Keys (B) Cross-Account Role with External ID (C) Share Password (D)
+                                Open SG</div>
+                            <div class="a-line">Answer: B - The secure pattern is: Create a Role in your account, trust
+                                the Auditor's Account ID, and require an "External ID" (secret) to prevent Confused
+                                Deputy problem.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q169. Improve performance of global users uploading large videos to S3.
+                                (A) S3 Transfer Acceleration (B) Multipart Upload (C) CloudFront (D) VPN</div>
+                            <div class="a-line">Answer: A - S3 Transfer Acceleration uses CloudFront Edge Locations to
+                                route uploads to S3 over the AWS backbone network (faster than public internet).</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q170. Which disaster recovery strategy has the HIGHEST cost? (A) Backup
+                                & Restore (B) Pilot Light (C) Warm Standby (D) Multi-Site Active/Active</div>
+                            <div class="a-line">Answer: D - Active/Active requires running full capacity in two regions
+                                simultaneously (Double the cost).</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q171. A legacy app uses hardcoded IP addresses. You need to migrate to
+                                cloud but keep IPs. (A) Bring Your Own IP (BYOIP) (B) EIP (C) NAT (D) VPN</div>
+                            <div class="a-line">Answer: A - BYOIP allows you to bring your own publicly routable IP
+                                address range to AWS to avoid breaking hardcoded dependencies.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q172. Securely connect multiple VPCs and On-premise locations with a
+                                single hub. (A) Transit Gateway (B) VPC Peering (C) Direct Connect Gateway (D) VPN
+                                CloudHub</div>
+                            <div class="a-line">Answer: A - Transit Gateway solves the "peering mesh" complexity problem
+                                by acting as a central regional router.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q173. Ensure your EKS cluster control plane logs are audited. (A) Enable
+                                Control Plane Logging to CloudWatch (B) Check node logs (C) Check Pod logs (D) WireShark
+                            </div>
+                            <div class="a-line">Answer: A - You must explicitly enable "Control Plane Logging" (API
+                                server, Audit, Authenticator) in EKS to send them to CloudWatch Logs.</div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q174. Which service allows you to query logs in S3, CloudWatch, and JSON
+                                files using SQL? (A) Athena (B) Redshift (C) RDS (D) Aurora</div>
+                            <div class="a-line">Answer: A - Athena is the serverless interactive query service for S3.
+                            </div>
+                        </div>
+
+                        <div class="q-block">
+                            <div class="q-line">Q175. Prevent sensitive data from leaving the network (Data
+                                Exfiltration) via DNS. (A) Route 53 Resolver DNS Firewall (B) WAF (C) Shield (D)
+                                Security Group</div>
+                            <div class="a-line">Answer: A - Route 53 Resolver DNS Firewall lets you filter and block
+                                outbound DNS queries to known malicious domains.</div>
+                        </div>
+
+                        <div class="set-header">END OF MEGA-EXAM</div>
+                </div>
+
+                <script>
+                    // Persistence Logic
+                    const SCROLL_KEY = 'aws_saa_scroll_pos';
+                    const toast = document.getElementById('save-toast');
+                    let isScrolling;
+
+                    window.addEventListener('DOMContentLoaded', () => {
+                        const savedPos = localStorage.getItem(SCROLL_KEY);
+                        if (savedPos) {
+                            setTimeout(() => {
+                                window.scrollTo({ top: parseInt(savedPos), behavior: 'smooth' });
+                                showToast("Resumed from last spot");
+                            }, 100);
+                        }
+                    });
+
+                    window.addEventListener('scroll', () => {
+                        window.clearTimeout(isScrolling);
+                        isScrolling = setTimeout(() => {
+                            localStorage.setItem(SCROLL_KEY, window.scrollY);
+                        }, 200);
+                    });
+
+                    function showToast(msg) {
+                        if (!toast) return;
+                        toast.textContent = msg;
+                        toast.style.opacity = '1';
+                        setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+                    }
+                </script>
+</body>
+
+</html>

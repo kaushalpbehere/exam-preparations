@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GitHub Copilot (GH-300) Practice Exam</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #1a1a1a;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        h1,
+        h2,
+        h3 {
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .cram-section {
+            background-color: #eee;
+            padding: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #000;
+        }
+
+        .domain-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .q-block {
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .q-line {
+            font-weight: bold;
+            white-space: normal;
+        }
+
+        .a-line {
+            color: #005500;
+            margin-top: 2px;
+            padding-left: 20px;
+        }
+
+        .set-header {
+            margin-top: 50px;
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+                border: none;
+            }
+        }
+
+        #save-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="save-toast">Position Saved</div>
+    <div class="container">
+        <a href="index.html"
+            style="display:inline-block;margin-bottom:20px;text-decoration:none;color:#000;font-weight:bold;border:1px solid #000;padding:5px 10px;border-radius:3px;">←
+            Back to Dashboard</a>
+
+        <h1>GitHub Copilot (GH-300)<br>Practice Exam</h1>
+
+        <div class="cram-section">
+            <h3>🧠 GH-300 Topic Mindmap</h3>
+            <pre style="font-size: 11px; white-space: pre;">
+GITHUB COPILOT
+├── FEATURES
+│   ├── Code Completion (Ghost Text, FIM - Fill In Middle)
+│   ├── Copilot Chat (/fix, /tests, /doc, /explain)
+│   ├── Copilot CLI (Shell/Git help)
+│   ├── Shortcuts (Tab=Accept, Alt+]=Next, Ctrl+Enter=Panel)
+│   └── Voice ("Hey Code")
+├── PLANS & PRIVACY
+│   ├── Individual (Standard, trains on snippets unless disabled?)
+│   ├── Business (Org management, seat assignment, NO training)
+│   ├── Enterprise (Repo Indexing, Fine-Tuning, PR Summaries)
+│   └── Filters (Public Code Matcher - Block or Allow)
+├── PROMPT ENGINEERING
+│   ├── Principles (Single, Specific, Short, Surround)
+│   ├── Context (Open tabs, File cursor position, Imports)
+│   ├── Iteration (Refining prompts based on output)
+│   └── Zero/Few-shot (Examples vs No Examples)
+├── SECURITY & GOVERNANCE
+│   ├── Vulnerabilities (Hardcoded secrets, SQLi patterns)
+│   ├── Licensing (Attribution for public code matches)
+│   ├── Policies (Org level blocking of features)
+│   └── HTTPS/Certificates (Proxy setup for corporate networks)
+└── INTEGRATIONS
+    ├── IDEs (VS Code, Visual Studio, JetBrains, Vim)
+    ├── CLI (gh extension)
+    └── Mobile (Copilot in GitHub Mobile App)
+            </pre>
+        </div>
+
+        <div class="cram-section">
+            <h3>📚 Key Official Resources</h3>
+            <p>🔗 <a href="https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot"
+                    target="_blank" style="color:blue">GitHub Copilot Docs</a> - The absolute source of truth.</p>
+            <p>🔗 <a href="https://github.com/features/copilot" target="_blank" style="color:blue">Copilot Features
+                    Page</a> - Understand the tiers (Business vs Enterprise).</p>
+            <p>🔗 <a href="https://learn.microsoft.com/en-us/training/paths/copilot/" target="_blank"
+                    style="color:blue">MS Learn: Copilot Path</a> - Official certification study path.</p>
+            <p>🔗 <a href="https://docs.github.com/en/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom"
+                    target="_blank" style="color:blue">Managing Copilot Policies</a> - Critical for Admin questions.</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>1. Prompt Engineering (The "4 Ss")</h3>
+            <p><strong>Single</strong>: Give Copilot a single, clear task. </p>
+            <p><strong>Specific</strong>: Be explicit about inputs, outputs, and format (e.g., "Return a JSON list").
+            </p>
+            <p><strong>Short</strong>: Keep prompts concise but descriptive.</p>
+            <p><strong>Surround</strong>: Open content (tabs) provides context. Copilot reads neighboring files.</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>2. Key Features & Commands</h3>
+            <p><strong>Ghost Text</strong>: Gray text suggestions as you type. (Tab to accept).</p>
+            <p><strong>Copilot Chat</strong>: /fix (debug), /tests (generate tests), /doc (document code), /explain
+                (explain code).</p>
+            <p><strong>Copilot CLI</strong>: `gh copilot suggest "cmd"` or `gh copilot explain "cmd"`.</p>
+            <p><strong>Voice</strong>: "Hey Code" to trigger voice commands (accessibility).</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>3. Privacy & Governance</h3>
+            <p><strong>Public Code Matcher</strong>: Setting to block suggestions that match public code (filters 150+
+                chars).</p>
+            <p><strong>Data Usage</strong>: Copilot for Business/Enterprise does NOT retain snippets for training.</p>
+            <p><strong>Context</strong>: Copilot uses the "Context Window" composed of the active file + open tabs to
+                generate relevant code.</p>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 1 (Questions 1-24)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q1. You want Copilot to generate a unit test for the function you just highlighted. What
+                is the fastest way? (A) Type "Update this code" (B) Use the /tests slash command in Chat (C) Delete the
+                function (D) Open a new file</div>
+            <div class="a-line">Answer: B - The `/tests` slash command in Copilot Chat is specifically designed to
+                scaffold unit tests for selected code.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q2. Copilot is suggesting code that looks outdated. What is the best "Prompt
+                Engineering" fix? (A) Restart the IDE (B) Add a comment at the top specifying the library version (e.g.
+                "// Using React 18") (C) Turn off Copilot (D) Type faster</div>
+            <div class="a-line">Answer: B - Providing context via comments (like library versions) guides Copilot to use
+                modern patterns.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q3. Which feature allows you to ask "Where is the memory leak in this class?"? (A) Ghost
+                text (B) Copilot Chat (C) Copilot CLI (D) IntelliSense</div>
+            <div class="a-line">Answer: B - Copilot Chat supports natural language Q&A about your codebase.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q4. You are an admin. You want to ensure developers don't accidentally use copyrighted
+                code verbatim. (A) Disable Copilot (B) Enable "Block suggestions matching public code" policy (C) Use a
+                VPN (D) Delete the repo</div>
+            <div class="a-line">Answer: B - The "Suggestions matching public code" filter blocks suggestions that match
+                ~150 chars of public code on GitHub.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q5. How does Copilot know about the other files in your project? (A) It scans your
+                entire hard drive (B) It reads all open tabs in your IDE (Neighboring Tabs) (C) It reads your mind (D)
+                It only knows the current file</div>
+            <div class="a-line">Answer: B - Copilot uses "Neighboring Tabs" technique. Keeping relevant files open
+                improving suggestion quality.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q6. You get a suggestion you like, but want to see alternatives. Shortcut? (A)
+                Ctrl+Enter (B) Alt+] (C) Ctrl+Z (D) Esc</div>
+            <div class="a-line">Answer: A - Ctrl+Enter (or Cmd+Enter) opens the Copilot pane showing 10 synthesized
+                solutions at once.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q7. Which slash command fixes a bug in the selected code? (A) /fix (B) /bug (C) /help
+                (D) /create</div>
+            <div class="a-line">Answer: A - `/fix` analyzes the selected code (or error message) and proposes a
+                correction.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q8. You are writing a Python script. You type `# Calculate average of list`. This
+                technique is: (A) Chatting (B) Comment-driven development (C) CLI (D) Debugging</div>
+            <div class="a-line">Answer: B - Using comments to describe intent so Copilot generates the code block is
+                "Comment-driven development".</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q9. Copilot Enterprise allows indexing your org's code. What does this improve? (A)
+                Speed (B) Contextual relevance (RAG) for your specific internal libraries (C) Nothing (D) UI color</div>
+            <div class="a-line">Answer: B - Repository indexing allows Copilot to "know" your proprietary APIs and
+                internal patterns better.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q10. How do you document a legacy function using Copilot? (A) Rewrite it (B) Select
+                lines and use /doc (C) Use /fix (D) Use /tests</div>
+            <div class="a-line">Answer: B - `/doc` generates documentation comments (JSDoc, Python docstrings) for the
+                selection.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q11. You need a shell command to find all large files. (A) Copilot Chat (B) Copilot for
+                CLI (`gh copilot suggest`) (C) Copilot Word (D) Copilot Excel</div>
+            <div class="a-line">Answer: B - GitHub Copilot in the CLI is specifically for shell commands, git commands,
+                and explanations.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q12. Does Copilot for Business train on your codebase? (A) Yes, always (B) No (C) Only
+                on Fridays (D) Only Python files</div>
+            <div class="a-line">Answer: B - Copilot for Business/Enterprise does not retain code snippets for training
+                the base model.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q13. To improve prompt results, you should: (A) Be vague (B) Use examples (Few-shot) (C)
+                Close all tabs (D) Use binary</div>
+            <div class="a-line">Answer: B - Providing examples (input -> output mapping) significantly improves the
+                model's accuracy.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q14. What context is sent to Copilot? (A) Only the cursor line (B) The entire file +
+                open tabs (Context Window) (C) The git history (D) Your browser history</div>
+            <div class="a-line">Answer: B - It sends the code before/after cursor and segments from other open files (up
+                to the token limit).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q15. You want to translate code from Java to Python. (A) /fix (B) Ask Chat "Translate
+                this selection to Python" (C) Retype it manually (D) Use formatted strings</div>
+            <div class="a-line">Answer: B - Copilot Chat is excellent for language translation tasks.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q16. "Iterative Prompting" means: (A) Asking once and giving up (B) Rephrasing and
+                refining the prompt based on the previous output (C) Writing a loop (D) Rebooting</div>
+            <div class="a-line">Answer: B - Refining the prompt conversationally to get closer to the desired result.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q17. Which is a security best practice when using Copilot? (A) Accept all suggestions
+                blindly (B) Review all code for secrets and vulnerabilities (C) Turn off firewall (D) Share API keys
+            </div>
+            <div class="a-line">Answer: B - You are the pilot. Always review code. Copilot *can* hallucinate or suggest
+                insecure patterns.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q18. Copilot didn't suggest anything. Why? (A) You are offline (B) File type is
+                unsupported (unlikely) (C) Content matched a filter (D) All of the above</div>
+            <div class="a-line">Answer: D - Could be network, filter blocking (public code or profanity), or context
+                limits.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q19. You want to generate a commit message. (A) Type `git commit` (B) Use the "Sparkle"
+                icon in Source Control view (C) /commit (D) Write it yourself</div>
+            <div class="a-line">Answer: B - In VS Code, the sparkle/star icon in the Git view uses Copilot to generate a
+                message based on staged changes.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q20. "Zero-shot" prompting means: (A) Providing no examples, just instruction (B)
+                Providing 0 instructions (C) Providing 100 examples (D) A failed prompt</div>
+            <div class="a-line">Answer: A - "Zero-shot" is asking the model to do something without giving it a prior
+                example.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q21. How to accept *part* of a suggestion (next word)? (A) Tab (B) Ctrl+RightArrow (C)
+                Enter (D) Space</div>
+            <div class="a-line">Answer: B - Ctrl+RightArrow (or Cmd+Right) accepts the next word of the ghost text.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q22. Can Copilot help with SQL? (A) No (B) Yes, it supports SQL queries (C) Only MySQL
+                (D) Only NoSQL</div>
+            <div class="a-line">Answer: B - Copilot supports many languages including SQL.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q23. Accessibility feature aimed at those who cannot type easily. (A) Copilot Voice /
+                Hey Code (B) Copilot Vision (C) Copilot Touch (D) Copilot Foot</div>
+            <div class="a-line">Answer: A - Voice controls allow coding via speech.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q24. Before using code generated by Copilot in production, you must: (A) Pray (B) Test,
+                Review, and Scan it (C) Deploy immediately (D) Encrypt it</div>
+            <div class="a-line">Answer: B - AI code is not guaranteed to be correct or secure. Standard QC applies.
+            </div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 2 (Questions 25-48)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q25. "Chain of Thought" prompting involves: (A) Asking the model to "Think step-by-step"
+                (B) Connecting computers (C) Using blockchain (D) Writing long lines</div>
+            <div class="a-line">Answer: A - Prompting the model to explain its reasoning often improves accuracy on
+                complex logic.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q26. You see a security vulnerability in Copilot code. (A) Ignore it (B) Fix it manually
+                or ask /fix "Make this secure" (C) Report it to FBI (D) Panic</div>
+            <div class="a-line">Answer: B - You are responsible. Ask Copilot to remediate it.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q27. Copilot creates a variable `const apiKey = "sk-12345"`. (A) Commit it (B) It's a
+                hallucinated or example secret, DO NOT use real keys (C) It's your real key (D) It's fine</div>
+            <div class="a-line">Answer: B - Never hardcode secrets. Copilot might suggest dummy keys. Use ENV variables.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q28. To scaffold an entire React component using "Boilerplate reduction": (A) Type
+                `import React` and class name (B) Type `// create a react component for...` (C) Both A and B (D) Copy
+                paste</div>
+            <div class="a-line">Answer: C - Starting the structure or comment triggers Copilot's boilerplate generation.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q29. Which extension is needed for VS Code? (A) GitHub Copilot (B) GitHub Actions (C)
+                Python (D) Docker</div>
+            <div class="a-line">Answer: A - You need the GitHub Copilot extension (and optionally Copilot Chat).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q30. /explain serves what purpose? (A) Runs the code (B) Explains what the selected code
+                does in plain English (C) Deletes code (D) Translates language</div>
+            <div class="a-line">Answer: B - Useful for understanding legacy or complex regex/algorithms.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q31. Copilot suggestions are "Stochastic". This means: (A) They are always correct (B)
+                They are probabilistic/random (C) They are licensed (D) They are slow</div>
+            <div class="a-line">Answer: B - The model predicts the statistically likely next token. It does not "know"
+                truth.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q32. Managing seat licenses is done where? (A) IDE (B) GitHub.com Organization Settings
+                (C) Azure Portal (D) AWS Console</div>
+            <div class="a-line">Answer: B - Admins manage seats in GitHub Organization settings.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q33. If you want Copilot to use a specific coding style: (A) Hope (B) Provide examples
+                of that style in the file/open tabs (C) Change settings (D) It's impossible</div>
+            <div class="a-line">Answer: B - Copilot mimics the style found in the context (open files).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q34. Can Copilot help with RegExp? (A) No (B) Yes, describe the pattern in a comment (C)
+                Only simple ones (D) Only numbers</div>
+            <div class="a-line">Answer: B - It is exceptionally good at regex. e.g. `// Regex for verifying email
+                address`.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q35. "Hallucination" in code looks like: (A) A red squiggle (B) Importing a library that
+                doesn't exist (C) A syntax error (D) A comment</div>
+            <div class="a-line">Answer: B - AI typically hallucinates plausible-sounding but non-existent package names
+                or methods.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q36. Best way to write a SQL query for a specific table schema? (A) Connect DB (B) Paste
+                the schema/CREATE TABLE statement in the file or a tab (C) Guess (D) Write SELECT *</div>
+            <div class="a-line">Answer: B - Providing the schema/DDL in context helps Copilot generate correct column
+                names.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q37. Can you use Copilot in Vim/Neovim? (A) No (B) Yes (C) Only Emacs (D) Only Nano
+            </div>
+            <div class="a-line">Answer: B - Copilot has plugins for Vim/Neovim, JetBrains, Visual Studio, and VS Code.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q38. "Prompt injection" in this context is: (A) A security attack (B) Inserting code (C)
+                Not applicable to Code suggestion (D) Making prompts faster</div>
+            <div class="a-line">Answer: C - Prompt Injection is more relevant to Chatbots, but malicious comments
+                *could* theoretically bias suggestions.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q39. How to regenerate a suggestion? (A) Hover over the suggestion (B) Press Alt+]
+                (Cycle Next) (C) Close IDE (D) Press F5</div>
+            <div class="a-line">Answer: B - Cycle through alternative suggestions using the keyboard shortcut (Alt+] or
+                Option+]).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q40. Does Copilot run code? (A) Yes (B) No, it only suggests text (C) Yes, inside
+                sandbox (D) Yes, on GitHub servers</div>
+            <div class="a-line">Answer: B - Copilot suggests text. It does not execute code or side effects.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q41. A developer is stuck on a logic error. (A) Use /fix (B) Use /explain to understand
+                the logic (C) Ask Chat "What is wrong with this logic?" (D) All of the above</div>
+            <div class="a-line">Answer: D - All are valid strategies.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q42. Which language is Copilot best at? (A) Binary (B) Python/JS/TS/Go (C) Cobol (D)
+                English</div>
+            <div class="a-line">Answer: B - It performs best on languages with large public training data (Python, JS,
+                TS, etc.), though it supports many.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q43. "Comments are code". This philosophy means: (A) Comments are compiled (B) Comments
+                are the primary input for the AI to generate the code (C) Comments are useless (D) Comments are slow
+            </div>
+            <div class="a-line">Answer: B - In the AI era, comments serve as prompt instructions.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q44. What happens if you lose internet? (A) Copilot stops working (B) It works offline
+                (C) It uses local cache (D) It switches to generic mode</div>
+            <div class="a-line">Answer: A - Copilot requires an internet connection to reach the inference server.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q45. To reduce "latency" of suggestions: (A) Close unused tabs (reduce context size) (B)
+                Buy faster internet (C) Type slower (D) All of the above</div>
+            <div class="a-line">Answer: A - Reducing context *can* help fast processing, but usually it's network
+                dependent.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q46. Copilot suggests an API that requires a paid key. (A) Copilot pays for it (B) You
+                must obtain the key yourself (C) It's free (D) Use it illegally</div>
+            <div class="a-line">Answer: B - Copilot suggests code patterns; it does not provide access/subscriptions to
+                3rd party services.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q47. Role of "System Prompt"? (A) User input (B) Hidden instructions from GitHub to the
+                model (C) Your code (D) The shell</div>
+            <div class="a-line">Answer: B - The system prompt (hidden) guides the model's behavior (e.g. "You are a
+                helpful coding assistant").</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q48. The best way to use Copilot for a newly created file: (A) Start typing
+                imports/class names to establish context (B) Wait (C) Close it (D) Use binary</div>
+            <div class="a-line">Answer: A - "Priming" the context by typing the basic structure helps Copilot infer what
+                you want to do.</div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 3 (Questions 49-74)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q49. You are an Organization Admin. You want to STOP Copilot from suggesting code that
+                matches public repositories. (A) It is impossible (B) Set "Suggestions matching public code" to BLOCKED
+                in Org Settings (C) Send an email to GitHub (D) Use a firewall</div>
+            <div class="a-line">Answer: B - Organization settings allows Admins to BLOCK suggestions that match public
+                code (~150 chars) for all members.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q50. Which feature is EXCLUSIVE to Copilot Enterprise? (A) Copilot Chat (B) Repository
+                Indexing / Knowledge Base (C) CLI (D) VS Code support</div>
+            <div class="a-line">Answer: B - Indexing your organization's repositories for deeper context (RAG) is a
+                flagship Enterprise feature.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q51. Your corporate proxy is blocking Copilot. Which domain needs to be whitelisted? (A)
+                google.com (B) githubcopilot.com (and related endpoints like `api.github.com`) (C) stackoverflow.com (D)
+                npmjs.org</div>
+            <div class="a-line">Answer: B - You typically need to whitelist `https://api.github.com`,
+                `https://copilot-proxy.githubusercontent.com`, etc.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q52. "Fill-In-The-Middle" (FIM) allows Copilot to: (A) Fill gaps *between* existing code
+                lines (B) Delete code (C) Only append to the end (D) Write comments only</div>
+            <div class="a-line">Answer: A - Copilot looks at the prefix (before cursor) AND suffix (after cursor) to
+                fill in the missing middle code logically.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q53. You want Copilot to help you write a Pull Request summary. (A) It can't (B) Use
+                Copilot Enterprise feature "Summarize PR" (C) Use /fix (D) Use CLI</div>
+            <div class="a-line">Answer: B - Copilot Enterprise generates summaries for PRs (changes analysis)
+                automatically.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q54. A developer pushes code with a hardcoded Secret Key suggested by Copilot. Who is at
+                fault? (A) GitHub (B) The Developer (C) The ISP (D) The IDE</div>
+            <div class="a-line">Answer: B - The developer is always responsible for the code they commit. "AI suggested
+                it" is not a valid defense.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q55. Copilot Chat is ignoring your specific requirement. How to fix? (A) Yell at it (B)
+                Provide "One-shot" or "Few-shot" examples in the chat prompt (C) Turn it off and on (D) Reinstall VS
+                Code</div>
+            <div class="a-line">Answer: B - "Few-shot prompting" (giving 1-2 examples of input->output) is the most
+                effective way to correct style/logic.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q56. Which IDE does NOT officially support Copilot? (A) VS Code (B) JetBrains IntelliJ
+                (C) Visual Studio (D) Arduino IDE 1.0</div>
+            <div class="a-line">Answer: D - Copilot has extensions for VS Code, Visual Studio, JetBrains, Vim/Neovim,
+                and Azure Data Studio. Arduino IDE is not supported.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q57. How often does the Copilot client update its "Context"? (A) Every keystroke/cursor
+                move (B) Once a day (C) On save (D) Never</div>
+            <div class="a-line">Answer: A - Copilot continuously updates the prompt sent to the backend as you type and
+                move the cursor to ensure relevance.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q58. Can Copilot write Infrastructure as Code (Terraform)? (A) No (B) Yes, it supports
+                HCL and Terraform (C) Only CloudFormation (D) Only Pulumi</div>
+            <div class="a-line">Answer: B - Copilot is excellent at Terraform/HCL patterns if you provide the
+                provider/resource context.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q59. You are using Copilot Individual. Can you prevent your snippets from being used for
+                training? (A) Yes, uncheck "Allow GitHub to use my code snippets for product improvements" (B) No, it's
+                mandatory (C) Only in Europe (D) Only if you pay more</div>
+            <div class="a-line">Answer: A - Individual users can opt-out of data sharing (telemetry/snippets) in their
+                personal GitHub settings.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q60. When using the CLI `gh copilot suggest`, can it execute the command for you? (A)
+                Yes, automatically (B) No, it only explains (C) It offers to "Run this command" after you confirm
+                (optional) (D) It runs it in a VM</div>
+            <div class="a-line">Answer: C - For safety, it suggests the command and gives you an explicit option to
+                "Copy to clipboard" or "Execute command". It never auto-runs.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q61. A user is added to an Organization with a "Copilot Business" seat. What happens to
+                their "Copilot Individual" sub? (A) Nothing (B) It should be cancelled to avoid double billing (C) It
+                converts to Enterprise (D) It becomes free</div>
+            <div class="a-line">Answer: B - If your Org grants you a seat, you typically cancel your personal sub. The
+                Org seat overrides/takes precedence.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q62. What is the maximum number of tabs Copilot can look at? (A) Infinite (B) Only 1 (C)
+                It's limited by the "Prompt Budget" / Token Limit (D) Exactly 5</div>
+            <div class="a-line">Answer: C - Copilot intelligently selects the most relevant snippets from open tabs
+                until the prompt token limit is reached.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q63. You want to exclude specific files (e.g. `secret.js`) from Copilot completely. (A)
+                Delete them (B) Use `.copilotignore` (Not quite) (C) VS Code Settings "Content Exclusion" (Copilot
+                Business/Enterprise feature) (D) Add a comment</div>
+            <div class="a-line">Answer: C - Copilot Business/Enterprise allow Admins to specify "Content Exclusions" (by
+                path/repo) so Copilot ignores those files. Individual does not have this centrally.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q64. "Prompt Crafting" best practice: (A) "Write code" (B) "Write a Python function to
+                parse CSV using pandas with error handling" (C) "Fix this" (D) "Do magic"</div>
+            <div class="a-line">Answer: B - Be Specific. Mention the Language (Python), Task (Parse CSV), Library
+                (pandas), and Requirement (Error handling).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q65. How does Copilot handle self-signed certificates in a corporate env? (A) It fails
+                (B) It ignores SSL (C) You must configure the `win-ca` or variable `NODE_EXTRA_CA_CERTS` (D) It uses VPN
+            </div>
+            <div class="a-line">Answer: C - Common corporate issue. You need to point the Copilot extension (Node.js
+                based) to the custom CA cert chain.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q66. Which model powers Copilot Chat? (A) GPT-2 (B) A customized version of GPT-4 (C)
+                BERT (D) Llama 1</div>
+            <div class="a-line">Answer: B - Copilot Chat utilizes advanced OpenAI models (like GPT-4) optimized for
+                coding tasks.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q67. You highlight a block of code and press `Ctrl+I` (Inline Chat). You type "Make this
+                more readable". This is: (A) Refactoring (B) Deleting (C) Auditing (D) Compiling</div>
+            <div class="a-line">Answer: A - Inline Chat is perfect for iterative Refactoring (renaming variables,
+                extracting methods) without leaving the editor flow.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q68. Copilot suggested a library `fast-json-parser-2024` that doesn't exist. This is:
+                (A) A typo (B) Hallucination (Package Squatting risk) (C) A private package (D) A future package</div>
+            <div class="a-line">Answer: B - Hallucinated package names are a security risk (supply chain attack if
+                someone registers that name). Verify every package.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q69. In Copilot Chat, what does the `@workspace` agent do? (A) Nothing (B) Searches the
+                entire workspace context to answer questions (C) Deletes the workspace (D) Formats code</div>
+            <div class="a-line">Answer: B - `@workspace` allows you to ask questions that require knowledge of the full
+                project structure, not just the open file.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q70. Which shortcut allows you to cycle through the *previous* suggestion? (A) Alt+[ (B)
+                Alt+Z (C) Ctrl+Z (D) Esc</div>
+            <div class="a-line">Answer: A - Alt+[ (Option+[ on Mac) goes back to the previous suggestion in the list.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q71. You want to generate database migrations based on your schema.prisma file. (A) Open
+                schema.prisma, open a new migration file, wait/prompt (B) Close schema.prisma (C) Type "SQL" (D) Use
+                Paint</div>
+            <div class="a-line">Answer: A - Opening the source file (schema.prisma) provides the necessary context for
+                Copilot to generate the corresponding migration SQL.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q72. Can Copilot explain *why* a regex matches a string? (A) No (B) Yes, select it and
+                ask /explain (C) Only if it wrote it (D) Only in binary</div>
+            <div class="a-line">Answer: B - Copilot is excellent at breaking down cryptic regex logic into plain English
+                explanations.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q73. Your organization requires "Audit Logs" of all Copilot activity. Which plan is
+                required? (A) Individual (B) Business or Enterprise (C) Free (D) Team</div>
+            <div class="a-line">Answer: B - Audit logs (who was assigned a seat, policy changes) are a feature of
+                Business/Enterprise plans. Individual has no audit logs.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q74. What is the "Reference" log in Copilot? (A) A list of users (B) A feature that
+                notifies you if the suggested code matches public code (with a link to the repo) (C) An error log (D) A
+                chat history</div>
+            <div class="a-line">Answer: B - If "Public Code Matcher" is configured to ALLOW, it can provide reference
+                logs linking the suggestion to the GitHub repo it resembles.</div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 4 (Questions 75-100)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q75. You want to write a Docstring for a function. You type `"""` and wait. This is an
+                example of: (A) Contextual triggering (B) A bug (C) A crash (D) Zero-shot</div>
+            <div class="a-line">Answer: A - Typing the docstring delimiter signals intent, triggering Copilot to
+                generate the documentation based on the function body.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q76. A developer wants to use Copilot to generate sensitive data (PII) for testing. (A)
+                Good idea (B) Bad idea. Use libraries like Faker instead (C) Copilot cannot generate data (D) It is
+                illegal</div>
+            <div class="a-line">Answer: B - While Copilot *can* generate fake data, relying on it for PII schemas is
+                risky. Better to ask it to "use Faker library to generate X".</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q77. Does Copilot check your code for syntax errors *before* you accept? (A) Yes (B) No,
+                it suggests text. The IDE's linter checks syntax (C) Yes, it runs a compiler (D) It guarantees valid
+                code</div>
+            <div class="a-line">Answer: B - Copilot suggests raw text. It might suggest code with missing braces. The
+                IDE linter (red squiggles) is what flags the syntax error.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q78. To troubleshoot "Copilot not working", where do you check logs in VS Code? (A)
+                Output Panel -> "GitHub Copilot" (B) Terminal (C) Debug Console (D) Problems tab</div>
+            <div class="a-line">Answer: A - The Output Panel dropdown has a specific channel for "GitHub Copilot"
+                showing connection/auth/suggestion logs.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q79. Which language feature makes it HARDER for Copilot to suggest correct code? (A)
+                Strong Typing (B) Dynamic Typing with no type hints (C) Comments (D) Descriptive names</div>
+            <div class="a-line">Answer: B - Lack of type hints and vague names reduces the context Copilot can use to
+                infer intent. Strong typing (TypeScript/Go) helps it.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q80. "Seat Management" - If you remove a user from the Organization, what happens to
+                their Copilot access? (A) They keep it forever (B) They lose access immediately (C) They keep it for 30
+                days (D) Nothing</div>
+            <div class="a-line">Answer: B - License assignment is tied to Org membership. Removing them revokes the
+                license immediately.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q81. Can you use Copilot to write emails? (A) Only in VS Code text files (B) Yes, in
+                Outlook (C) No (D) Only in Gmail</div>
+            <div class="a-line">Answer: A - If you are writing a markdown or text file in the IDE, yes. But it helps
+                with *code* primarily. (Microsoft 365 Copilot is for Outlook).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q82. Which keyboard shortcut triggers the Inline Chat? (A) Ctrl+I / Cmd+I (B) Ctrl+C (C)
+                Ctrl+V (D) Alt+F4</div>
+            <div class="a-line">Answer: A - Ctrl+I opens the inline chat dialog to instruct Copilot to edit the
+                highlighted code.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q83. "System 1" vs "System 2" thinking in AI. Ghost text is: (A) System 2 (Slow,
+                deliberate) (B) System 1 (Fast, intuitive) (C) Neither (D) Both</div>
+            <div class="a-line">Answer: B - Ghost text is "System 1" (Fast thinking). Chat is often "System 2"
+                (Deliberate, conversational).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q84. You want to convert a CSS file to SCSS. (A) Rename file to .scss and wait (B) Open
+                both, ask Chat to "Convert style.css to SCSS format" (C) Retype (D) Use Paint</div>
+            <div class="a-line">Answer: B - Chat is efficient at file-to-file transformation tasks.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q85. Can Copilot help with `bash` scripts? (A) No (B) Yes (C) Only PowerShell (D) Only
+                Zsh</div>
+            <div class="a-line">Answer: B - Copilot helps write shell scripts (bash, zsh, powershell) effectively.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q86. What is the "Knowledge Base" in Copilot Enterprise? (A) A wikipedia link (B) A
+                collection of markdown documentation files you point Copilot to (C) A database (D) A secret</div>
+            <div class="a-line">Answer: B - You can create curated Knowledge Bases (from repos of docs) to answer
+                questions specifically from *that* documentation.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q87. Rate Limiting: If you request too many suggestions too fast? (A) You get banned (B)
+                Copilot may temporarily throttle requests (C) Your computer explodes (D) Nothing</div>
+            <div class="a-line">Answer: B - To prevent abuse, there are rate limits. You may see a temporary pause in
+                suggestions.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q88. How to troubleshoot if "Public Code Filter" is actually working? (A) Try to
+                generate a known unique block of Quake code (B) Check the logs (C) Trust it (D) Disable internet</div>
+            <div class="a-line">Answer: B - Logs will indicate if a suggestion was "Blocked by public code filter
+                policy". (Trying to generate the "Invverse Square Root" code from Quake is a common test).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q89. Can Copilot generate Mermaid.js diagrams? (A) No (B) Yes, describe the diagram in
+                text (C) Only SVG (D) Only PNG</div>
+            <div class="a-line">Answer: B - Yes! Ask "Generate a mermaid flowchart for this logic" and it works great.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q90. Which AI model parameter does Copilot optimize for code? (A) Creativity (B) Latency
+                and Correctness (C) Humor (D) Length</div>
+            <div class="a-line">Answer: B - Coding requires low latency (speed) and high correctness (syntax).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q91. Can you use Copilot to learn a NEW language? (A) No (B) Yes, it acts as a tutor
+                (e.g. "Explain what this Go code does for a Java dev") (C) Only Spanish (D) Only French</div>
+            <div class="a-line">Answer: B - It is an excellent tutor. Cross-language explanation is a top use case.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q92. The `github-copilot.enable` setting in VS Code allows you to: (A) Enable/Disable
+                globally or per-language (B) Change color (C) Change font (D) Uninstall</div>
+            <div class="a-line">Answer: A - You can granularly enable/disable Copilot for specific languages (e.g.
+                disable for Markdown, enable for Python).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q93. What is "Context Pruning"? (A) Deleting files (B) The AI engine selecting which
+                parts of open files to keep vs ignore to fit the token window (C) A bug (D) A clean up tool</div>
+            <div class="a-line">Answer: B - Intelligent pruning ensures the most relevant code (imports, definitions)
+                stays in the prompt while dropping less relevant lines.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q94. You want to ensure your Prompt is "Surrounded". What do you do? (A) Put the cursor
+                in the middle of the file (B) Write comments above and below (C) Open relevant files in other tabs (D)
+                All of the above</div>
+            <div class="a-line">Answer: D - All help. "Surround" means providing context *around* the cursor (tabs,
+                previous lines, next lines).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q95. Copilot suggestion is cut off. Why? (A) Token limit (B) It got tired (C) Screen
+                size (D) Font size</div>
+            <div class="a-line">Answer: A - The output token limit (often not visible to user) will cut off long
+                generations. Use Chat to "Continue".</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q96. Can Copilot access your local terminal history? (A) Yes (B) No (unless you paste it
+                into chat) (C) Always (D) Only on Linux</div>
+            <div class="a-line">Answer: B - By default, it does not scan terminal history. You must explicitly provide
+                that context (e.g. copy paste error into chat). @terminal is a new experimental agent.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q97. What is the benefit of "Slash Commands" (/fix, /tests) over natural language? (A)
+                They look cool (B) They are optimized "System Prompts" tuned for that specific task (C) They are slower
+                (D) They cost more</div>
+            <div class="a-line">Answer: B - Slash commands use highly-optimized, pre-engineered prompts under the hood
+                to give better results than generic queries.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q98. To start a fresh context in Chat, you should: (A) Delete the chat history / New
+                Chat (B) Keep typing (C) Restart VS Code (D) Buy a new PC</div>
+            <div class="a-line">Answer: A - Cleaning the chat history ensures the model isn't confused by previous,
+                unrelated turns.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q99. Your org has strict IP rules. Which setting is critical? (A) Block Public Code
+                Matches (B) Enable Dark Mode (C) Enable Voice (D) Disable Python</div>
+            <div class="a-line">Answer: A - Blocking public code matches protects the org from accidental GPL
+                contamination or copyright claims.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q100. The ultimate rule of using Copilot: (A) Trust it completely (B) Trust but Verify
+                (C) Ignore it (D) Fear it</div>
+            <div class="a-line">Answer: B - Trust but Verify. AI is a co-pilot, not the pilot. You are responsible for
+                the flight.</div>
+        </div>
+
+        <div class="set-header">END OF EXAM</div>
+    </div>
+
+    <script>
+        // Persistence Logic
+        const SCROLL_KEY = 'gh300_scroll_pos';
+        const toast = document.getElementById('save-toast');
+        let isScrolling;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedPos = localStorage.getItem(SCROLL_KEY);
+            if (savedPos) {
+                setTimeout(() => {
+                    window.scrollTo({ top: parseInt(savedPos), behavior: 'smooth' });
+                    showToast("Resumed from last spot");
+                }, 100);
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                localStorage.setItem(SCROLL_KEY, window.scrollY);
+            }, 200);
+        });
+
+        function showToast(msg) {
+            if (!toast) return;
+            toast.textContent = msg;
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+        }
+    </script>
+</body>
+
+</html>

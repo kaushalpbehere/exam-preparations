@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AWS AI Practitioner Practice Exam</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #1a1a1a;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        h1,
+        h2,
+        h3 {
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .cram-section {
+            background-color: #eee;
+            padding: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #000;
+        }
+
+        .domain-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .q-block {
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .q-line {
+            font-weight: bold;
+            white-space: normal;
+        }
+
+        .a-line {
+            color: #005500;
+            margin-top: 2px;
+            padding-left: 20px;
+        }
+
+        .set-header {
+            margin-top: 50px;
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+                border: none;
+            }
+        }
+
+        #save-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="save-toast">Position Saved</div>
+    <div class="container">
+        <a href="index.html"
+            style="display:inline-block;margin-bottom:20px;text-decoration:none;color:#000;font-weight:bold;border:1px solid #000;padding:5px 10px;border-radius:3px;">←
+            Back to Dashboard</a>
+
+        <h1>AWS Certified AI Practitioner (AIF-C01)<br>Practice Exam</h1>
+
+        <div class="cram-section">
+            <h3>🧠 AWS AIF-C01 Topic Mindmap</h3>
+            <pre style="font-size: 11px; white-space: pre;">
+AWS AI PRACTITIONER
+├── FUNDAMENTALS
+│   ├── Concepts (GenAI vs ML vs DL)
+│   ├── Terminology (Tokens, Embeddings, Temperature)
+│   ├── Prompt Engineering (Zero-shot, Few-shot, CoT)
+│   └── Model Types (Text, Image, Multi-modal)
+├── GENERATIVE AI (BEDROCK)
+│   ├── Foundation Models (Claude, Titan, Llama, Jurassic)
+│   ├── Features (Agents, Knowledge Bases/RAG, Guardrails)
+│   ├── Pricing (On-Demand vs Provisioned)
+│   └── Security (Data Privacy, PrivateLink)
+├── MACHINE LEARNING (SAGEMAKER)
+│   ├── Low-Code (Canvas, JumpStart)
+│   ├── Core (Training, Inference Types, Pipelines)
+│   ├── Governance (Role Manager, Model Cards, Clarify)
+│   └── Human Review (Augmented AI / A2I, Ground Truth)
+├── AI SERVICES (HIGH LEVEL)
+│   ├── Vision (Rekognition, Lookout for Vision)
+│   ├── Speech/Text (Transcribe, Polly, Translate, Comprehend)
+│   ├── Documents (Textract, Kendra)
+│   ├── Industrial (Monitron, Lookout for Equipment)
+│   ├── Health (HealthLake, Comprehend Medical)
+│   └── Code/Dev (Amazon Q Developer, CodeGuru)
+└── RESPONSIBLE AI & SECURITY
+    ├── Bias & Fairness (Clarify)
+    ├── Explainability (Why did it say that?)
+    ├── Privacy/Security (VPC, IAM, Encryption)
+    └── Governance (Model Cards for documentation)
+            </pre>
+        </div>
+
+        <div class="cram-section">
+            <h3>📚 Key Official Resources</h3>
+            <p>🔗 <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html" target="_blank"
+                    style="color:blue">Amazon Bedrock User Guide</a> - The core of the exam.</p>
+            <p>🔗 <a href="https://aws.amazon.com/ai/responsible-ai/" target="_blank" style="color:blue">AWS Responsible
+                    AI</a> - Crucial for governance/ethics questions.</p>
+            <p>🔗 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html" target="_blank"
+                    style="color:blue">SageMaker Canvas</a> - Understand the "No-Code" Business Analyst persona.</p>
+            <p>🔗 <a href="https://aws.amazon.com/q/" target="_blank" style="color:blue">Amazon Q</a> - Know the
+                difference between Q Business vs Q Developer.</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>1. Generative AI & Bedrock</h3>
+            <p><strong>Amazon Bedrock</strong>: Serverless service to build GenAI apps using FMs (Foundation Models).
+                Access models via API.</p>
+            <p><strong>Foundation Models (FMs)</strong>: Pre-trained on vast data. Providers: AI21 Labs (Jurassic),
+                Anthropic (Claude), Cohere (Command), Meta (Llama), Mistral, Stability AI (Stable Diffusion), Amazon
+                (Titan).</p>
+            <p><strong>Agents</strong>: Execute multi-step tasks by breaking them down and calling APIs.</p>
+            <p><strong>Knowledge Bases</strong>: RAG (Retrieval Augmented Generation) - connect FM to your data sources
+                for accurate answers.</p>
+            <p><strong>Guardrails</strong>: Filter input/output content (hate speech, PII) responsibly.</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>2. Machine Learning Services (SageMaker & High Level)</h3>
+            <p><strong>SageMaker</strong>: Fully managed service to build, train, and deploy ML models. (Canvas = No
+                Code, JumpStart = Pre-trained models).</p>
+            <p><strong>Rekognition</strong>: Image/Video analysis (Objects, Faces, Content Moderation).</p>
+            <p><strong>Polly</strong>: Text-to-Speech (TTS).</p>
+            <p><strong>Transcribe</strong>: Speech-to-Text (ASR).</p>
+            <p><strong>Translate</strong>: Language translation.</p>
+            <p><strong>Comprehend</strong>: NLP (Sentiment analysis, Entity extraction).</p>
+            <p><strong>Textract</strong>: Extract text/data from physical documents (OCR+).</p>
+            <p><strong>Kendra</strong>: Enterprise search (Intelligent search).</p>
+        </div>
+
+        <div class="cram-section">
+            <h3>3. Responsible AI & Governance</h3>
+            <p><strong>bias</strong>: Pre-training (data), Post-training (tuning). SageMaker Clarify detects bias.</p>
+            <p><strong>Explainability</strong>: Understanding *why* a model made a prediction.</p>
+            <p><strong>Privacy</strong>: Data sent to Bedrock is NOT used to train base models. Data stays in your VPC
+                (PrivateLink).</p>
+            <p><strong>HITL (Human in the loop)</strong>: SageMaker Augmented AI (A2I) for human review of
+                low-confidence predictions.</p>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 1 (Questions 1-24)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q1. Which AWS service provides the easiest way to access high-performing Foundation
+                Models (FMs) from leading AI startups via a single API? (A) SageMaker (B) Bedrock (C) Q (D) Comprehend
+            </div>
+            <div class="a-line">Answer: B - Amazon Bedrock is the fully managed service for accessing FMs via API.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q2. What is "RAG" in the context of Generative AI? (A) Random Access Generation (B)
+                Retrieval-Augmented Generation (C) Rapid AI Growth (D) Robotic Auto Generator</div>
+            <div class="a-line">Answer: B - RAG enhances model output by retrieving relevant info from authorized
+                knowledge bases before generating a response.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q3. A company wants to build an ML model without writing any code. (A) SageMaker Studio
+                (B) SageMaker Canvas (C) SageMaker Notebooks (D) EC2 DLAMI</div>
+            <div class="a-line">Answer: B - SageMaker Canvas provides a visual, no-code interface for building ML
+                models.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q4. You need to convert customer service call recordings into text for analysis. (A)
+                Polly (B) Transcribe (C) Translate (D) Lex</div>
+            <div class="a-line">Answer: B - Amazon Transcribe converts speech to text (ASR).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q5. Which technique involves providing a few examples in the prompt to guide the model?
+                (A) Zero-shot prompting (B) Few-shot prompting (C) Fine-tuning (D) Pre-training</div>
+            <div class="a-line">Answer: B - Few-shot prompting enables in-context learning by providing examples within
+                the prompt.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q6. Which Bedrock feature ensures your application blocks harmful content and PII? (A)
+                Agents (B) Knowledge Bases (C) Guardrails (D) Provisioned Throughput</div>
+            <div class="a-line">Answer: C - Guardrails for Amazon Bedrock implements responsible AI policies to filter
+                content.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q7. What is the role of "Tokens" in pricing for LLMs? (A) API keys (B) Access currency
+                (C) Units of text (input/output) processed (D) User sessions</div>
+            <div class="a-line">Answer: C - GenAI models (like Bedrock) typically charge per 1,000 input tokens and
+                1,000 output tokens.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q8. You need to detect sentiment (Positive/Negative) in product reviews. (A) Comprehend
+                (B) Rekognition (C) Forecast (D) Personalize</div>
+            <div class="a-line">Answer: A - Amazon Comprehend uses NLP to find insights like sentiment, entities, and
+                key phrases in text.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q9. Which parameter controls the "randomness" or "creativity" of an LLM's output? (A)
+                Top-K (B) Temperature (C) Max Tokens (D) Stop sequence</div>
+            <div class="a-line">Answer: B - Temperature controls randomness. Low temperature = deterministic/focused;
+                High = creative/random.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q10. A bank wants to detect potential fraud patterns in transaction data using ML. (A)
+                Amazon Fraud Detector (B) Amazon Monitron (C) Amazon Lookout for Vision (D) Amazon Kendra</div>
+            <div class="a-line">Answer: A - Amazon Fraud Detector is a fully managed service specific for detecting
+                fraud.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q11. Which service allows developers to build conversational interfaces (Chatbots)? (A)
+                Polly (B) Connect (C) Lex (D) Textract</div>
+            <div class="a-line">Answer: C - Amazon Lex builds conversational interfaces using voice and text (same tech
+                as Alexa).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q12. You want to extract key/value pairs and tables from scanned PDF invoices. (A)
+                Rekognition (B) Textract (C) Transcribe (D) Translate</div>
+            <div class="a-line">Answer: B - Textract goes beyond OCR to extract structured data (forms, tables) from
+                documents.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q13. What is "Fine-Tuning"? (A) Changing the API parameters (B) Adapting a pre-trained
+                model with a smaller, domain-specific dataset (C) Building a model from scratch (D) Reducing costs</div>
+            <div class="a-line">Answer: B - Fine-tuning adapts a generic FM to a specific task using your own labeled
+                data.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q14. How does Amazon Bedrock handle your data privacy? (A) It uses it to train public
+                models (B) It sells it (C) Data is not used to improve base models and stays in your region (D) It is
+                public</div>
+            <div class="a-line">Answer: C - AWS guarantees that your data used in Bedrock is NOT used to train the
+                public base foundation models.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q15. Which SageMaker tool detects bias in your data and models? (A) SageMaker Debugger
+                (B) SageMaker Clarify (C) SageMaker Pipelines (D) SageMaker Edge</div>
+            <div class="a-line">Answer: B - Clarify provides bias detection (pre/post training) and model explainability
+                (SHAP values).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q16. Identify inappropriate content in images uploaded by users. (A) Rekognition Content
+                Moderation (B) Comprehend (C) GuardDuty (D) Macie</div>
+            <div class="a-line">Answer: A - Rekognition DetectModerationLabels identifies explicit or suggestive content
+                in images/videos.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q17. Which AI capability allows a system to generate *new* content like images or text?
+                (A) Discriminative AI (B) Generative AI (C) Reinforcement Learning (D) Regression</div>
+            <div class="a-line">Answer: B - Generative AI creates new content. Discriminative AI classifies existing
+                data.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q18. You need to create a search engine for your corporate documents that understands
+                natural language questions. (A) OpenSearch (B) Kendra (C) RDS (D) Neptune</div>
+            <div class="a-line">Answer: B - Amazon Kendra is an intelligent enterprise search service powered by ML.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q19. Which vector database capability is available in Knowledge Bases for Bedrock? (A)
+                Aurora Serverless (B) OpenSearch Serverless (C) DynamoDB (D) Redshift</div>
+            <div class="a-line">Answer: B - Knowledge Bases for Bedrock manages the vector store, heavily utilizing
+                OpenSearch Serverless.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q20. What is "Hallucination" in LLMs? (A) The model crashes (B) The model generates
+                confident but factually incorrect information (C) The model becomes sentient (D) The model refuses to
+                answer</div>
+            <div class="a-line">Answer: B - Hallucination is when an AI generates false info presented as fact. RAG
+                helps fix this.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q21. Amazon Q is primarily: (A) A database (B) An AI-powered assistant for businesses
+                and developers (C) A storage service (D) A firewall</div>
+            <div class="a-line">Answer: B - Amazon Q is a GenAI-powered assistant tailored for work (coding, business
+                intelligence, AWS console help).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q22. Which customized hardware does AWS offer for training ML models? (A) Graviton (B)
+                Trainium (C) Inferentia (D) Nitro</div>
+            <div class="a-line">Answer: B - AWS Trainium is purpose-built silicon for efficient ML training. (Inferentia
+                is for inference).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q23. Which deployment option is "Serverless" for SageMaker inference? (A) Real-time
+                inference (B) Serverless Inference (C) Asynchronous Inference (D) Batch Transform</div>
+            <div class="a-line">Answer: B - SageMaker Serverless Inference allows you to deploy models without managing
+                underlying instances (pay for duration).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q24. Automate the review of low-confidence predictions from a model by sending them to
+                humans. (A) Ground Truth (B) Augmented AI (A2I) (C) Mechanical Turk (D) Step Functions</div>
+            <div class="a-line">Answer: B - A2I (Augmented AI) makes it easy to build workflows for human review of ML
+                predictions.</div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 2 (Questions 25-48)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q25. Which service helps create high-quality training datasets by managing human
+                labelers? (A) SageMaker Ground Truth (B) Glue (C) Macie (D) Inspector</div>
+            <div class="a-line">Answer: A - Ground Truth helps build Training Data sets by labeling images/text/etc.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q26. What is the benefit of "Provisioned Throughput" in Bedrock? (A) Lower cost for low
+                usage (B) Guaranteed capacity for consistent performance (C) Free tier (D) Public access</div>
+            <div class="a-line">Answer: B - Provisioned Throughput reserves model units for you, ensuring consistent
+                performance for high-volume prod workloads.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q27. You want to execute a sequence of actions: "Check inventory, if low, order more".
+                How can an LLM do this? (A) RAG (B) Agents for Amazon Bedrock (C) Fine-tuning (D) Embeddings</div>
+            <div class="a-line">Answer: B - Agents can determine intent and call APIs (like an inventory system) to
+                perform actions.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q28. Convert numbers into a vector format that represents their semantic meaning. (A)
+                Tokenization (B) Embeddings (C) Parsing (D) Encryption</div>
+            <div class="a-line">Answer: B - Embeddings models (like Titan Embeddings) convert text/data into numerical
+                vectors.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q29. Provide personalized product recommendations. (A) Amazon Personalize (B) Amazon
+                Forecast (C) Connect (D) Pinpoint</div>
+            <div class="a-line">Answer: A - Amazon Personalize uses ML to create real-time recommendations (same tech as
+                Amazon.com).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q30. Detect anomalies in industrial equipment using sensors. (A) Monitron / Lookout for
+                Equipment (B) Rekognition (C) Transcribe (D) Translate</div>
+            <div class="a-line">Answer: A - Amazon Monitron and Lookout for Equipment are primarily for Predictive
+                Maintenance.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q31. Which feature prevents an LLM from responding to "How to make a bomb"? (A) Context
+                Window (B) Guardrails (C) Temperature (D) Top-P</div>
+            <div class="a-line">Answer: B - Guardrails can be configured to block dangerous, hateful, or specific
+                categories of content.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q32. You need to deploy a model at the "Edge" (on a device). (A) SageMaker Neo / Edge
+                Manager (B) CloudFront (C) Outposts (D) Fargate</div>
+            <div class="a-line">Answer: A - SageMaker Neo compiles models to run on specific hardware/edge devices.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q33. Which cost model is "Pay-per-token"? (A) SageMaker Training (B) Bedrock On-Demand
+                (C) Bedrock Provisioned (D) EC2</div>
+            <div class="a-line">Answer: B - Bedrock On-Demand pricing is based on input/output tokens processed.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q34. Improve code quality and security scans in your IDE. (A) CodeWhisperer (now part of
+                Amazon Q Developer) (B) CodeBuild (C) CodeDeploy (D) Cloud9</div>
+            <div class="a-line">Answer: A - Amazon Q Developer (formerly CodeWhisperer) provides code suggestions and
+                security scans.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q35. What defines the "Context Window" of an LLM? (A) The screen size (B) The amount of
+                information (tokens) the model can consider at once (C) The training time (D) The latency</div>
+            <div class="a-line">Answer: B - A larger context window (e.g., 200k tokens in Claude 3) allows processing
+                larger documents/inputs in one go.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q36. Model evaluation metric "ROUGE" is typically used for: (A) Image classification (B)
+                Text Summarization (C) Audio quality (D) Fraud detection</div>
+            <div class="a-line">Answer: B - ROUGE is a standard metric for evaluating automatic summarization.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q37. Which text capability helps identify "Who" or "What" is mentioned? (A) Key Phrase
+                Extraction (B) Entity Recognition (NER) (C) Sentiment Analysis (D) Syntax Analysis</div>
+            <div class="a-line">Answer: B - NER (Named Entity Recognition) identifies people, places, organizations,
+                dates, etc.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q38. What is "Prompt Engineering"? (A) Building physical servers (B) Designing inputs to
+                guide GenAI models to desired outputs (C) Writing Python code (D) Database indexing</div>
+            <div class="a-line">Answer: B - The art of crafting inputs (prompts) to get the best results from LLMs.
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q39. Access a foundation model privately within your VPC. (A) Internet Gateway (B) VPC
+                Endpoint (PrivateLink) (C) VPN (D) NAT Gateway</div>
+            <div class="a-line">Answer: B - Use VPC Endpoints (PrivateLink) to connect to Bedrock/SageMaker APIs without
+                traversing public internet.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q40. Which role is responsible for ensuring AI systems are fair and unbiased? (A) Cloud
+                Architect (B) AI Ethicist / Governance Lead (C) SysAdmin (D) DevOps</div>
+            <div class="a-line">Answer: B - While everyone plays a part, AI Governance leads specifically focus on
+                responsible AI practices.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q41. Forecast future sales based on time-series data. (A) Personalize (B) Forecast (C)
+                Textract (D) Polly</div>
+            <div class="a-line">Answer: B - Amazon Forecast is a time-series forecasting service.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q42. Which service can automatically create a video from a text script? (A) Rekognition
+                (B) Bedrock (with video models) / Elemental (C) Transcribe (D) Connect</div>
+            <div class="a-line">Answer: B - Bedrock (via models like Titan Image/Video or stable diffusion video
+                variants) can generate content.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q43. Optimize the cost of SageMaker training jobs by using spare capacity. (A) On-Demand
+                (B) Managed Spot Training (C) Reserved Instances (D) Dedicated Hosts</div>
+            <div class="a-line">Answer: B - Managed Spot Training uses Spot instances to reduce training costs by up to
+                90%.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q44. What is the "Temperature" setting of 0.0 likely to produce? (A) Highly random
+                output (B) The most likely/deterministic output (C) No output (D) An error</div>
+            <div class="a-line">Answer: B - 0 temperature makes the model deterministic (always picking the highest
+                probability next token).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q45. Analyze medical text for health information (PHI). (A) Comprehend Medical (B)
+                Transcribe Medical (C) HealthLake (D) All of the above</div>
+            <div class="a-line">Answer: D - These are all part of the AWS Health AI suite, but Comprehend Medical
+                specifically extracts text entities from medical notes.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q46. Which model type is "Titan"? (A) An AWS-built Foundation Model family (B) An
+                open-source model (C) A database (D) A processor</div>
+            <div class="a-line">Answer: A - Amazon Titan is AWS's own family of FMs (Text, Embeddings, Image).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q47. Automatically draft a response to a customer email. (A) Discriminative Model (B)
+                Generative Model (LLM) (C) Regression Model (D) Clustering</div>
+            <div class="a-line">Answer: B - Generative models (LLMs) are ideal for content creation tasks like email
+                drafting.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q48. Which is a visual tool to orchestrate ML workflows (Data prep, train, deploy)? (A)
+                SageMaker Pipelines (B) Step Functions (C) CodePipeline (D) Glue</div>
+            <div class="a-line">Answer: A - SageMaker Pipelines is a purpose-built CI/CD service for ML.</div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 3 (Questions 49-74)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q49. You need to enable your application to support conversational question answering
+                based on *your* proprietary PDF manuals. (A) Train a new model (B) RAG (Retrieval Augmented Generation)
+                (C) Fine-Tuning (D) Pre-training</div>
+            <div class="a-line">Answer: B - RAG is the standard pattern for connecting an LLM to your own private data
+                sources (Knowledge Base) without training.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q50. A hospital needs to separate "PHI" (Personal Health Info) from other data in S3.
+                (A) Macie (B) GuardDuty (C) Inspector (D) WAF</div>
+            <div class="a-line">Answer: A - Macie is the service that automatically discovers, classifies, and protects
+                sensitive data (PII/PHI) in S3.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q51. Which Bedrock inference parameter limits the length of the generated response? (A)
+                Stop Sequence (B) Max Tokens (C) Temperature (D) Top-P</div>
+            <div class="a-line">Answer: B - "Max Tokens" (or Max Generation Length) defines the cutoff point for the
+                generated output.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q52. Business Analysts need to predict customer churn but don't know Python. (A)
+                SageMaker Studio (B) SageMaker Canvas (C) SageMaker JumpStart (D) EC2</div>
+            <div class="a-line">Answer: B - SageMaker Canvas is explicitly designed for "No-Code" users (Business
+                Analysts) to build ML models visually.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q53. You want to generate images of "flying cars" using Bedrock. Which model family
+                should you choose? (A) Claude (B) Titan Image Generator / Stable Diffusion (C) Jurassic-2 (D) Command
+            </div>
+            <div class="a-line">Answer: B - Titan Image Generator and Stable Diffusion are "Text-to-Image" models.
+                Claude/Jurassic/Command are "Text-to-Text".</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q54. Which service helps you improve your application's code security by scanning for
+                hardcoded secrets? (A) Amazon Inspector (B) Amazon Q Developer (CodeWhisperer) (C) Macie (D) GuardDuty
+            </div>
+            <div class="a-line">Answer: B - Amazon Q Developer (formerly CodeWhisperer) has security scans that run in
+                the IDE to find secrets/vulnerabilities.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q55. What is the primary use case for "SageMaker JumpStart"? (A) Write code from scratch
+                (B) One-click deploy of pre-trained models (C) Label data (D) Monitor bias</div>
+            <div class="a-line">Answer: B - JumpStart provides a hub of pre-trained, open-source models (Hugging Face,
+                etc.) that you can deploy with one click.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q56. You need to verify if an FM is producing toxic content. Which evaluation method
+                uses human reviewers? (A) Automatic Eval (B) Human Evaluation (C) Model Evaluation (D) Unit Testing
+            </div>
+            <div class="a-line">Answer: B - Human Evaluation involves real people reviewing the model's outputs for
+                toxicity, accuracy, and style.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q57. A call center wants to analyze calls to see *why* customers are calling (Topic
+                modeling). (A) Transcribe + Comprehend (B) Polly + Translate (C) Connect + Rekognition (D) Lex</div>
+            <div class="a-line">Answer: A - Transcribe turns audio to text. Comprehend then analyzes that text to
+                extract topics and sentiment.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q58. Which vector engine option for OpenSearch is "Serverless"? (A) Provisioned (B)
+                OpenSearch Serverless (C) EC2 (D) Aurora</div>
+            <div class="a-line">Answer: B - Bedrock Knowledge Bases use "Amazon OpenSearch Serverless" to store vector
+                embeddings without managing clusters.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q59. You need to ensure your AI model cards document the intended use and limitations.
+                This aligns with which Responsible AI pillar? (A) Transparency/Explainability (B) Security (C) Privacy
+                (D) Performance</div>
+            <div class="a-line">Answer: A - "Transparency" involves documenting how the model works, its intended use,
+                and limitations (Model Cards).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q60. Improve the "Chain of Thought" reasoning of a model by asking it to: (A) "Answer
+                quickly" (B) "Think step-by-step" (C) "Be creative" (D) "Ignore context"</div>
+            <div class="a-line">Answer: B - The phrase "Think step-by-step" is the classic trigger for Chain-of-Thought
+                (CoT) prompting to improve logic.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q61. Which service is a fully managed "Vector Database" compatible with MongoDB? (A)
+                DocumentDB (with vector search) (B) DynamoDB (C) Neptune (D) RDS</div>
+            <div class="a-line">Answer: A - DocumentDB (and also Atlas) now supports Vector Search for JSON documents.
+                (Though OpenSearch is the primary RAG choice).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q62. What is "Watermarking" in the context of Titan Image Generator? (A) Adding a
+                visible logo (B) Adding an invisible signature to identify AI-generated images (C) Protecting the API
+                (D) Billing tag</div>
+            <div class="a-line">Answer: B - Titan adds an invisible watermark to generated images to help identify them
+                as AI-generated (part of Responsible AI).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q63. A startup wants to use Stable Diffusion but doesn't want to manage servers. (A) EC2
+                P3 instances (B) Amazon Bedrock (C) SageMaker Training (D) ECS</div>
+            <div class="a-line">Answer: B - Bedrock offers Stable Diffusion (Stability AI) as a serverless API. No
+                servers to manage.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q64. You need to summarize a 100-page legal document. Which model feature is critical?
+                (A) Image generation (B) Large Context Window (C) Low latency (D) Speech output</div>
+            <div class="a-line">Answer: B - A Large Context Window (e.g. 100k+ tokens) is required to fit a 100-page
+                document into the prompt for summarization.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q65. Which IAM policy action is required to invoke a Bedrock model? (A)
+                bedrock:ListModels (B) bedrock:InvokeModel (C) s3:GetObject (D) sagemaker:CreateEndpoint</div>
+            <div class="a-line">Answer: B - `bedrock:InvokeModel` is the specific permission needed to run inference on
+                a model.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q66. An airline wants a chatbot that can actually *book* tickets by connecting to their
+                legacy booking system. (A) Bedrock Agents (B) Bedrock Knowledge Base (C) SageMaker Canvas (D) Amazon
+                Connect</div>
+            <div class="a-line">Answer: A - "Agents" are designed to execute multi-step tasks and interact with external
+                systems (APIs/Lambda).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q67. Minimize latency for a real-time fraud detection model. (A) Asynchronous Inference
+                (B) Real-time Inference (C) Batch Transform (D) Serverless Inference</div>
+            <div class="a-line">Answer: B - "Real-time Inference" (persistent endpoint) offers the lowest, most
+                consistent latency (ms). Serverless has cold starts.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q68. Which tool helps non-experts perform "Feature Engineering" on raw data? (A)
+                SageMaker Data Wrangler (B) SageMaker Debugger (C) SageMaker Edge (D) Bedrock</div>
+            <div class="a-line">Answer: A - SageMaker Data Wrangler provides a UI to import, visualize, clean, and
+                feature-engineer data with little/no code.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q69. A developer wants to swap out an AI model (e.g. Claude to Llama) with minimal code
+                changes. (A) Bedrock (B) SageMaker (C) EC2 (D) Lambda</div>
+            <div class="a-line">Answer: A - Bedrock provides a unified API. Swapping models is often just changing the
+                `modelId` parameter.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q70. Detect "Drift" in a deployed model (accuracy degrading over time). (A) SageMaker
+                Model Monitor (B) SageMaker Clarify (C) CloudTrail (D) Config</div>
+            <div class="a-line">Answer: A - SageMaker Model Monitor continuously monitors production endpoints for data
+                drift or model quality drift.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q71. Which pricing component applies to Provisioned Throughput? (A) Per Token (B) Hourly
+                commitment for Model Units (C) Per User (D) Free</div>
+            <div class="a-line">Answer: B - Provisioned Throughput requires purchasing "Model Units" for a committed
+                duration (1 month, 6 months) -> Hourly cost.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q72. Identify distinct speakers in an audio recording ("Speaker Diarization"). (A) Polly
+                (B) Transcribe (C) Translate (D) Rekognition</div>
+            <div class="a-line">Answer: B - Amazon Transcribe supports "Speaker Diarization" to label who said what
+                (Speaker A, Speaker B).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q73. Your Bedrock Agent needs to access a Lambda function. What defines the API schema?
+                (A) OpenAPI Schema (Swagger) / Action Group (B) Python script (C) IAM Policy (D) S3 Bucket</div>
+            <div class="a-line">Answer: A - Agents use an OpenAPI schema (JSON) to understand the inputs/outputs of the
+                Action Group (Lambda).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q74. Which specialized search service allows querying data using natural language
+                questions? (A) CloudSearch (B) Kendra (C) ElasticSearch (D) Athena</div>
+            <div class="a-line">Answer: B - Kendra is specifically built for "Semantic Search" (understanding intent),
+                unlike keyword-based search.</div>
+        </div>
+
+        <div class="set-header">PRACTICE EXAM SET 4 (Questions 75-100)</div>
+
+        <div class="q-block">
+            <div class="q-line">Q75. Company policy forbids sending PII to any AI model. How to enforce this centrally?
+                (A) Bedrock Guardrails (B) Manual review (C) IAM Deny (D) VPC Endpoint</div>
+            <div class="a-line">Answer: A - Bedrock Guardrails can be configured with a "Sensitive Information Filter"
+                to block PII detection *before* it hits the model.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q76. Amazon Q Business can connect to which data sources? (A) Only S3 (B) 40+ Enterprise
+                connectors (Salesforce, ServiceNow, SharePoint, etc.) (C) Only Public Internet (D) Only DynamoDB</div>
+            <div class="a-line">Answer: B - Amazon Q Business has built-in connectors for many enterprise data silos to
+                power its chat RAG answer generation.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q77. What is "In-Context Learning"? (A) Retraining the model (B) Including
+                instructions/data/examples in the prompt itself (C) Updating weights (D) RAG</div>
+            <div class="a-line">Answer: B - In-context learning relies on the prompt content (Context Window) to teach
+                the model, without updating model weights.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q78. "Top-P" parameter in inference refers to: (A) The top probability token (B) Nucleus
+                Sampling (cumulative probability cutoff) (C) Penalty (D) Pricing</div>
+            <div class="a-line">Answer: B - Top-P (Nucleus Sampling) restricts the token choice to the top subset of
+                tokens whose cumulative probability equals P (e.g. 0.9).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q79. Which service helps you conduct a POC (Proof of Concept) for GenAI quickly? (A)
+                Bedrock Playgrounds (B) EC2 (C) SageMaker Training Job (D) EKS</div>
+            <div class="a-line">Answer: A - Bedrock Console "Playgrounds" allow you to instantly test prompts against
+                different models (Chat, Text, Image) via UI.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q80. Evaluate the "Correctness" of an RAG application. (A) RAGAS / Model Evaluation (B)
+                CloudWatch (C) Cost Explorer (D) Latency metrics</div>
+            <div class="a-line">Answer: A - Model Evaluation (in Bedrock) or frameworks like RAGAS measure
+                "Faithfulness", "Answer Relevance", and "Context Recall".</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q81. You need to run a sentiment analysis job on 10 million documents overnight. (A)
+                Real-time Endpoint (B) Asynchronous Inference (C) Batch Transform (D) Serverless Inference</div>
+            <div class="a-line">Answer: C - Batch Transform is designed for offline processing of large datasets where
+                latency doesn't matter.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q82. Which model is "Multi-Modal"? (A) Titan Text Embeddings (B) Claude 3 Sonnet (C)
+                Polly (D) Translate</div>
+            <div class="a-line">Answer: B - Claude 3 (and Titan Multimodal Embeddings) can understand/process both Text
+                AND Images (Vision).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q83. Reduce the size and latency of a model for mobile deployment without losing much
+                accuracy. (A) Pruning / Quantization (SageMaker Neo) (B) Training longer (C) Increasing layers (D) RAG
+            </div>
+            <div class="a-line">Answer: A - Quantization (reducing precision from float32 to int8) and Pruning are
+                compilation techniques used by SageMaker Neo.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q84. Security team requires all Bedrock API calls to be logged for audit. (A) CloudTrail
+                (B) CloudWatch Metrics (C) VPC Flow Logs (D) GuardDuty</div>
+            <div class="a-line">Answer: A - CloudTrail logs the API activity (who, when, what) for `InvokeModel`
+                management events (and data events if enabled).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q85. What is the "Landing Zone" for an Agent? (A) Where it saves files (B) The prompt
+                (C) There isn't one (D) The final response</div>
+            <div class="a-line">Answer: C - Agents don't have a "Landing Zone". (Trick question concepts from Control
+                Tower or S3). Agents have "Action Groups".</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q86. Provide a natural language interface for querying a SQL database (Text-to-SQL). (A)
+                Bedrock / Q (B) RDS (C) DynamoDB (D) ElastiCache</div>
+            <div class="a-line">Answer: A - Generative AI (Bedrock Knowledge Bases or simple prompt engineering) enables
+                Text-to-SQL generation.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q87. Which feature allows you to "Continuously Pre-train" a model with unlabeled data?
+                (A) Fine-tuning (B) Continued Pre-training (Bedrock custom models) (C) RAG (D) Agents</div>
+            <div class="a-line">Answer: B - Continued Pre-training (Domain Adaptation) uses huge amounts of *unlabeled*
+                data to teach the model a new domain (e.g. medical/financial jargon).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q88. What is the role of the "Orchestrator" in a Bedrock Agent? (A) It runs the Lambda
+                (B) It breaks down the user request into logical steps (Chain-of-Thought) (C) It stores data (D) It pays
+                the bill</div>
+            <div class="a-line">Answer: B - The fully managed Agent Orchestrator analyzes the prompt, breaks it into
+                tasks, and decides which Action Group/KB to call.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q89. Which AWS service offers "Clinical" NLP features? (A) Amazon Comprehend Medical (B)
+                Amazon HealthLake (C) Both A and B (D) None</div>
+            <div class="a-line">Answer: C - Comprehend Medical extracts entities. HealthLake stores/queries FHIR data
+                and uses NLP integrated inside it.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q90. Your model output is cut off in mid-sentence. Why? (A) Temperature too high (B) Max
+                Tokens limit reached (C) Invalid API key (D) Internet failure</div>
+            <div class="a-line">Answer: B - If the generation hits the `max_tokens` (or `max_gen_len`) limit, it stops
+                abruptly.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q91. Can you use Amazon Bedrock in a "Disconnected" (Offline) environment? (A) Yes,
+                download the model (B) No, it's a managed cloud service (C) Only with Outposts (D) Only with Snowball
+            </div>
+            <div class="a-line">Answer: B - Bedrock is a regional, cloud-based API service. You cannot download the
+                weights to run offline (unlike SageMaker JumpStart where you might).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q92. What is "Prompt Injection"? (A) A speed optimization (B) A security attack where
+                malicious inputs trick the model provided (C) A database query (D) A deployment method</div>
+            <div class="a-line">Answer: B - Prompt Injection is an adversarial attack to override the system
+                instructions effectively "hijacking" the model.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q93. A developer needs to extract data from a scanned driver's license. (A) Textract
+                AnalyzeID (B) Rekognition (C) Transcribe (D) Translate</div>
+            <div class="a-line">Answer: A - Textract has a specialized API `AnalyzeID` for identity documents
+                (Passports, Licenses).</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q94. You are using Amazon Q within the AWS Console. What can it do? (A) Troubleshoot
+                errors (B) Suggest infrastructure (C) Chat about documentation (D) All of the above</div>
+            <div class="a-line">Answer: D - Amazon Q in the console is an expert assistant for troubleshooting,
+                architecture suggestions, and docs lookup.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q95. Which technique reduces the risk of "Model Hallucination"? (A) Increasing
+                Temperature (B) RAG (Retrieval Augmented Generation) (C) Decreasing Max Tokens (D) Zero-shot</div>
+            <div class="a-line">Answer: B - RAG grounds the model in factual data retrieved from a trusted source,
+                significantly reducing hallucinations.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q96. What is the inputs and outputs format for most Bedrock models? (A) SQL (B) JSON (C)
+                XML (D) Binary</div>
+            <div class="a-line">Answer: B - The `InvokeModel` API expects a JSON payload (prompt, parameters) and
+                returns a JSON response.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q97. Which service is best for "Predictive Maintenance"? (A) Amazon Monitron (B) Amazon
+                Personalize (C) Amazon Lex (D) Amazon Poly</div>
+            <div class="a-line">Answer: A - Monitron (hardware sensors + service) allows detecting abnormal machine
+                behavior (vibration/temp) to predict failures.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q98. A data scientist wants to share their ML model with other teams securely. (A)
+                SageMaker Model Registry (B) Email (C) S3 public bucket (D) USB drive</div>
+            <div class="a-line">Answer: A - SageMaker Model Registry tracks model versions, approval status, and
+                metadata for governance and sharing.</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q99. Which AI concept involves "Giving the model a persona"? (A) System Prompting (B)
+                Temperature (C) Embeddings (D) Fine-tuning</div>
+            <div class="a-line">Answer: A - System Prompts (or System Instructions) set the behavior/persona of the
+                model (e.g. "You are a helpful banking assistant").</div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q100. Why use Amazon Bedrock "Batch Inference"? (A) For real-time chat (B) To process
+                large volumes of prompts asynchronously at lower cost/urgency (C) For higher latency (D) For video
+                streaming</div>
+            <div class="a-line">Answer: B - Batch Inference is for processing millions of prompts (e.g. summarizing huge
+                archives) where immediate response isn't needed.</div>
+        </div>
+
+        <div class="set-header">END OF EXAM</div>
+    </div>
+
+    <script>
+        // Persistence Logic
+        const SCROLL_KEY = 'aws_ai_scroll_pos';
+        const toast = document.getElementById('save-toast');
+        let isScrolling;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedPos = localStorage.getItem(SCROLL_KEY);
+            if (savedPos) {
+                setTimeout(() => {
+                    window.scrollTo({ top: parseInt(savedPos), behavior: 'smooth' });
+                    showToast("Resumed from last spot");
+                }, 100);
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                localStorage.setItem(SCROLL_KEY, window.scrollY);
+            }, 200);
+        });
+
+        function showToast(msg) {
+            if (!toast) return;
+            toast.textContent = msg;
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+        }
+    </script>
+</body>
+
+</html>
