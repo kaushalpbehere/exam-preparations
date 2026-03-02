@@ -5,125 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hands-On ML Mastery Guide</title>
-    <style>
-        body {
-            font-family: monospace;
-            font-size: 13px;
-            line-height: 1.4;
-            color: #1a1a1a;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
 
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-
-        h1,
-        h2,
-        h3 {
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .cram-section,
-        .concept-card {
-            background-color: #eee;
-            padding: 15px;
-            margin-bottom: 30px;
-            border: 2px solid #000;
-        }
-
-        .section-title {
-            font-weight: bold;
-            text-decoration: underline;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .analogy-box,
-        .gotcha-box {
-            background: #fff;
-            border: 1px dashed #000;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        .analogy-title {
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 11px;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .check-check {
-            background: #eee;
-            padding: 10px;
-            border: 1px solid #000;
-            cursor: pointer;
-            margin: 10px 0;
-        }
-
-        .check-question {
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .check-answer {
-            margin-top: 10px;
-            display: none;
-            border-top: 1px dashed #000;
-            padding-top: 10px;
-        }
-
-        .check-check.revealed .check-answer {
-            display: block;
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            border: 1px solid #000;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 10px;
-                border: none;
-            }
-        }
-
-        #save-toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 1000;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
@@ -131,13 +14,13 @@
     <div class="container">
         <a href="index.html" class="back-btn">← Dashboard</a>
 
-        <h1>Hands-On ML Mastery<br><span style="font-size:0.8rem; font-weight:normal; color:#666">Scikit-Learn &
+        <h1>Hands-On ML Mastery<br><span >Scikit-Learn &
                 TensorFlow Concept Cards</span></h1>
 
         <div
-            style="background: #ebf8ff; padding: 15px; border-radius: 8px; border: 1px solid #bee3f8; margin-bottom: 30px;">
-            <h4 style="margin-top:0; color:#2b6cb0;">🎯 Target Certifications (Roadmap)</h4>
-            <ul style="margin-bottom:0; padding-left: 20px;">
+            >
+            <h4 >🎯 Target Certifications (Roadmap)</h4>
+            <ul >
                 <li><a href="https://aws.amazon.com/certification/certified-machine-learning-specialty/"
                         target="_blank">AWS Certified Machine Learning - Specialty (MLS-C01)</a> - The Gold Standard for
                     Cloud ML.</li>
@@ -154,7 +37,7 @@
 
         <!-- CHAPTER SUMMARIES (DEEP DIVE) -->
         <div class="section-title">Part 1: The Fundamentals (Deep Dive)</div>
-        <p style="text-align:center; color:#718096; margin-bottom:30px;">
+        <p >
             <em>"Read this instead of re-reading the book. 80/20 Rule applied."</em>
         </p>
 
@@ -169,12 +52,12 @@
                 instead of explicit rules. It shines where traditional coding fails (complex patterns, fluctuating
                 environments).
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The Major Classifications</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Supervised vs Unsupervised:</strong> The distinction is <em>labels</em>. Supervised =
                         (Input X, Output y). Unsupervised = (Input X). Don't forget <em>Semi-supervised</em> (Photo apps
                         labeling family members) and <em>Reinforcement Learning</em> (Agent/Reward/Penalty).</li>
@@ -192,7 +75,7 @@
                 </ul>
 
                 <p><strong>2. The "Bad Data" Monsters</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Sampling Bias:</strong> Your data doesn't look like reality. (e.g., "Dewey Defeats
                         Truman" poll). Structure your Training Set to match population ratios (Stratified Sampling).
                     </li>
@@ -201,7 +84,7 @@
                         touch the Test Set until the end.</li>
                 </ul>
 
-                <div class="gotcha-box" style="margin-top:10px;">
+                <div class="gotcha-box" >
                     <strong>The "No Free Lunch" Theorem:</strong> No model is a priori guaranteed to work better (e.g.,
                     "Neural Nets are better than Trees"). You must make assumptions (priors) about data to pick a model.
                     If you make no assumptions, all models are equal.
@@ -219,12 +102,12 @@
                 <strong>The Core Idea:</strong> An ML project is 10% modeling and 90% data prep. A robust pipeline is
                 the only defense against "Future You" breaking things.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The "Must-Do" Checklist</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Splitting Data:</strong> Do it EARLY. Before you even "Explore" the data visually. Why?
                         To prevent your brain from spotting patterns solely in the test set. Use
                         <code>StratifiedShuffleSplit</code> to keep class ratios intact.
@@ -239,13 +122,13 @@
                 </ul>
 
                 <p><strong>2. Feature Engineering > Model Selection</strong></p>
-                <div style="color: #4a5568;">
+                <div >
                     The author implies: A linear model with amazing features beats a Deep Net with raw data.
                     <br><em>Examples:</em> One-Hot Encoding for categories. Creating "Rooms_Per_Household" instead of
                     just "Total_Rooms".
                 </div>
 
-                <div class="analogy-box" style="margin-top:15px;">
+                <div class="analogy-box" >
                     <strong>Grid Search vs Randomized Search:</strong>
                     <br><strong>Grid:</strong> Checking every square inch of a treasure map. Good for small spaces.
                     <br><strong>Randomized:</strong> Throwing darts at the map. Surprisingly better for high dimensions
@@ -264,17 +147,17 @@
                 <strong>The Core Idea:</strong> Accuracy is a lie. When classes are skewed (e.g. 5% Fraud), a "dumb"
                 model that always guesses "Not Fraud" has 95% accuracy.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The Confusion Matrix Family</strong></p>
                 <div
-                    style="background:#f7fafc; padding:10px; border-radius:6px; margin-bottom:10px; font-family:monospace; font-size:0.9rem;">
+                    >
                     [TN FP] -> Precision = TP / (TP + FP)<br>
                     [FN TP] -> Recall = TP / (TP + FN)
                 </div>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Precision:</strong> "When I say it's true, how often am I right?" (Trustworthiness).
                         Important for Spam filters (don't block real emails).</li>
                     <li><strong>Recall:</strong> "Of all the truth out there, how much did I find?" (Coverage).
@@ -284,7 +167,7 @@
                 </ul>
 
                 <p><strong>2. The Decision Threshold</strong></p>
-                <div style="color: #4a5568;">
+                <div >
                     Classifiers output a <em>Score</em>, not a label. You pick the threshold.
                     <br>Raise Threshold -> Higher Precision (You are picky), Lower Recall.
                     <br>Lower Threshold -> Lower Precision, Higher Recall (You cast a wide net).
@@ -310,12 +193,12 @@
                 <strong>The Core Idea:</strong> How models actually "learn". It's mostly minimizing a Cost Function
                 using Math (Normal Equation) or Iteration (Gradient Descent).
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. Gradient Descent Flavors</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Batch GD:</strong> Uses WHOLE dataset for one step. Smooth, but slow. Needs lots of RAM.
                     </li>
                     <li><strong>Stochastic GD:</strong> Uses ONE instance. Jumpy, crazily fast, escapes local minima
@@ -324,7 +207,7 @@
                 </ul>
 
                 <p><strong>2. Bias/Variance Tradeoff (The Holy Grail)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Error = Bias + Variance + Irreducible Error.</strong>
                     <br><em>Bias:</em> Wrong assumptions (Linear model on curved data). Fix: Make model complex.
                     <br><em>Variance:</em> Sensitivity to noise (High degree Poly model). Fix: Get more data or
@@ -332,7 +215,7 @@
                 </div>
 
                 <p><strong>3. Regularization (The leash)</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Ridge (L2):</strong> "Don't be large." Keeps weights small. Dense model.</li>
                     <li><strong>Lasso (L1):</strong> "Be zero if not important." Zeros out weights. <strong>Feature
                             Selection</strong> effect. Sparse model.</li>
@@ -351,12 +234,12 @@
                 <strong>The Core Idea:</strong> Draw the widest possible street (margin) between classes. It relies
                 heavily on boundary instances (Support Vectors).
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. Understanding 'C' and Margin</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Hard Margin:</strong> No violations allowed. Fails if outliers exist.
                     <br><strong>Soft Margin:</strong> Allows violations. Controlled by <code>C</code>.
                     <br><em>Low C</em> = Wide Street (More margin violations allowed) -> High Bias.
@@ -384,12 +267,12 @@
                 <strong>The Core Idea:</strong> Non-parametric models that learn a hierarchy of if/else questions. They
                 are "White Box" (interpretable) but unstable.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. CART Algorithm</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Greedy Approach:</strong> At the top node, it asks: "What single feature and threshold (k,
                     t) splits this data to get the purest children?"
                     <br>It does not look ahead. It hopes the best split now leads to the best tree later (not always
@@ -397,7 +280,7 @@
                 </div>
 
                 <p><strong>2. Gini vs Entropy</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Practically equivalent. Gini is slightly faster (no log calc). Entropy produces slightly more
                     balanced trees.
                 </div>
@@ -420,12 +303,12 @@
                 <strong>The Core Idea:</strong> A crowd of average guessers beats one expert, provided the guessers make
                 <em>different</em> mistakes (Independence).
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. Bagging (Bootstrap Aggregating)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Train same algorithm on random subsets (with replacement). Run in parallel.
                     <br><strong>Random Forest:</strong> Bagging + "Feature Randomness". Even when splitting a node, it
                     only checks a random subset of features.
@@ -434,7 +317,7 @@
                 </div>
 
                 <p><strong>2. Boosting (Hypothesis Boosting)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Train sequentially. Each model focuses on what the previous one messed up.
                     <br><strong>AdaBoost:</strong> Increases <em>weight</em> of misclassified instances. Hard instances
                     get louder.
@@ -459,19 +342,19 @@
                 <strong>The Core Idea:</strong> Many features are redundant or noise. Reducing dimensions speeds up
                 training and helps visualization, but loses some info.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The Curse of Dimensionality</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     In high dimensions, empty space dominates. Any two random points are far apart.
                     <br><em>Result:</em> Overfitting risk skyrockets because finding a pattern in empty space is easy
                     (but spurious). "Distance" becomes meaningless.
                 </div>
 
                 <p><strong>2. Projection vs Manifold Learning</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>PCA (Projection):</strong> Smashing a 3D ball onto a 2D floor. Preserves global
                         variance. Good for simple structures.</li>
                     <li><strong>Manifold (LLE/t-SNE):</strong> Unrolling a Swiss Roll. Captures local relationships.
@@ -492,26 +375,26 @@
                 <strong>The Core Idea:</strong> Finding structure without labels. Clustering (groups) and Anomaly
                 Detection (weirdos).
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. K-Means (The Centroid Mover)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Fast, scales well. But assumes clusters are spherical and same size. You must specify
                     <code>k</code>.
                     <br><strong>Hard part:</strong> Choosing k. Use the Elbow Rule (Intertia) or Silhouette Score.
                 </div>
 
                 <p><strong>2. DBSCAN (The Density Hunter)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Groups points that are packed closely. Points in low-density regions are outliers.
                     <br><em>Pros:</em> Finds any shape (not just spheres). Automatically detects outliers.
                     <br><em>Cons:</em> Struggles if clusters have different densities.
                 </div>
 
                 <p><strong>3. Gaussian Mixtures (GMM)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Soft clustering. "What is the probability this point belongs to Cluster A?"
                     <br>Assumes data is generated from several Gaussian distributions. Excellent for <strong>Anomaly
                         Detection</strong> (points in low-density regions are anomalies).
@@ -521,7 +404,7 @@
 
         <!-- PART 2: NEURAL NETWORKS (DEEP DIVE) -->
         <div class="section-title">Part 2: Neural Networks & Deep Learning (Deep Dive)</div>
-        <p style="text-align:center; color:#718096; margin-bottom:30px;">
+        <p >
             <em>"From neurons to production. The complete Deep Learning journey."</em>
         </p>
 
@@ -535,19 +418,19 @@
                 <strong>The Core Idea:</strong> Artificial Neural Networks mimic the brain's structure: layers of
                 interconnected neurons that learn by adjusting connection weights through backpropagation.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The Perceptron (The Ancestor)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     A single-layer linear classifier. Inputs → Weighted Sum → Step Function → Output.
                     <br><strong>Limitation:</strong> Cannot solve XOR (non-linearly separable problems). This is why we
                     need <em>Multi-Layer</em> networks.
                 </div>
 
                 <p><strong>2. The Multi-Layer Perceptron (MLP)</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Input Layer:</strong> Raw features.</li>
                     <li><strong>Hidden Layers:</strong> Feature detectors. Each neuron computes:
                         <code>activation(Σ(weights × inputs) + bias)</code>.
@@ -557,7 +440,7 @@
                 </ul>
 
                 <p><strong>3. Backpropagation (The Learning Engine)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Forward Pass:</strong> Input flows through layers to produce prediction.
                     <br><strong>Compute Loss:</strong> How wrong was the prediction?
                     <br><strong>Backward Pass:</strong> Use Chain Rule to compute gradients layer-by-layer (from output
@@ -583,12 +466,12 @@
                 <strong>The Core Idea:</strong> Deep networks are hard to train. This chapter is a survival guide:
                 initialization, normalization, regularization, and optimizers.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The Vanishing/Exploding Gradient Problem</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     In deep nets, gradients are multiplied through many layers (Chain Rule). If weights are too small,
                     gradients shrink to zero (Vanishing). If too large, they explode.
                     <br><strong>Solutions:</strong>
@@ -598,14 +481,14 @@
                 </div>
 
                 <p><strong>2. Batch Normalization (The Game Changer)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Normalizes inputs to each layer (mean=0, std=1) during training. This stabilizes learning and allows
                     higher learning rates.
                     <br><strong>Bonus:</strong> Acts as a regularizer (reduces need for Dropout).
                 </div>
 
                 <p><strong>3. Regularization Techniques</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Dropout:</strong> Randomly "turn off" neurons during training (e.g., 50%). Forces the
                         network to not rely on any single neuron. At test time, use all neurons but scale outputs.</li>
                     <li><strong>Early Stopping:</strong> Monitor validation loss. Stop training when it starts
@@ -614,7 +497,7 @@
                 </ul>
 
                 <p><strong>4. Optimizers (Beyond SGD)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Momentum:</strong> Accumulates past gradients to smooth updates.
                     <br><strong>RMSprop:</strong> Adapts learning rate per parameter.
                     <br><strong>Adam:</strong> Combines Momentum + RMSprop. The default choice.
@@ -638,12 +521,12 @@
                 <strong>The Core Idea:</strong> TensorFlow/Keras lets you build custom layers, loss functions, and
                 training loops when the high-level API isn't enough.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. TensorFlow Basics</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Tensors:</strong> Multi-dimensional arrays (like NumPy, but GPU-friendly).
                     <br><strong>Graphs:</strong> TF builds a computation graph, then executes it efficiently.
                     <br><strong>Eager Execution:</strong> TF 2.x runs operations immediately (like Python), making
@@ -651,14 +534,14 @@
                 </div>
 
                 <p><strong>2. Custom Layers</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Subclass <code>keras.layers.Layer</code> and implement <code>build()</code> (create weights) and
                     <code>call()</code> (forward pass).
                     <br><em>Use case:</em> Residual connections, attention mechanisms, custom activations.
                 </div>
 
                 <p><strong>3. Custom Training Loops</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Use <code>GradientTape</code> to manually compute gradients and update weights. This gives full
                     control over the training process.
                     <br><em>Use case:</em> GANs, Reinforcement Learning, custom loss functions.
@@ -681,19 +564,19 @@
                 <strong>The Core Idea:</strong> Efficient data loading is critical for training speed. Use
                 <code>tf.data</code> API to build pipelines that prefetch, shuffle, and batch data in parallel.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The tf.data API</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Dataset:</strong> An abstraction for a sequence of elements.
                     <br><code>dataset = tf.data.Dataset.from_tensor_slices((X, y))</code>
                     <br><code>dataset = dataset.shuffle(10000).batch(32).prefetch(1)</code>
                 </div>
 
                 <p><strong>2. Key Operations</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>shuffle():</strong> Randomize order (use buffer size > dataset size for perfect
                         shuffle).</li>
                     <li><strong>batch():</strong> Group samples into batches.</li>
@@ -702,7 +585,7 @@
                 </ul>
 
                 <p><strong>3. Data Augmentation</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     For images: Random flips, rotations, crops, brightness changes. This artificially increases dataset
                     size and reduces overfitting.
                     <br>Use <code>keras.layers.RandomFlip</code>, <code>RandomRotation</code>, etc.
@@ -725,12 +608,12 @@
                 <strong>The Core Idea:</strong> Convolutional Neural Networks exploit spatial structure in images.
                 Filters detect local patterns (edges, textures), and pooling provides translation invariance.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. Convolutional Layers</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     A filter (e.g., 3×3) slides across the image. At each position, it computes a dot product (weighted
                     sum).
                     <br><strong>Parameters:</strong>
@@ -741,14 +624,14 @@
                 </div>
 
                 <p><strong>2. Pooling Layers</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Max Pooling:</strong> Takes the max value in each region (e.g., 2×2). Reduces dimensions and
                     provides invariance to small translations.
                     <br><strong>Average Pooling:</strong> Takes the average. Less common.
                 </div>
 
                 <p><strong>3. Famous Architectures</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>LeNet-5:</strong> The pioneer (1998). Digit recognition.</li>
                     <li><strong>AlexNet:</strong> Won ImageNet 2012. Popularized ReLU and Dropout.</li>
                     <li><strong>VGG:</strong> Very deep (16-19 layers), small 3×3 filters.</li>
@@ -757,7 +640,7 @@
                 </ul>
 
                 <p><strong>4. Transfer Learning</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Use a pre-trained model (e.g., ResNet50 on ImageNet). Freeze early layers (generic features like
                     edges). Fine-tune top layers on your dataset.
                     <br><strong>Why it works:</strong> Lower layers learn universal features (edges, textures). Only top
@@ -783,12 +666,12 @@
                 state that carries information from previous time steps. LSTMs and GRUs solve the vanishing gradient
                 problem.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The Recurrent Neuron</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     At each time step <em>t</em>, the neuron receives input <code>x_t</code> and the previous hidden
                     state <code>h_(t-1)</code>.
                     <br><code>h_t = activation(W_x × x_t + W_h × h_(t-1) + b)</code>
@@ -796,14 +679,14 @@
                 </div>
 
                 <p><strong>2. The Vanishing Gradient Problem (Again)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     When backpropagating through time (BPTT), gradients are multiplied across many time steps. They
                     vanish for long sequences.
                     <br><strong>Solution:</strong> LSTM and GRU cells.
                 </div>
 
                 <p><strong>3. LSTM (Long Short-Term Memory)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Introduces a <strong>Cell State</strong> (long-term memory) and three gates:
                     <br>• <strong>Forget Gate:</strong> What to remove from memory.
                     <br>• <strong>Input Gate:</strong> What new info to store.
@@ -812,12 +695,12 @@
                 </div>
 
                 <p><strong>4. GRU (Gated Recurrent Unit)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Simpler than LSTM (2 gates instead of 3). Often performs similarly with fewer parameters.
                 </div>
 
                 <p><strong>5. Use Cases</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Sequence-to-Sequence:</strong> Machine Translation (Encoder-Decoder).</li>
                     <li><strong>Sequence-to-Vector:</strong> Sentiment Analysis (read sentence → output sentiment).</li>
                     <li><strong>Vector-to-Sequence:</strong> Image Captioning (image → sentence).</li>
@@ -843,12 +726,12 @@
                 <strong>The Core Idea:</strong> Natural Language Processing uses embeddings to represent words as
                 vectors. Attention mechanisms allow models to focus on relevant parts of the input.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. Word Embeddings</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Represent words as dense vectors (e.g., 300 dimensions) instead of one-hot encoding.
                     <br><strong>Word2Vec:</strong> Learns embeddings by predicting context words (CBOW) or target word
                     (Skip-gram).
@@ -857,14 +740,14 @@
                 </div>
 
                 <p><strong>2. Encoder-Decoder for Translation</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Encoder:</strong> Reads input sentence, produces a fixed-size context vector.
                     <br><strong>Decoder:</strong> Generates output sentence word-by-word, conditioned on context vector.
                     <br><strong>Problem:</strong> Fixed-size vector is a bottleneck for long sentences.
                 </div>
 
                 <p><strong>3. Attention Mechanism (The Breakthrough)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Instead of a single context vector, the decoder attends to <em>all</em> encoder hidden states at
                     each decoding step.
                     <br><strong>How:</strong> Compute attention weights (how much to focus on each input word). Weighted
@@ -874,7 +757,7 @@
                 </div>
 
                 <p><strong>4. Transformers (The Revolution)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Replaces RNNs entirely with <strong>Self-Attention</strong>. All positions are processed in parallel
                     (no sequential bottleneck).
                     <br><strong>Key Idea:</strong> Each word attends to all other words in the sentence.
@@ -899,12 +782,12 @@
                 <strong>The Core Idea:</strong> Autoencoders compress data to a latent representation and reconstruct
                 it. GANs pit two networks against each other to generate realistic data.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. Autoencoders</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Encoder:</strong> Compresses input to a low-dimensional latent code.
                     <br><strong>Decoder:</strong> Reconstructs input from latent code.
                     <br><strong>Loss:</strong> Reconstruction error (e.g., MSE between input and output).
@@ -912,7 +795,7 @@
                 </div>
 
                 <p><strong>2. Variational Autoencoders (VAE)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Encoder outputs a <em>distribution</em> (mean and variance) instead of a fixed code. Sample from
                     this distribution during training.
                     <br><strong>Why:</strong> Latent space becomes smooth and continuous. You can interpolate between
@@ -920,7 +803,7 @@
                 </div>
 
                 <p><strong>3. Generative Adversarial Networks (GANs)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Generator:</strong> Creates fake data from random noise.
                     <br><strong>Discriminator:</strong> Tries to distinguish real data from fake.
                     <br><strong>Training:</strong> Adversarial game. Generator tries to fool Discriminator.
@@ -929,7 +812,7 @@
                 </div>
 
                 <p><strong>4. GAN Challenges</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Mode Collapse:</strong> Generator produces limited variety (e.g., always same face).
                     </li>
                     <li><strong>Training Instability:</strong> Hard to balance Generator and Discriminator.</li>
@@ -954,12 +837,12 @@
                 <strong>The Core Idea:</strong> An agent learns to make decisions by interacting with an environment. It
                 receives rewards/penalties and learns a policy to maximize cumulative reward.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. The RL Framework</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Agent:</strong> The learner (e.g., game player).
                     <br><strong>Environment:</strong> The world (e.g., game).
                     <br><strong>State:</strong> Current situation.
@@ -969,7 +852,7 @@
                 </div>
 
                 <p><strong>2. Exploration vs Exploitation</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Exploitation:</strong> Use current knowledge to maximize reward.
                     <br><strong>Exploration:</strong> Try new actions to discover better strategies.
                     <br><strong>Epsilon-Greedy:</strong> With probability ε, explore (random action). Otherwise, exploit
@@ -977,14 +860,14 @@
                 </div>
 
                 <p><strong>3. Q-Learning</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Learn a <strong>Q-function</strong>: Q(state, action) = expected cumulative reward.
                     <br><strong>Update Rule:</strong> Q(s, a) ← Q(s, a) + α × [reward + γ × max Q(s', a') - Q(s, a)]
                     <br>α = learning rate, γ = discount factor (future rewards are worth less).
                 </div>
 
                 <p><strong>4. Deep Q-Networks (DQN)</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Use a neural network to approximate Q(s, a) instead of a table. This scales to large state spaces
                     (e.g., Atari games with pixel inputs).
                     <br><strong>Tricks:</strong> Experience Replay (store transitions, sample randomly), Target Network
@@ -992,7 +875,7 @@
                 </div>
 
                 <p><strong>5. Policy Gradient Methods</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     Directly learn the policy (instead of Q-values). Optimize policy parameters to maximize expected
                     reward.
                     <br><strong>Algorithms:</strong> REINFORCE, Actor-Critic, PPO (Proximal Policy Optimization).
@@ -1015,12 +898,12 @@
                 <strong>The Core Idea:</strong> Scaling ML to production requires distributed training, model serving,
                 monitoring, and continuous improvement.
             </div>
-            <details style="border-top: 1px solid #eee; padding-top: 15px;">
-                <summary style="cursor: pointer; font-weight: 700; color: #2b6cb0; margin-bottom:10px;">👇 Deep Dive
+            <details >
+                <summary >👇 Deep Dive
                     Review</summary>
 
                 <p><strong>1. Distributed Training</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Data Parallelism:</strong> Split data across multiple GPUs. Each GPU computes gradients on
                     its batch. Gradients are averaged and applied.
                     <br><strong>Model Parallelism:</strong> Split the model across GPUs (for huge models that don't fit
@@ -1030,14 +913,14 @@
                 </div>
 
                 <p><strong>2. Model Serving</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>TensorFlow Serving:</strong> High-performance serving system for production.
                     <br><strong>REST API:</strong> Expose model as a web service.
                     <br><strong>Batching:</strong> Group multiple requests to maximize GPU utilization.
                 </div>
 
                 <p><strong>3. Model Optimization</strong></p>
-                <ul style="padding-left: 20px; color: #4a5568;">
+                <ul >
                     <li><strong>Quantization:</strong> Reduce precision (float32 → int8). Smaller model, faster
                         inference.</li>
                     <li><strong>Pruning:</strong> Remove unimportant weights (set to zero). Sparse model.</li>
@@ -1046,7 +929,7 @@
                 </ul>
 
                 <p><strong>4. Monitoring and Maintenance</strong></p>
-                <div style="color: #4a5568; margin-bottom:10px;">
+                <div >
                     <strong>Data Drift:</strong> Input distribution changes over time. Model performance degrades.
                     <br><strong>Model Drift:</strong> Relationships in data change (e.g., user behavior shifts).
                     <br><strong>Solution:</strong> Monitor metrics (accuracy, latency). Retrain periodically. A/B test
@@ -1412,7 +1295,7 @@
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 50px; color: #718096; font-size: 0.9rem;">
+        <div >
             Hands-On ML Mastery • Generated for Personal Study
         </div>
     </div>
@@ -1428,6 +1311,7 @@
             localStorage.setItem(KEY, window.scrollY);
         };
     </script>
+    <script src="../assets/engine.js"></script>
 </body>
 
 </html>
