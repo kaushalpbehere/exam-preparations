@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3: The Architect (Deep Learning) - Creative ML Master's</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="cml-architect">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>Creative ML Master's - Step 3</h1>
+        <h2>The Architect (Deep Learning)</h2>
+
+        <div class="academic-theory">
+            <strong>Academic Theory (MSc Level):</strong> Neural Networks, Transformers, and GenAI (RAG/Grounding).
+            Backpropagation math, attention mechanisms (Q, K, V matrices), and vector embeddings.
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q1. In the Transformer architecture, what is the core role of the Query, Key, and Value matrices? (A) Convolutional feature extraction (B) Backpropagation optimization (C) Calculating attention scores to weigh token importance (D) Defining the activation functions</div>
+            <div class="a-line">Answer: C - Explanation: The Query and Key vectors compute a dot product (scaled and softmaxed) to generate attention weights. These weights are multiplied by the Value vectors to determine how much focus a token should place on other tokens in the sequence.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q2. What is the main purpose of Retrieval-Augmented Generation (RAG)? (A) Enhancing a model's intrinsic vocabulary (B) Grounding generation by injecting external, up-to-date knowledge (C) Reducing the number of parameters in an LLM (D) Replacing the self-attention mechanism</div>
+            <div class="a-line">Answer: B - Explanation: RAG retrieves relevant documents from an external vector database based on the user prompt, then concatenates that context into the LLM's prompt window, reducing hallucinations and improving factual accuracy.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

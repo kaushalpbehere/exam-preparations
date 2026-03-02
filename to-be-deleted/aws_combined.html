@@ -5,106 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AWS SAA-C03 Practice Exam</title>
-    <style>
-        body {
-            font-family: monospace;
-            font-size: 13px;
-            line-height: 1.4;
-            color: #1a1a1a;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
 
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-
-        h1,
-        h2,
-        h3 {
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .cram-section {
-            background-color: #eee;
-            padding: 15px;
-            margin-bottom: 30px;
-            border: 2px solid #000;
-        }
-
-        .domain-title {
-            font-weight: bold;
-            text-decoration: underline;
-            margin-top: 20px;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .q-block {
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px dashed #ccc;
-        }
-
-        .q-line {
-            font-weight: bold;
-            white-space: normal;
-        }
-
-        .a-line {
-            color: #005500;
-            margin-top: 2px;
-            padding-left: 20px;
-        }
-
-        .set-header {
-            margin-top: 50px;
-            background: #000;
-            color: #fff;
-            padding: 5px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 10px;
-                border: none;
-            }
-        }
-
-        #save-toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 1000;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
     <div id="save-toast">Position Saved</div>
     <div class="container">
         <a href="index.html"
-            style="display:inline-block;margin-bottom:20px;text-decoration:none;color:#000;font-weight:bold;border:1px solid #000;padding:5px 10px;border-radius:3px;">←
+            >←
             Back to Dashboard</a>
 
         <h1>AWS Unified (SAA-C03 + DVA-C02)<br>The "Mega-Set"</h1>
@@ -112,7 +21,7 @@
         <div class="cram-section">
             <h3>🧠 AWS Unified Topic Mindmap (SAA + DVA)</h3>
             <pre
-                style="font-size: 11px; white-space: pre; overflow-x: auto; background: #fff; padding: 10px; border: 1px dotted #ccc;">
+                >
 AWS UNIFIED (ARCHITECT & DEVELOPER)
 ├── CORE INFRA (SAA Focus)
 │   ├── Compute: EC2 (Instances/Spot), Auto Scaling, ELB
@@ -146,12 +55,12 @@ AWS UNIFIED (ARCHITECT & DEVELOPER)
         <div class="cram-section">
             <h3>📚 Key Official Resources</h3>
             <p>🔗 <a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html" target="_blank"
-                    style="color:blue">AWS Well-Architected Framework</a> - The core "why" of architecture.</p>
+                    >AWS Well-Architected Framework</a> - The core "why" of architecture.</p>
             <p>🔗 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html" target="_blank"
-                    style="color:blue">S3 User Guide</a> - Critical for storage class & encryption details.</p>
+                    >S3 User Guide</a> - Critical for storage class & encryption details.</p>
             <p>🔗 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html" target="_blank"
-                    style="color:blue">Amazon VPC User Guide</a> - Networking scenarios rely heavily on this.</p>
-            <p>🔗 <a href="https://aws.amazon.com/ec2/instance-types/" target="_blank" style="color:blue">EC2 Instance
+                    >Amazon VPC User Guide</a> - Networking scenarios rely heavily on this.</p>
+            <p>🔗 <a href="https://aws.amazon.com/ec2/instance-types/" target="_blank" >EC2 Instance
                     Types</a> - Memorize the families (General, Compute, Memory).</p>
         </div>
 
@@ -896,12 +805,12 @@ AWS UNIFIED (ARCHITECT & DEVELOPER)
 
             <br><br>
             <div
-                style="background-color:#2d3748; color:white; padding:20px; border-radius:10px; text-align:center; border: 3px solid #d53f8c; margin-top:40px;">
-                <h2 style="border:none; margin:0; color:#fff;">🚀 DEVELOPER ASSOCIATE TRACK (DVA-C02)</h2>
-                <p style="margin:5px 0 0 0; color:#cbd5e0;">Additional Concepts & Questions for Developers</p>
+                >
+                <h2 >🚀 DEVELOPER ASSOCIATE TRACK (DVA-C02)</h2>
+                <p >Additional Concepts & Questions for Developers</p>
             </div>
 
-            <div class="cram-section" style="border-color: #d53f8c; background-color: #fff5f7;">
+            <div class="cram-section" >
                 <h3>⚡ Developer Cheat Sheet</h3>
                 <p><strong>Lambda</strong>: 15 min max timeout. <code>/tmp</code> size 512MB-10GB.
                     <strong>Layers</strong> for dependencies. <strong>Aliases</strong> for traffic shifting.</p>
@@ -920,7 +829,7 @@ AWS UNIFIED (ARCHITECT & DEVELOPER)
                     (Customer Managed), <strong>SSE-C</strong> (Client Key provided in correct header).</p>
             </div>
 
-            <div class="set-header" style="background: #702459;">DEVELOPER TRACK - SET 5 (Questions 101-125)</div>
+            <div class="set-header" >DEVELOPER TRACK - SET 5 (Questions 101-125)</div>
 
             <div class="q-block">
                 <div class="q-line">Q101. You need to deploy a Lambda function that connects to an RDS database in a
@@ -1514,6 +1423,7 @@ AWS UNIFIED (ARCHITECT & DEVELOPER)
                         setTimeout(() => { toast.style.opacity = '0'; }, 2000);
                     }
                 </script>
+    <script src="../assets/engine.js"></script>
 </body>
 
 </html>

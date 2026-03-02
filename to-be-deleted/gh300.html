@@ -5,113 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GitHub Copilot (GH-300) Practice Exam</title>
-    <style>
-        body {
-            font-family: monospace;
-            font-size: 13px;
-            line-height: 1.4;
-            color: #1a1a1a;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
 
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-
-        h1,
-        h2,
-        h3 {
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .cram-section {
-            background-color: #eee;
-            padding: 15px;
-            margin-bottom: 30px;
-            border: 2px solid #000;
-        }
-
-        .domain-title {
-            font-weight: bold;
-            text-decoration: underline;
-            margin-top: 20px;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .q-block {
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px dashed #ccc;
-        }
-
-        .q-line {
-            font-weight: bold;
-            white-space: normal;
-        }
-
-        .a-line {
-            color: #005500;
-            margin-top: 2px;
-            padding-left: 20px;
-        }
-
-        .set-header {
-            margin-top: 50px;
-            background: #000;
-            color: #fff;
-            padding: 5px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 10px;
-                border: none;
-            }
-        }
-
-        #save-toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 1000;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
     <div id="save-toast">Position Saved</div>
     <div class="container">
         <a href="index.html"
-            style="display:inline-block;margin-bottom:20px;text-decoration:none;color:#000;font-weight:bold;border:1px solid #000;padding:5px 10px;border-radius:3px;">←
+            >←
             Back to Dashboard</a>
 
         <h1>GitHub Copilot (GH-300)<br>Practice Exam</h1>
 
         <div class="cram-section">
             <h3>🧠 GH-300 Topic Mindmap</h3>
-            <pre style="font-size: 11px; white-space: pre;">
+            <pre >
 GITHUB COPILOT
 ├── FEATURES
 │   ├── Code Completion (Ghost Text, FIM - Fill In Middle)
@@ -144,13 +53,13 @@ GITHUB COPILOT
         <div class="cram-section">
             <h3>📚 Key Official Resources</h3>
             <p>🔗 <a href="https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot"
-                    target="_blank" style="color:blue">GitHub Copilot Docs</a> - The absolute source of truth.</p>
-            <p>🔗 <a href="https://github.com/features/copilot" target="_blank" style="color:blue">Copilot Features
+                    target="_blank" >GitHub Copilot Docs</a> - The absolute source of truth.</p>
+            <p>🔗 <a href="https://github.com/features/copilot" target="_blank" >Copilot Features
                     Page</a> - Understand the tiers (Business vs Enterprise).</p>
             <p>🔗 <a href="https://learn.microsoft.com/en-us/training/paths/copilot/" target="_blank"
-                    style="color:blue">MS Learn: Copilot Path</a> - Official certification study path.</p>
+                    >MS Learn: Copilot Path</a> - Official certification study path.</p>
             <p>🔗 <a href="https://docs.github.com/en/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom"
-                    target="_blank" style="color:blue">Managing Copilot Policies</a> - Critical for Admin questions.</p>
+                    target="_blank" >Managing Copilot Policies</a> - Critical for Admin questions.</p>
         </div>
 
         <div class="cram-section">
@@ -927,6 +836,7 @@ GITHUB COPILOT
             setTimeout(() => { toast.style.opacity = '0'; }, 2000);
         }
     </script>
+    <script src="../assets/engine.js"></script>
 </body>
 
 </html>

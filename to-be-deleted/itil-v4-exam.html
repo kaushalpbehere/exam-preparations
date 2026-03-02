@@ -5,187 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ITIL 4 Foundation Practice Exam</title>
-    <style>
-        body {
-            font-family: monospace;
-            font-size: 13px;
-            line-height: 1.4;
-            color: #1a1a1a;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
 
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-
-        h1,
-        h2,
-        h3 {
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .cram-section {
-            background-color: #eee;
-            padding: 15px;
-            margin-bottom: 30px;
-            border: 2px solid #000;
-        }
-
-        .domain-title {
-            font-weight: bold;
-            text-decoration: underline;
-            margin-top: 20px;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .analogy-box,
-        .gotcha-box {
-            background: #fff;
-            border: 1px dashed #000;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        .analogy-title {
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 11px;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .check-check {
-            background: #eee;
-            padding: 10px;
-            border: 1px solid #000;
-            cursor: pointer;
-            margin: 10px 0;
-        }
-
-        .check-question {
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .check-answer {
-            margin-top: 10px;
-            display: none;
-            border-top: 1px dashed #000;
-            padding-top: 10px;
-        }
-
-        .check-check.revealed .check-answer {
-            display: block;
-        }
-
-        .q-block {
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px dashed #ccc;
-        }
-
-        .q-line {
-            font-weight: bold;
-            white-space: normal;
-        }
-
-        .a-line {
-            color: #005500;
-            margin-top: 2px;
-            padding-left: 20px;
-        }
-
-        .set-header {
-            margin-top: 50px;
-            background: #000;
-            color: #fff;
-            padding: 5px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 10px;
-                border: none;
-            }
-        }
-
-        #save-toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        .love-note {
-            background: #ffe4e1;
-            border: 2px solid #ff69b4;
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
-        }
-
-        .love-note-content {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .love-note-hide {
-            background: #ff69b4;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            margin-top: 15px;
-            cursor: pointer;
-            font-family: monospace;
-            font-size: 12px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        .love-note-hide:hover {
-            background: #ff1493;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
     <div id="save-toast">Position Saved</div>
     <div class="container">
         <a href="index.html"
-            style="display:inline-block;margin-bottom:20px;text-decoration:none;color:#000;font-weight:bold;border:1px solid #000;padding:5px 10px;border-radius:3px;">←
+            >←
             Back to Dashboard</a>
 
         <h1>ITIL 4 Foundation<br>Practice Exam</h1>
 
         <div
-            style="background: #fff5f5; padding: 15px; border-radius: 8px; border: 1px solid #fed7d7; margin-bottom: 30px;">
-            <h4 style="margin-top:0; color:#9b2c2c;">🎯 Certification Goal</h4><a
+            >
+            <h4 >🎯 Certification Goal</h4><a
                 href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-foundation-2565"
-                target="_blank" style="color:#c53030; font-weight:bold;">ITIL 4 Foundation by PeopleCert/Axelos</a>
+                target="_blank" >ITIL 4 Foundation by PeopleCert/Axelos</a>
         </div>
 
         <div class="cram-section">
@@ -215,7 +52,7 @@
         <div class="cram-section">
             <h3>The 7 Guiding Principles</h3>
             <div class="analogy-box"><span class="analogy-title">The Compass</span>When you are lost or facing a
-                difficult decision, look at these 7 stars: <ol style="margin:5px 0 0 20px;">
+                difficult decision, look at these 7 stars: <ol >
                     <li><strong>Focus on Value</strong> (Why are we doing this?)</li>
                     <li><strong>Start where you are</strong> (Don't wipe everything; reuse!)</li>
                     <li><strong>Progress iteratively with feedback</strong> (Baby steps)</li>
@@ -1688,8 +1525,8 @@
                         loveNote.className = 'love-note';
                         loveNote.innerHTML = `
                                     <div class="love-note-content">
-                                        <h3 style="border:none; text-align:center; padding:0; margin:0 0 10px 0;">💝</h3>
-                                        <p style="text-align:center; font-size:16px; margin:0;">I love you Tejal</p>
+                                        <h3 >💝</h3>
+                                        <p >I love you Tejal</p>
                                         <button class="love-note-hide" onclick="hideLoveNote()">Hide</button>
                                     </div>
                                 `;
@@ -1732,6 +1569,7 @@
                 }, 1000);
             }
         </script>
+    <script src="../assets/engine.js"></script>
 </body>
 
 </html>

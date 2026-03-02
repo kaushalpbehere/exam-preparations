@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 4: The Pro (MLOps) - Creative ML Master's</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="cml-pro">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>Creative ML Master's - Step 4</h1>
+        <h2>The Pro (MLOps)</h2>
+
+        <div class="academic-theory">
+            <strong>Academic Theory (MSc Level):</strong> Deployment, Monitoring, and Model Governance (Vertex AI/SageMaker).
+            CI/CD for ML, Data Drift vs Concept Drift, Continuous Training architectures.
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q1. In MLOps, what describes a scenario where the statistical properties of the target variable (what the model predicts) change over time? (A) Data Drift (B) Concept Drift (C) Overfitting (D) Data Leakage</div>
+            <div class="a-line">Answer: B - Explanation: Concept drift occurs when the fundamental relationship between the input features and the target variable changes over time, meaning the mapping the model learned is no longer valid. Data drift is when the distribution of the input features changes.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <div class="q-line">Q2. What is a core benefit of adopting a Continuous Training (CT) architecture in an MLOps pipeline? (A) Automatically tuning hyperparameters using grid search (B) Eliminating the need for model evaluation (C) Automatically retraining models on fresh data triggered by events or schedules (D) Compressing model artifacts for faster inference</div>
+            <div class="a-line">Answer: C - Explanation: CT automates the retraining process by triggering a pipeline when performance degrades or on a schedule. This mitigates model staleness caused by drift and keeps the deployed model performing accurately over time.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

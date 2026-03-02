@@ -132,3 +132,13 @@ a {
     color: #aaa;
     margin-top: 5px;
 }
+
+.academic-theory {
+    background-color: #1a1a2e;
+    border: 1px solid #16213e;
+    border-left: 4px solid #0f3460;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #e94560;
+}
