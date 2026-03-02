@@ -1,0 +1,134 @@
+body {
+    font-family: monospace;
+    font-size: 13px;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+    line-height: 1.4;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.btn, .exam-link {
+    display: block;
+    min-height: 44px;
+    min-width: 44px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: monospace;
+}
+
+.btn:hover, .exam-link:hover {
+    background-color: #444;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.q-block {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #444;
+    background-color: #111;
+    cursor: pointer;
+}
+
+.q-line {
+    font-weight: bold;
+}
+
+.a-line {
+    color: #0f0;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #444;
+}
+
+.score-controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.score-btn {
+    flex: 1;
+    min-height: 44px;
+    background: #333;
+    color: #fff;
+    border: 1px solid #666;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.score-btn.correct {
+    border-color: #0f0;
+}
+.score-btn.correct:hover, .score-btn.correct.active {
+    background: #0f0;
+    color: #000;
+}
+
+.score-btn.incorrect {
+    border-color: #f00;
+}
+.score-btn.incorrect:hover, .score-btn.incorrect.active {
+    background: #f00;
+    color: #000;
+}
+
+#score-board {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    border-bottom: 1px solid #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.content-wrapper {
+    margin-top: 50px;
+}
+
+.progress-bar {
+    height: 5px;
+    background: #333;
+    margin-top: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #0f0;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.meta {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 5px;
+}
