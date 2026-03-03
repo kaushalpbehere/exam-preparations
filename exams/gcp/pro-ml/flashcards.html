@@ -1,66 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GCP Pro ML Engineer - Flashcards</title>
-    <link rel="stylesheet" href="../../assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCP Digital Leader Flashcards</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <div class="container">
-        <a href="../../index.html" class="btn">← Back to Dashboard</a>
-        <h1>GCP Professional ML Engineer</h1>
-        <h2>Flashcards</h2>
-        <div class="flashcard-container" id="fc-container">
-            <div class="flashcard" id="card">
-                <div class="card-inner" id="card-inner">
-                    <div class="card-front" id="card-front">Loading...</div>
-                    <div class="card-back" id="card-back">Loading...</div>
-                </div>
-            </div>
+        <a href="index.html" class="btn">← Dashboard</a>
+        <h1>GCP Digital Leader Flashcards</h1>
+
+        <p style="font-size: 11px; color:#888; text-align:center;">
+            Tap the <b>Left Half</b> of the screen for 'Previous', <b>Right Half</b> for 'Next'.
+        </p>
+
+        <div class="fc-viewer">
+            <!-- Invisible Touch Zones -->
+            <div class="fc-hitbox-left" id="zone-left"></div>
+            <div class="fc-hitbox-right" id="zone-right"></div>
+
+            <div class="fc-counter" id="fc-counter">1 / 50</div>
+
+            <!-- Content -->
+            <div class="fc-front" id="fc-front">Front Loading...</div>
+            <div class="fc-back" id="fc-back">Back Loading...</div>
         </div>
-        
-        <div class="fc-controls">
-            <button class="btn" id="prev-btn">← Prev</button>
-            <span id="counter" style="color:#aaa; font-family:monospace; padding:0 15px;">1 / 1</span>
-            <button class="btn" id="next-btn">Next →</button>
-        </div>
+
     </div>
 
     <script>
         const cards = [
-            { f: '[GCP Pro ML Term Placeholder]', b: '[GCP Pro ML Definition Placeholder]' },
+            { front: "CapEx (Capital Expenditure)", back: "Upfront spending on physical infrastructure (servers, data centers). Depreciated over time." },
+            { front: "OpEx (Operational Expenditure)", back: "Pay-as-you-go spending for services you consume (e.g., Cloud Computing). No upfront costs." },
+            { front: "Total Cost of Ownership (TCO)", back: "A comprehensive estimate of all direct and indirect costs of a system over its lifetime (hardware, power, cooling, labor)." },
+            { front: "Shared Responsibility Model", back: "Google is responsible for security OF the cloud (physical data centers, network). Customer is responsible for security IN the cloud (data, IAM, app code)." },
+            { front: "IaaS (Infrastructure as a Service)", back: "Provides raw compute, storage, and networking (e.g., Compute Engine). Highest control, highest management overhead." },
+            { front: "PaaS (Platform as a Service)", back: "Provides a managed environment to deploy applications without managing underlying OS (e.g., App Engine, Cloud Run)." },
+            { front: "SaaS (Software as a Service)", back: "Fully managed software applications accessible via the web (e.g., Google Workspace)." },
+            { front: "Compute Engine", back: "Google Cloud's IaaS offering providing customizable Virtual Machines (VMs)." },
+            { front: "Google Kubernetes Engine (GKE)", back: "Managed environment for orchestrating, deploying, and scaling containerized applications." },
+            { front: "Cloud Run", back: "Fully managed serverless platform for running highly scalable stateless containers." },
+            { front: "Cloud Functions", back: "Serverless execution environment for building and connecting lightweight, event-driven, single-purpose code snippets." },
+            { front: "Cloud Storage", back: "Highly durable and scalable object storage service optimized for unstructured data (images, backups, videos)." },
+            { front: "Standard Storage Class", back: "Best for frequently accessed data (hot data) with high availability." },
+            { front: "Nearline Storage Class", back: "Best for data accessed less than once a month (e.g., recent backups)." },
+            { front: "Coldline Storage Class", back: "Best for data accessed less than once a quarter." },
+            { front: "Archive Storage Class", back: "Lowest cost storage for data accessed less than once a year (e.g., regulatory archiving)." },
+            { front: "Persistent Disk", back: "Durable block storage physically attached to Compute Engine Virtual Machines." },
+            { front: "Cloud SQL", back: "Fully managed relational database service for MySQL, PostgreSQL, and SQL Server." },
+            { front: "Cloud Spanner", back: "Fully managed, horizontally scalable, relational database designed for global transaction consistency (ACID)." },
+            { front: "BigQuery", back: "Fully managed, serverless, and highly scalable enterprise data warehouse for analyzing PBs of data using SQL." },
+            { front: "Cloud Bigtable", back: "Fully managed, wide-column NoSQL database optimized for heavy read/write workloads with millisecond latency (IoT, AdTech)." },
+            { front: "Firestore", back: "NoSQL document database built for rapid synchronization and offline support for web and mobile apps." },
+            { front: "Memorystore", back: "Fully managed, highly scalable in-memory service (Redis / Memcached) for caching and fast data access." },
+            { front: "Cloud VPC (Virtual Private Cloud)", back: "Software-defined global network for your cloud resources, providing isolation and control." },
+            { front: "Cloud Load Balancing", back: "Distributes incoming application traffic globally or regionally across multiple instances." },
+            { front: "Cloud CDN (Content Delivery Network)", back: "Caches web content at the edge of Google's network, closer to users, reducing latency and backend load." },
+            { front: "Cloud Interconnect", back: "Provides direct, physical, high-bandwidth connections between an on-premises network and Google Cloud." },
+            { front: "Cloud DNS", back: "Scalable, reliable, and managed authoritative Domain Name System (DNS) service." },
+            { front: "IAM (Identity and Access Management)", back: "Determines 'Who' can do 'What' on 'Which' resource by assigning roles and permissions." },
+            { front: "Principle of Least Privilege", back: "Security concept of granting a user or service account only the bare minimum permissions required to perform its task." },
+            { front: "Resource Manager Hierarchy", back: "Organizes resources structurally: Organization -> Folders -> Projects -> Resources." },
+            { front: "Organization Policies", back: "Allow administrators to configure restrictions on how resources can be used across an entire organization." },
+            { front: "Security Command Center", back: "Google's native security and risk management platform for identifying vulnerabilities and threats across GCP." },
+            { front: "Cloud Armor", back: "Acts as a Web Application Firewall (WAF) and provides DDoS mitigation for your global external load balancers." },
+            { front: "Identity-Aware Proxy (IAP)", back: "Controls access to applications and VMs without using a VPN, verifying user identity and context." },
+            { front: "Cloud Key Management Service (KMS)", back: "Cloud service that allows you to manage cryptographic keys used to protect your data." },
+            { front: "Vertex AI", back: "Unified MLOps machine learning platform to build, train, deploy, and manage ML models and GenAI applications." },
+            { front: "AutoML", back: "Enables developers with limited ML expertise to train high-quality, custom ML models specifically for their business needs." },
+            { front: "Dialogflow", back: "Natural Language Understanding (NLU) platform used to design conversational user interfaces (chatbots/voicebots)." },
+            { front: "Document AI", back: "Uses machine learning to extract structured data (forms, tables, receipts) from unstructured scanned documents or PDFs." },
+            { front: "Cloud Dataflow", back: "Fully managed service for unified stream and batch data processing, built on Apache Beam." },
+            { front: "Cloud Dataproc", back: "Fully managed and highly scalable service for running open-source data tools like Apache Spark and Hadoop." },
+            { front: "Cloud Pub/Sub", back: "Asynchronous messaging service for streaming analytics and integrating decoupled microservices." },
+            { front: "Cloud Data Fusion", back: "Fully managed, cloud-native data integration service providing a drag-and-drop visual interface for ETL pipelines." },
+            { front: "Cloud Dataprep", back: "Intelligent, UI-driven data service for visually exploring, cleaning, and preparing data for analysis." },
+            { front: "Cloud Build", back: "Serverless Continuous Integration and Continuous Delivery (CI/CD) platform." },
+            { front: "Artifact Registry", back: "Universal package manager and container image registry for storing and managing build artifacts." },
+            { front: "Google Cloud Marketplace", back: "Offers ready-to-go software stacks, APIs, and services to speed up deployment of third-party apps." },
+            { front: "Pricing Calculator", back: "Web tool that lets you model your expected GCP usage and receive an estimated monthly cost upfront." },
+            { front: "Budgets and Alerts", back: "Tracks actual Google Cloud spend and sends notifications when spending reaches predefined thresholds." },
+            { front: "Sustained Use Discounts", back: "Automatic discounts applied when you run specific Compute Engine resources for a significant portion of the month." },
+            { front: "Committed Use Discounts", back: "Deep discounts obtained by committing to use a specific amount of resources or spending for 1 or 3 years." },
+            { front: "Active Assist", back: "Uses data and machine learning to generate intelligent recommendations that help optimize cloud cost, security, and performance." },
+            { front: "Cloud Operations Suite (formerly Stackdriver)", back: "Integrated monitoring, logging, and trace service for applications on GCP." },
+            { front: "Service Level Agreement (SLA)", back: "A formal contract defining guaranteed uptime metrics and financial credits if guarantees are breached." }
         ];
-        
+
         let currentIndex = 0;
-        const frontEl = document.getElementById('card-front');
-        const backEl = document.getElementById('card-back');
-        const innerEl = document.getElementById('card-inner');
-        const counterEl = document.getElementById('counter');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
+        const frontEl = document.getElementById('fc-front');
+        const backEl = document.getElementById('fc-back');
+        const counterEl = document.getElementById('fc-counter');
 
         function updateCard() {
-            frontEl.textContent = cards[currentIndex].f;
-            backEl.textContent = cards[currentIndex].b;
+            frontEl.textContent = cards[currentIndex].front;
+            backEl.textContent = cards[currentIndex].back;
             counterEl.textContent = `${currentIndex + 1} / ${cards.length}`;
-            innerEl.classList.remove('is-flipped');
         }
 
-        document.getElementById('card').addEventListener('click', () => {
-            innerEl.classList.toggle('is-flipped');
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < cards.length - 1) {
-                currentIndex++;
+        document.getElementById('zone-left').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            } else {
+                // Wrap to end
+                currentIndex = cards.length - 1;
                 updateCard();
             }
         });
 
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
+        document.getElementById('zone-right').addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateCard();
+            } else {
+                // Wrap to beginning
+                currentIndex = 0;
                 updateCard();
             }
         });
@@ -69,4 +127,5 @@
         updateCard();
     </script>
 </body>
+
 </html>

@@ -16,7 +16,7 @@
 # Exam Platform Master Backlog
 
 ## Structural Golden Rules for Every Exam
-- **Top-Level Vendor Hierarchies**: All ML certification paths must be grouped under three primary vendor directories: `exams/aws/`, `exams/azure/`, and `exams/gcp/`.
+- **Top-Level Vendor Hierarchies**: All ML certification paths must be grouped under three primary vendor directories: `exams/aws/`, `exams/azure/`, and `exams/gcp/`. Adding ITIL as a core methodology path under `exams/itil/`.
 - **Progression Paths**: Each vendor folder must contain a logical progression of exams, from foundational knowledge to the Professional ML certification.
 - **Folder Containment**: Everything related to an individual exam (Mock Exams, Revision Guides, Flashcards) MUST be strictly contained in its dedicated sub-folder (e.g., `exams/aws/ml-specialty/`). No exam assets should live in the root directory.
 - **Universal Template**: Every single exam MUST be developed on the exact same template. Everything must be linked together in a simplified `index.html` dashboard under its respective vendor.
@@ -31,82 +31,275 @@
 ---
 
 ## 1. Google Cloud ML Path (`exams/gcp/`)
+
 ### Step 1: Cloud Digital Leader (Foundations)
 *Currently exists at `exams/gcp-digital-leader/`. Needs to be moved to `exams/gcp/digital-leader/`.*
-- [x] Move existing folder to new `exams/gcp/` hierarchy.
-- [x] Ensure 5 sets, Revision Guide, and Flashcards follow the Universal Template.
-- [x] Link securely in simplified dashboard.
+- [ ] **Infrastructure Setup**
+  - [x] Create dedicated folder (`exams/gcp/`)
+  - [x] Move existing folder to new `exams/gcp/` hierarchy
+- [ ] **Mock Exams Generation**
+  - [x] Verify Set 1 of 5
+  - [x] Verify Set 2 of 5
+  - [x] Verify Set 3 of 5
+  - [x] Verify Set 4 of 5
+  - [x] Verify Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [x] Verify comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [x] Verify Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [x] Verify right/left click navigation
+- [ ] **Integration**
+  - [x] Link securely in simplified dashboard
+  - [x] Verify mobile-first UI constraints
 
 ### Step 2: Professional Machine Learning Engineer
-- [ ] Create dedicated folder (`exams/gcp/pro-ml/`)
-- [ ] Generate 5 full mock exam sets using the Universal Template
-- [ ] Generate comprehensive Revision Guide (`revision.html`)
-- [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
-- [ ] Link securely in simplified dashboard.
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/gcp/pro-ml/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Generate Set 1 of 5 (50+ questions with explanations)
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link assets securely in the platform dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ---
 
 ## 2. AWS ML Path (`exams/aws/`)
+
 ### Step 1: AWS Certified Cloud Practitioner
-- [ ] Create dedicated folder (`exams/aws/cloud-practitioner/`)
-- [ ] Generate 5 full mock exam sets using the Universal Template
-- [ ] Generate comprehensive Revision Guide (`revision.html`)
-- [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
-- [ ] Link securely in simplified dashboard.
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/aws/cloud-practitioner/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Generate Set 1 of 5 (50+ questions with explanations)
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link assets securely in the platform dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ### Step 2: AWS Certified AI Practitioner (Data/AI Foundations)
 *Can salvage data from `to-be-deleted/aws_ai.html`.*
-- [ ] Create dedicated folder (`exams/aws/ai-practitioner/`)
-- [ ] Generate 5 full mock exam sets using the Universal Template
-- [ ] Generate comprehensive Revision Guide (`revision.html`)
-- [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
-- [ ] Link securely in simplified dashboard.
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/aws/ai-practitioner/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Extract existing data and generate Set 1 of 5
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link assets securely in the platform dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ### Step 3: AWS Certified Machine Learning - Specialty
 *Currently exists at `exams/aws-ml/`. Needs to be moved to `exams/aws/ml-specialty/`.*
-- [x] Create new hierarchy `exams/aws/ml-specialty/` and move assets.
-- [x] Verify 5 mock exam sets exist using identical template.
-- [x] Verify comprehensive Revision Guide (`revision.html`) exists.
-- [x] Verify Minimalistic Flashcards (> 50 cards, `flashcards.html`) exist.
-- [ ] Link securely in simplified dashboard.
+- [ ] **Infrastructure Setup**
+  - [x] Create new hierarchy `exams/aws/ml-specialty/` and move assets
+- [ ] **Mock Exams Generation**
+  - [x] Verify Set 1 of 5 exists using identical template
+  - [x] Verify Set 2 of 5
+  - [x] Verify Set 3 of 5
+  - [x] Verify Set 4 of 5
+  - [x] Verify Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [x] Verify comprehensive Revision Guide (`revision.html`) exists
+- [ ] **Flashcards Creation**
+  - [x] Verify Minimalistic Flashcards (> 50 cards, `flashcards.html`) exist
+  - [x] Verify right/left click navigation
+- [ ] **Integration**
+  - [ ] Link securely in simplified dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ---
 
 ## 3. Azure ML Path (`exams/azure/`)
+
 ### Step 1: Azure AI Fundamentals (AI-900)
-- [ ] Create dedicated folder (`exams/azure/ai-900/`)
-- [ ] Generate 5 full mock exam sets using the Universal Template
-- [ ] Generate comprehensive Revision Guide (`revision.html`)
-- [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
-- [ ] Link securely in simplified dashboard.
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/azure/ai-900/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Generate Set 1 of 5 (50+ questions with explanations)
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link assets securely in the platform dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ### Step 2: Azure Data Scientist Associate (DP-100)
 *Currently exists at `exams/azure-ml/`. Needs to be moved to `exams/azure/dp-100/`.*
-- [ ] Create new hierarchy `exams/azure/dp-100/` and move assets.
-- [x] Verify 5 mock exam sets exist using identical template.
-- [x] Verify comprehensive Revision Guide (`revision.html`) exists.
-- [x] Verify Minimalistic Flashcards (> 50 cards, `flashcards.html`) exist.
-- [x] Link securely in simplified dashboard.
+- [ ] **Infrastructure Setup**
+  - [ ] Create new hierarchy `exams/azure/dp-100/` and move assets
+- [ ] **Mock Exams Generation**
+  - [x] Verify Set 1 of 5 exists using identical template
+  - [x] Verify Set 2 of 5
+  - [x] Verify Set 3 of 5
+  - [x] Verify Set 4 of 5
+  - [x] Verify Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [x] Verify comprehensive Revision Guide (`revision.html`) exists
+- [ ] **Flashcards Creation**
+  - [x] Verify Minimalistic Flashcards (> 50 cards, `flashcards.html`) exist
+  - [x] Verify right/left click navigation
+- [ ] **Integration**
+  - [x] Link securely in simplified dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ---
 
-## 4. Legacy Expansions
-```markdown
-- [ ] Create dedicated folder (`exams/itil-v4/`)
-```
-- [ ] Generate 5 full mock exam sets using the Universal Template (extracting data from `to-be-deleted/itil-v4-exam.html`)
+## 4. ITIL Path (`exams/itil/`)
+
+### Step 1: ITIL v4 Foundation
+*Can salvage data from `to-be-deleted/itil-v4-exam.html`.*
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/itil/v4-foundation/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Extract existing data and generate Set 1 of 5
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link assets securely in the platform dashboard
+  - [ ] Verify mobile-first UI constraints
+
+### Step 2: ITIL v5 Foundation
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/itil/v5-foundation/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Generate Set 1 of 5 (50+ questions with explanations)
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link assets securely in the platform dashboard
+  - [ ] Verify mobile-first UI constraints
+
+### Step 3: ITIL Specialty Certificate
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/itil/specialty-certificate/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Generate Set 1 of 5 (50+ questions with explanations)
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link assets securely in the platform dashboard
+  - [ ] Verify mobile-first UI constraints
+
+---
+
+## 5. Legacy Expansions
 
 ### GitHub Certification (GH300)
-- [ ] Create dedicated folder (`exams/gh300/`)
-- [ ] Generate 5 full mock exam sets using the Universal Template (extracting data from `to-be-deleted/gh300.html`)
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/gh300/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Extract data from `to-be-deleted/gh300.html` and generate Set 1 of 5
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link securely in simplified dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ### Life in the UK
-- [ ] Create dedicated folder (`exams/life-in-uk/`)
-- [ ] Generate 5 full mock exam sets using the Universal Template (extracting data from `to-be-deleted/life_in_uk.html`)
+- [ ] **Infrastructure Setup**
+  - [ ] Create dedicated folder (`exams/life-in-uk/`)
+  - [ ] Copy Universal Template structure (HTML/CSS/JS)
+- [ ] **Mock Exams Generation**
+  - [ ] Extract data from `to-be-deleted/life_in_uk.html` and generate Set 1 of 5
+  - [ ] Generate Set 2 of 5
+  - [ ] Generate Set 3 of 5
+  - [ ] Generate Set 4 of 5
+  - [ ] Generate Set 5 of 5
+- [ ] **Revision Guide Creation**
+  - [ ] Aggregate key topics
+  - [ ] Generate comprehensive `revision.html`
+- [ ] **Flashcards Creation**
+  - [ ] Extract Q&A pairs
+  - [ ] Generate Minimalistic Flashcards (> 50 cards, `flashcards.html`)
+  - [ ] Implement right/left click navigation
+- [ ] **Integration**
+  - [ ] Link securely in simplified dashboard
+  - [ ] Verify mobile-first UI constraints
 
 ---
 
-## 4. Creative ML Master's Path (`exams/creative-ml/`) (Deprioritized)
+## 6. Creative ML Master's Path (`exams/creative-ml/`) (Deprioritized)
 *Objective: Build an in-depth, comprehensive "Master's Degree" shortcut for AI/ML. This is a learning journey, not an exam simulator. Chapter-wise, visual, with no fluff—based on the "Hands On Machine Learning with Scikit Learn and TensorFlow" textbook and supplemented by expert online knowledge.*
 
 **Core Tasks:**
@@ -146,7 +339,7 @@
 
 ---
 
-## 5. Final Deprecation Pipeline
+## 7. Final Deprecation Pipeline
 *The `to-be-deleted/` folder is temporarily preserved as a data source for rebuilding legacy exams into the Universal Template. Once extraction is complete, it must be purged to avoid content duplication.*
 - [ ] Verify all useful content has been extracted from `to-be-deleted/`.
 - [ ] Delete the `to-be-deleted/` directory and all its contents entirely.

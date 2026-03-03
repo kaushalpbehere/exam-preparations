@@ -3,122 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Cloud Practitioner - Revision Guide</title>
-    <link rel="stylesheet" href="../../assets/style.css">
+    <title>GCP Revision Guide</title>
+    <link rel="stylesheet" href="assets/style.css">
     <style>
-        .concept-card {
-            background: #2a2a2a;
+        .revision-section {
             border: 1px solid #444;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #111;
         }
-        .concept-card h3 { margin-top: 0; color: #ff9900; }
-        pre { white-space: pre-wrap; }
+        .revision-section h2 {
+            margin-top: 0;
+            color: #0f0;
+            border-bottom: 1px dashed #444;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="../../index.html" class="btn">← Back to Dashboard</a>
-        <h1>AWS Certified Cloud Practitioner</h1>
-        <h2>Revision Guide</h2>
-        <div style="background:#222; padding: 10px; margin-bottom: 20px; border: 1px solid #ff9900; color: #ff9900;">
-            LAST-MINUTE CRAM: Master the 6 Pillars of Well-Architected Framework, Storage Cheatsheet, and core AWS service value propositions (TCO, OpEx vs CapEx).
-        </div>
-        <div class='concept-card'>
+        <a href="index.html" class="btn">← Dashboard</a>
+        <h1>GCP Revision Guide</h1>
 
-<h3>🧠 AWS Unified Topic Mindmap (SAA + DVA)</h3>
-<pre>
-AWS UNIFIED (ARCHITECT &amp; DEVELOPER)
-├── CORE INFRA (SAA Focus)
-│   ├── Compute: EC2 (Instances/Spot), Auto Scaling, ELB
-│   ├── Storage: S3 (Classes/Security), EBS, EFS, FSx
-│   ├── Network: VPC, Route 53, CloudFront, Global Accelerator
-│   └── Database: RDS (Multi-AZ/Read Replica), Aurora
-├── SERVERLESS &amp; APIS (DVA Focus)
-│   ├── Lambda: Versions/Aliases, Layers, Powertools, Event Source Mapping
-│   ├── API Gateway: Stages, Usage Plans, Mapping Templates, CORS, Websockets
-│   ├── EventBridge: Rules, Pipes, Scheduler, Schema Registry
-│   └── Step Functions: Standard vs Express, Saga Pattern, Wait States
-├── DATA &amp; ANALYTICS
-│   ├── DynamoDB: Partition/Sort Keys, LSI/GSI, DAX, Streams, TTL
-│   ├── Kinesis: Data Streams (Shards/Consumers), Firehose
-│   ├── SQS/SNS: Fan-out, FIFO vs Standard, DLQ, Visibility Timeout
-│   └── ElastiCache: Redis (Pub/Sub, Sorted Sets) vs Memcached
-├── DEVELOPER TOOLS (CI/CD)
-│   ├── CodeCommit: Git triggers, PRs, PR Approval Rules
-│   ├── CodeBuild: buildspec.yml, Env Vars, Caching, Local Build
-│   ├── CodeDeploy: appspec.yml, Hooks (BeforeInstall, AfterAllowTraffic), Blue/Green
-│   ├── CodePipeline: Artifacts, Manual Approval, Multi-Region, Custom Actions
-│   └── X-Ray: Tracing, Segments, Subsegments, Annotations vs Metadata, Daemon
-└── SECURITY &amp; OBSERVABILITY
-    ├── IAM: Roles vs Resource Policies, Cognito (User/Identity Pools)
-    ├── Secrets: Secrets Manager (Rotation) vs Parameter Store (Hierarchy/SecureString)
-    ├── Encryption: KMS (Envelope Enc), CloudHSM, ACM
-    └── Monitoring: CloudWatch (Alarms, Logs, Insights, Synthetics)
-            </pre>
+        <div class="revision-section">
+            <h2>1. General Cloud Knowledge</h2>
+            <ul>
+                <li><strong>IaaS vs PaaS vs SaaS:</strong> Compute Engine (IaaS), Cloud Run (PaaS), Google Workspace (SaaS).</li>
+                <li><strong>CapEx vs OpEx:</strong> Cloud shifts Capital Expenditure (buying servers) to Operational Expenditure (pay as you go).</li>
+                <li><strong>Public vs Private vs Hybrid vs Multi-cloud:</strong> Anthos is GCP's multi-cloud/hybrid solution.</li>
+                <li><strong>TCO (Total Cost of Ownership):</strong> Cloud reduces TCO by eliminating physical server maintenance.</li>
+            </ul>
         </div>
-        <div class='concept-card'>
 
-<h3>📚 Key Official Resources</h3>
-<p>🔗 <a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html" target="_blank">AWS Well-Architected Framework</a> - The core "why" of architecture.</p>
-<p>🔗 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html" target="_blank">S3 User Guide</a> - Critical for storage class &amp; encryption details.</p>
-<p>🔗 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html" target="_blank">Amazon VPC User Guide</a> - Networking scenarios rely heavily on this.</p>
-<p>🔗 <a href="https://aws.amazon.com/ec2/instance-types/" target="_blank">EC2 Instance
-                    Types</a> - Memorize the families (General, Compute, Memory).</p>
+        <div class="revision-section">
+            <h2>2. General Google Cloud Knowledge</h2>
+            <ul>
+                <li><strong>Regions & Zones:</strong> Regions are independent geographic areas (e.g., us-central1). Zones are isolated deployments within a region (e.g., us-central1-a).</li>
+                <li><strong>Google's Network:</strong> GCP uses its own private global fiber network for fast, secure routing.</li>
+                <li><strong>Pricing Calculator:</strong> Tool to estimate GCP costs before deployment.</li>
+                <li><strong>Resource Hierarchy:</strong> Organization -> Folder -> Project -> Resources. Policies flow down.</li>
+                <li><strong>IAM (Identity and Access Management):</strong> "Who" can do "What" on "Which resource".</li>
+            </ul>
         </div>
-        <div class='concept-card'>
 
-<h3>1. The 6 Pillars of Well-Architected Framework</h3>
-<p><strong>Operational Excellence</strong>: IAC, annotate documentation, frequent small changes, anticipate
-                failure.</p>
-<p><strong>Security</strong>: IAM roles (not users), protecting data in transit/rest, principle of least
-                privilege.</p>
-<p><strong>Reliability</strong>: Auto-scaling, Multi-AZ, horizontal scaling, automatic recovery.</p>
-<p><strong>Performance Efficiency</strong>: Serverless, right instance types, global reach (CloudFront),
-                experimentation.</p>
-<p><strong>Cost Optimization</strong>: Spot instances, savings plans, auto-scaling, managed services.</p>
-<p><strong>Sustainability</strong>: Maximizing utilization, efficient hardware/code practices.</p>
+        <div class="revision-section">
+            <h2>3. Google Cloud Products and Services</h2>
+            <ul>
+                <li><strong>Compute:</strong> Compute Engine (VMs), GKE (Kubernetes), Cloud Run (Serverless Containers), Cloud Functions (Event-driven Code).</li>
+                <li><strong>Storage:</strong> Cloud Storage (Object/Blobs), Persistent Disk (Block for VMs), Filestore (NFS).</li>
+                <li><strong>Databases:</strong> Cloud SQL (Relational), Cloud Spanner (Global Relational), Firestore (NoSQL Document), Bigtable (NoSQL Wide-column).</li>
+                <li><strong>Data Analytics:</strong> BigQuery (Data Warehouse), Dataflow (Stream/Batch processing), Dataproc (Managed Hadoop/Spark), Pub/Sub (Messaging).</li>
+                <li><strong>AI/ML:</strong> Vertex AI (Unified ML platform), Vision API, Natural Language API, Dialogflow.</li>
+            </ul>
         </div>
-        <div class='concept-card'>
 
-<h3>2. Key Architecture Patterns</h3>
-<p><strong>High Availability (HA)</strong>: Use Multi-AZ (RDS, ASG covers multiple AZs).</p>
-<p><strong>Fault Tolerance</strong>: Application keeps running even if components fail (S3, SQS decoupled
-                architecture).</p>
-<p><strong>Decoupling</strong>: SQS (Queue), SNS (Pub/Sub) to break bad dependencies.</p>
-<p><strong>Disaster Recovery (DR)</strong>: Backup &amp; Restore (Slowest), Pilot Light (DB running), Warm
-                Standby (Scaled down), Multi-Site Active/Active (Fastest).</p>
-        </div>
-        <div class='concept-card'>
-
-<h3>3. Storage Cheatsheet</h3>
-<p><strong>S3</strong>: Object storage. Infinite scale. Standard, IA, Glacier (Archive). Static websites.
-            </p>
-<p><strong>EBS</strong>: Block storage for one EC2. Persistence. GP3 (General), IO2 (High Performance).
-                Snapshots.</p>
-<p><strong>EFS</strong>: Linux Network File System (NFS). Shared across multiple EC2s. POSIX.</p>
-<p><strong>FSx for Windows</strong>: SMB share for Windows instances.</p>
-<p><strong>Storage Gateway</strong>: Hybrid cloud. File (S3 view), Volume (iSCSI), Tape.</p>
-        </div>
-        <div class='concept-card'>
-
-<h3>⚡ Developer Cheat Sheet</h3>
-<p><strong>Lambda</strong>: 15 min max timeout. <code>/tmp</code> size 512MB-10GB.
-                    <strong>Layers</strong> for dependencies. <strong>Aliases</strong> for traffic shifting.</p>
-<p><strong>API Gateway</strong>: 10,000 RPS (soft limit). 29s max timeout. <strong>Stage
-                        Variables</strong> for env config. <strong>CORS</strong> enablement needed for cross-origin.</p>
-<p><strong>DynamoDB</strong>: <strong>RCU</strong> (4KB chunks), <strong>WCU</strong> (1KB chunks).
-                    <strong>LSI</strong> (created ONLY at table creation, share capacity). <strong>GSI</strong> (created
-                    anytime, own capacity). <strong>DAX</strong> = Cache.</p>
-<p><strong>CI/CD Files</strong>: <strong>buildspec.yml</strong> (CodeBuild),
-                    <strong>appspec.yml</strong> (CodeDeploy).</p>
-<p><strong>X-Ray</strong>: <strong>Annotations</strong> (Indexed/Searchable: "GameID").
-                    <strong>Metadata</strong> (Not indexed). <strong>Daemon</strong> listens on UDP 2000.</p>
-<p><strong>KMS</strong>: <strong>Envelope Encryption</strong> -&gt; <code>GenerateDataKey</code> returns
-                    Plaintext + Encrypted key.</p>
-<p><strong>S3 Encryption</strong>: <strong>SSE-S3</strong> (Managed Keys), <strong>SSE-KMS</strong>
-                    (Customer Managed), <strong>SSE-C</strong> (Client Key provided in correct header).</p>
+        <div class="revision-section">
+            <h2>4. Security, Billing, and Support</h2>
+            <ul>
+                <li><strong>Shared Responsibility Model:</strong> Google secures the infrastructure; YOU secure your data and applications.</li>
+                <li><strong>Billing Accounts:</strong> Must be linked to projects. Use Budgets and Alerts to prevent bill shock.</li>
+                <li><strong>Support Plans:</strong> Basic (Free), Standard, Enhanced, Premium (15 min response).</li>
+                <li><strong>Cloud Identity:</strong> Manage users and groups centrally.</li>
+                <li><strong>Security Command Center:</strong> Centralized dashboard for security and risk management.</li>
+            </ul>
         </div>
     </div>
 </body>

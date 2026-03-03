@@ -3,16 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azure AI-900 - Revision Guide</title>
-    <link rel="stylesheet" href="../../assets/style.css">
+    <title>GCP Revision Guide</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .revision-section {
+            border: 1px solid #444;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #111;
+        }
+        .revision-section h2 {
+            margin-top: 0;
+            color: #0f0;
+            border-bottom: 1px dashed #444;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <a href="../../index.html" class="btn">← Back to Dashboard</a>
-        <h1>Azure AI Fundamentals (AI-900)</h1>
-        <h2>Revision Guide</h2>
-        <div style="background:#222; padding: 10px; margin-bottom: 20px; border: 1px solid #0078d4; color: #0078d4;">
-            LAST-MINUTE CRAM: Content to be generated. Focus on Computer Vision, NLP, Conversational AI, Document Intelligence, and Responsible AI principles.
+        <a href="index.html" class="btn">← Dashboard</a>
+        <h1>GCP Revision Guide</h1>
+
+        <div class="revision-section">
+            <h2>1. General Cloud Knowledge</h2>
+            <ul>
+                <li><strong>IaaS vs PaaS vs SaaS:</strong> Compute Engine (IaaS), Cloud Run (PaaS), Google Workspace (SaaS).</li>
+                <li><strong>CapEx vs OpEx:</strong> Cloud shifts Capital Expenditure (buying servers) to Operational Expenditure (pay as you go).</li>
+                <li><strong>Public vs Private vs Hybrid vs Multi-cloud:</strong> Anthos is GCP's multi-cloud/hybrid solution.</li>
+                <li><strong>TCO (Total Cost of Ownership):</strong> Cloud reduces TCO by eliminating physical server maintenance.</li>
+            </ul>
+        </div>
+
+        <div class="revision-section">
+            <h2>2. General Google Cloud Knowledge</h2>
+            <ul>
+                <li><strong>Regions & Zones:</strong> Regions are independent geographic areas (e.g., us-central1). Zones are isolated deployments within a region (e.g., us-central1-a).</li>
+                <li><strong>Google's Network:</strong> GCP uses its own private global fiber network for fast, secure routing.</li>
+                <li><strong>Pricing Calculator:</strong> Tool to estimate GCP costs before deployment.</li>
+                <li><strong>Resource Hierarchy:</strong> Organization -> Folder -> Project -> Resources. Policies flow down.</li>
+                <li><strong>IAM (Identity and Access Management):</strong> "Who" can do "What" on "Which resource".</li>
+            </ul>
+        </div>
+
+        <div class="revision-section">
+            <h2>3. Google Cloud Products and Services</h2>
+            <ul>
+                <li><strong>Compute:</strong> Compute Engine (VMs), GKE (Kubernetes), Cloud Run (Serverless Containers), Cloud Functions (Event-driven Code).</li>
+                <li><strong>Storage:</strong> Cloud Storage (Object/Blobs), Persistent Disk (Block for VMs), Filestore (NFS).</li>
+                <li><strong>Databases:</strong> Cloud SQL (Relational), Cloud Spanner (Global Relational), Firestore (NoSQL Document), Bigtable (NoSQL Wide-column).</li>
+                <li><strong>Data Analytics:</strong> BigQuery (Data Warehouse), Dataflow (Stream/Batch processing), Dataproc (Managed Hadoop/Spark), Pub/Sub (Messaging).</li>
+                <li><strong>AI/ML:</strong> Vertex AI (Unified ML platform), Vision API, Natural Language API, Dialogflow.</li>
+            </ul>
+        </div>
+
+        <div class="revision-section">
+            <h2>4. Security, Billing, and Support</h2>
+            <ul>
+                <li><strong>Shared Responsibility Model:</strong> Google secures the infrastructure; YOU secure your data and applications.</li>
+                <li><strong>Billing Accounts:</strong> Must be linked to projects. Use Budgets and Alerts to prevent bill shock.</li>
+                <li><strong>Support Plans:</strong> Basic (Free), Standard, Enhanced, Premium (15 min response).</li>
+                <li><strong>Cloud Identity:</strong> Manage users and groups centrally.</li>
+                <li><strong>Security Command Center:</strong> Centralized dashboard for security and risk management.</li>
+            </ul>
         </div>
     </div>
 </body>
