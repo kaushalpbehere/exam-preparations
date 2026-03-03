@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner - Set 4</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-cp-set4">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified Cloud Practitioner</h1>
+        <h2>Set 4 (Questions 61-80)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q61. Protect S3 data from accidental deletion/overwrites. (A) Replication (B)
+                    Versioning (C) Encryption (D) MFA</div>
+            <div class="a-line">Answer: B - S3 Versioning keeps multiple variants of an object. If you delete, it
+                    inserts a delete marker, which can be undone.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q62. Application needs extreme performance storage (100,000 IOPS) on EC2. (A) gp3
+                    (B) io2 Block Express (C) st1 (D) sc1</div>
+            <div class="a-line">Answer: B - io2 Block Express is the highest performance EBS volume type, designed
+                    for mission-critical sub-millisecond latency.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q63. Share a specific S3 object with a user for 10 minutes only. (A) IAM Role (B)
+                    Presigned URL (C) Bucket Policy (D) ACL</div>
+            <div class="a-line">Answer: B - Presigned URLs grant temporary access to a specific private object.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q64. What is the difference between Security Group (SG) and NACL? (A) SG is
+                    Stateless, NACL is Stateful (B) SG is Stateful, NACL is Stateless (C) No difference (D) SG works at
+                    VPC level</div>
+            <div class="a-line">Answer: B - Security Groups are Stateful (return traffic allowed auto). NACLs are
+                    Stateless (must allow return explicitly).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q65. Decrypt data inside an EC2 instance (enclave) securely. (A) KMS (B) Nitro
+                    Enclaves (C) CloudHSM (D) Macie</div>
+            <div class="a-line">Answer: B - AWS Nitro Enclaves create isolated compute environments to protect
+                    highly sensitive data during processing.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q66. Host a static website using custom domain and HTTPS. (A) S3 + Route 53 (B) S3 +
+                    CloudFront + ACM (C) EC2 + Apache (D) Lightsail</div>
+            <div class="a-line">Answer: B - S3 by itself supports HTTP. For HTTPS with a custom domain, you MUST
+                    front it with CloudFront and use an ACM certificate.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q67. Monitor for PII data leaking into a bucket. (A) Macie (B) GuardDuty (C)
+                    Inspector (D) WAF</div>
+            <div class="a-line">Answer: A - Macie is the data security service that discovers sensitive data (PII,
+                    PHI) in S3.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q68. EC2 in private subnet needs to access S3. Compliance says "Traffic must NOT
+                    leave Amazon network". (A) NAT Gateway (B) VPC Endpoint (Gateway) (C) Internet Gateway (D) VPN</div>
+            <div class="a-line">Answer: B - Gateway Endpoint for S3 routes traffic privately within AWS network. NAT
+                    Gateway would work but traffic leaves subnet to NAT (though still in AWS, Endpoint is strictly
+                    private routing).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q69. High Velocity data ingestion (IoT sensors). (A) SQS (B) Kinesis Data Streams
+                    (C) SNS (D) S3</div>
+            <div class="a-line">Answer: B - Kinesis Data Streams is built for massive ingestion of real-time data
+                    streams.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q70. "Fan-out" architecture: One message needs to trigger a Lambda, an Email, and an
+                    SQS queue. (A) SQS (B) SNS (C) Kinesis (D) Step Functions</div>
+            <div class="a-line">Answer: B - SNS (Simple Notification Service) is Pub/Sub. You publish once, and it
+                    "fans out" to all subscribers (Lambda, Email, SQS).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q71. Cost effective DB for purely key-value lookups, millions/sec. (A) RDS (B)
+                    DynamoDB (C) Redshift (D) Neptune</div>
+            <div class="a-line">Answer: B - DynamoDB is the choice for high-scale, key-value workloads.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q72. Prevent users from disabling CloudTrail logs in a specific account in an
+                    Organization. (A) IAM Policy (B) Service Control Policy (SCP) (C) CloudWatch Alarm (D) Config Rule</div>
+            <div class="a-line">Answer: B - SCPs (Organization level) act as guardrails. A Deny on
+                    "cloudtrail:StopLogging" in SCP prevents ANY user (even root) in the account from doing it.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q73. Global application. Writes go to US-East, Reads happen locally in Europe/Asia.
+                    (A) RDS Multi-AZ (B) Aurora Global Database (C) DynamoDB Global Tables (D) S3 Replication</div>
+            <div class="a-line">Answer: B - Aurora Global DB allows a primary writer in one region and low-latency
+                    read replicas in others.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q74. Limit the max number of requests from a single IP to your API. (A) Shield (B)
+                    WAF Rate-based Rule (C) NACL (D) Security Group</div>
+            <div class="a-line">Answer: B - AWS WAF supports "Rate-based rules" to block IPs that exceed a threshold
+                    (e.g. 2000 req/5min).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q75. You need to ensure an EC2 instance is placed on a distinct physical rack. (A)
+                    Cluster Placement Group (B) Spread Placement Group (C) Partition Placement Group (D) Dedicated Host</div>
+            <div class="a-line">Answer: B - Spread Placement Groups strictly place each instance on a separate rack.
+                    (Partition distributes across groups of racks).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q76. A company wants to prevent ANY public access to S3 buckets at the account
+                    level. (A) Bucket Policy (B) S3 Block Public Access (C) IAM (D) NACL</div>
+            <div class="a-line">Answer: B - S3 Block Public Access can be configured at the Account level to
+                    override any bucket/object permissions.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q77. Store JSON documents, flexible schema, query by any attribute. (A) S3 (B)
+                    DynamoDB (C) DocumentDB (D) RDS</div>
+            <div class="a-line">Answer: C - Amazon DocumentDB is MongoDB-compatible and designed specifically for
+                    JSON document storage/querying.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q78. Transfer 50 TB data from on-prem to S3 over internet is too slow. VPN is flaky.
+                    (A) Direct Connect public VIF (B) AWS Snowball Edge Storage Optimized (C) Site-to-Site VPN (D)
+                    Database Migration Service</div>
+            <div class="a-line">Answer: B - For 50TB with poor connectivity, physical transfer via Snowball is the
+                    standard recommendation.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q79. Which Load Balancer is best for millions of requests/sec with ultra-low latency
+                    (TCP/UDP)? (A) ALB (B) NLB (C) CLB (D) GWLB</div>
+            <div class="a-line">Answer: B - Network Load Balancer (NLB) operates at Layer 4 and handles millions of
+                    requests/sec with extremely low latency.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q80. Grant an EC2 instance permissions to upload to S3. (A) Store keys in code (B)
+                    IAM User (C) IAM Role attached to Instance Profile (D) Bucket Policy</div>
+            <div class="a-line">Answer: C - Never store keys on EC2. Attach an IAM Role.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

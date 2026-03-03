@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner - Set 5</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-cp-set5">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified Cloud Practitioner</h1>
+        <h2>Set 5 (Questions 81-100)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q81. Authenticate users for your ALB-fronted app using Google/Facebook. (A) Cognito
+                    User Pools (B) IAM (C) Directory Service (D) Shield</div>
+            <div class="a-line">Answer: A - ALB integrates natively with Amazon Cognito to handle OIDC/SAML
+                    authentication.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q82. Run a short task (30s) every time an object is uploaded to S3. (A) EC2 (B)
+                    Lambda (C) ECS (D) AppRunner</div>
+            <div class="a-line">Answer: B - S3 Event Notifications triggering Lambda is the most efficient,
+                    cost-effective serverless pattern.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q83. "Serverless" SQL database that scales down to zero when not used. (A) RDS MySQL
+                    (B) Aurora Serverless (C) DynamoDB (D) Redshift Serverless</div>
+            <div class="a-line">Answer: B - Aurora Serverless v2 scales capacity up/down instantly; v1 can pause
+                    (scale to zero).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q84. Coordinate microservices where some steps might take hours (human approval).
+                    (A) Lambda (B) Step Functions (C) SQS (D) SNS</div>
+            <div class="a-line">Answer: B - Step Functions "Standard Workflows" can run for up to 1 year, perfect
+                    for human approval steps (callbacks).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q85. Audit configuration changes to AWS resources over time. (A) CloudTrail (B)
+                    Config (C) CloudWatch (D) Inspector</div>
+            <div class="a-line">Answer: B - AWS Config records the *configuration state* of resources (timeline of
+                    changes), whereas CloudTrail records API *calls*.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q86. Centralized DNS management for multiple VPCs. (A) Route 53 Resolver (B) Host
+                    files (C) AD Connector (D) Direct Connect</div>
+            <div class="a-line">Answer: A - Route 53 Resolver (Outbound/Inbound endpoints) manages DNS between VPCs
+                    and on-premise networks.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q87. Encrypt an existing unencrypted DB snapshot. (A) You can't (B) Copy the
+                    snapshot and check "Encrypt" (C) Modify the snapshot settings (D) Use S3</div>
+            <div class="a-line">Answer: B - You cannot encrypt an existing snapshot in place. You must copy it and
+                    enable encryption on the copy.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q88. Which Route 53 policy for Active-Passive failover? (A) Weighted (B) Failover
+                    (C) Latency (D) Geolocation</div>
+            <div class="a-line">Answer: B - Failover routing policy is for Active-Passive (Primary -> Secondary if
+                    Primary unhealthy).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q89. Improve performance for users downloading large files from S3 across the globe.
+                    (A) S3 Transfer Acceleration (B) Direct Connect (C) VPN (D) Multipart Upload</div>
+            <div class="a-line">Answer: A - S3 Transfer Acceleration uses CloudFront edge locations to route data to
+                    S3 faster over the AWS backbone.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q90. Securely access Linux instances without opening Port 22 (SSH). (A) Systems
+                    Manager Session Manager (B) EC2 Instance Connect (C) Putty (D) Bastion Host</div>
+            <div class="a-line">Answer: A - Session Manager allows browser-based shell access via IAM, logging
+                    commands to CloudWatch/S3, with NO inbound ports needed.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q91. What is the SLA for S3 Standard Durability? (A) 99.9% (B) 99.99% (C) 11 9s
+                    (99.999999999%) (D) 100%</div>
+            <div class="a-line">Answer: C - 11 9s of Durability (not to be confused with Availability, which is
+                    99.99%).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q92. Application needs a Graph Database. (A) DynamoDB (B) Neptune (C) RDS (D)
+                    Timestream</div>
+            <div class="a-line">Answer: B - Amazon Neptune is the managed Graph Database service (Gremlin/SPARQL).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q93. Store Time-Series data (IoT telemetry). (A) DynamoDB (B) Timestream (C) RDS (D)
+                    QLDB</div>
+            <div class="a-line">Answer: B - Amazon Timestream is a serverless time-series database.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q94. You need an immutable ledger for banking transactions. (A) Blockchain (B) QLDB
+                    (Quantum Ledger DB) (C) RDS (D) DynamoDB</div>
+            <div class="a-line">Answer: B - QLDB provides a transparent, immutable, cryptographically verifiable
+                    transaction log.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q95. Accelerate UDP traffic for online gaming globally. (A) CloudFront (B) Global
+                    Accelerator (C) Route 53 (D) Direct Connect</div>
+            <div class="a-line">Answer: B - Global Accelerator supports TCP/UDP and works well for non-HTTP gaming
+                    use cases. CloudFront is HTTP/S.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q96. Identify underutilized EC2 instances to save money. (A) Cost Explorer (B)
+                    Trusted Advisor / Compute Optimizer (C) Budgets (D) CloudTrail</div>
+            <div class="a-line">Answer: B - Trusted Advisor and Compute Optimizer specifically recommend rightsizing
+                    for underutilized resources.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q97. Mount S3 bucket as a local drive? (A) Not native (B) File Gateway (C) Volume
+                    Gateway (D) Tape Gateway</div>
+            <div class="a-line">Answer: B - File Gateway exposes S3 as an NFS/SMB share. (Mountpoint for S3 is a
+                    newer agent, but File Gateway is the classic infrastructure answer).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q98. Difference between SQS Standard and FIFO? (A) FIFO is cheaper (B) Standard
+                    guarantees order (C) FIFO guarantees order and exactly-once processing (D) Standard is slower</div>
+            <div class="a-line">Answer: C - FIFO = First In First Out (Strict Order) + Exactly-Once. Standard = Best
+                    Effort order + At-Least-Once (duplicates possible).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q99. You need to pre-warm an ALB for a massive spike (Flash Sale). (A) It happens
+                    auto (B) Contact AWS Support (C) Use NLB (D) Adding instances</div>
+            <div class="a-line">Answer: B - While ALBs scale, for *instant* massive spikes, you should contact AWS
+                    Support to pre-warm the load balancer heat.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q100. Best practice for Root User? (A) Use it daily (B) Create Access Keys for it
+                    (C) Lock it away (MFA), delete keys, use only for account tasks (D) Share it</div>
+            <div class="a-line">Answer: C - Lock away the root user. It has unlimited power and cannot be restricted
+                    by IAM policies.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

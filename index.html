@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Cloud & Academic ML Portal</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Multi-Cloud & Academic ML Portal</h1>
         <p style="font-size: 11px; color: #888;">"Zero-Friction" Brute-Force Scanning UI</p>
 
-        <h2>1. GCP Digital Leader (2026)</h2>
-        <a href="flashcards.html" class="exam-link">
+        <h2>1. GCP Path</h2>
+        <h3>Cloud Digital Leader (2026)</h3>
+        <a href="exams/gcp/digital-leader/flashcards.html" class="exam-link">
             Flashcards
             <span class="meta">Core Service Mappings</span>
         </a>
 
-        <a href="revision.html" class="exam-link">
+        <a href="exams/gcp/digital-leader/revision.html" class="exam-link">
             Revision Guide
             <span class="meta">High-density summary of the four 2026 GCP domains</span>
         </a>
 
         <h3>Practice Exams</h3>
         <div id="exam-links">
+            <!-- Populated by JS -->
+        </div>
+
+        <h3>Professional Machine Learning Engineer</h3>
+        <a href="exams/gcp/pro-ml/flashcards.html" class="exam-link">
+            Flashcards
+            <span class="meta">Vertex AI, BigQuery ML, & MLOps</span>
+        </a>
+        <a href="exams/gcp/pro-ml/revision.html" class="exam-link">
+            Revision Guide
+            <span class="meta">Super-dense cheat sheet</span>
+        </a>
+        <h4>Practice Exams</h4>
+        <div id="gcp-proml-links">
             <!-- Populated by JS -->
         </div>
 
@@ -34,14 +51,78 @@
         <a href="exams/creative-ml/pro.html" class="exam-link">Step 4: The Pro (MLOps)</a>
 
         <h2>3. AWS ML Path</h2>
-        <a href="exams/aws-ml/index.html" class="exam-link">AWS ML Specialty & Associate Focus</a>
+        <h3>AWS Certified AI Practitioner (AIF-C01)</h3>
+        <a href="exams/aws/ai-practitioner/flashcards.html" class="exam-link">
+            Flashcards
+            <span class="meta">Key Terms & Concepts</span>
+        </a>
+        <a href="exams/aws/ai-practitioner/revision.html" class="exam-link">
+            Revision Guide
+            <span class="meta">Super-dense cheat sheet</span>
+        </a>
+        <h4>Practice Exams</h4>
+        <div id="aws-ai-links">
+            <!-- Populated by JS -->
+        </div>
+
+        <h3>AWS Certified Cloud Practitioner & SAA-C03</h3>
+        <a href="exams/aws/cloud-practitioner/flashcards.html" class="exam-link">
+            Flashcards
+            <span class="meta">Core Services & Architecture</span>
+        </a>
+        <a href="exams/aws/cloud-practitioner/revision.html" class="exam-link">
+            Revision Guide
+            <span class="meta">Super-dense cheat sheet</span>
+        </a>
+        <h4>Practice Exams</h4>
+        <div id="aws-cp-links">
+            <!-- Populated by JS -->
+        </div>
+
+        <h3>AWS Certified Machine Learning - Specialty</h3>
+        <a href="exams/aws/ml-specialty/flashcards.html" class="exam-link">
+            Flashcards
+            <span class="meta">SageMaker & Bedrock Key Concepts</span>
+        </a>
+        <a href="exams/aws/ml-specialty/revision.html" class="exam-link">
+            Revision Guide
+            <span class="meta">Super-dense cheat sheet</span>
+        </a>
+        <h4>Practice Exams</h4>
+        <div id="aws-links">
+            <!-- Populated by JS -->
+        </div>
 
         <h2>4. Azure ML Path</h2>
-        <a href="exams/azure-ml/index.html" class="exam-link">DP-100 & Azure AI Foundations</a>
+        <h3>Azure AI Fundamentals (AI-900)</h3>
+        <a href="exams/azure/ai-900/flashcards.html" class="exam-link">
+            Flashcards
+            <span class="meta">Core AI Concepts & Azure Services</span>
+        </a>
+        <a href="exams/azure/ai-900/revision.html" class="exam-link">
+            Revision Guide
+            <span class="meta">Super-dense cheat sheet</span>
+        </a>
+        <h4>Practice Exams</h4>
+        <div id="azure-ai-links">
+            <!-- Populated by JS -->
+        </div>
+
+        <h3>Designing and Implementing a Data Science Solution on Azure (DP-100)</h3>
+        <a href="exams/azure/dp-100/flashcards.html" class="exam-link">
+            Flashcards
+            <span class="meta">SDK v2 & MLOps Concepts</span>
+        </a>
+        <a href="exams/azure/dp-100/revision.html" class="exam-link">
+            Revision Guide
+            <span class="meta">Super-dense cheat sheet</span>
+        </a>
+        <h4>Practice Exams</h4>
+        <div id="azure-links">
+            <!-- Populated by JS -->
+        </div>
 
         <h2>5. Legacy Migrations</h2>
-        <a href="to-be-deleted/aws_ai.html" class="exam-link">AWS AI Practitioner (Legacy)</a>
-        <a href="to-be-deleted/aws_combined.html" class="exam-link">AWS Combined (Legacy)</a>
         <a href="to-be-deleted/gh300.html" class="exam-link">GH300 (Legacy)</a>
         <a href="to-be-deleted/itil-v4-exam.html" class="exam-link">ITIL v4 (Legacy)</a>
         <a href="to-be-deleted/life_in_uk.html" class="exam-link">Life in the UK (Legacy)</a>
@@ -51,32 +132,53 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const examLinksContainer = document.getElementById('exam-links');
             const overallProgress = JSON.parse(localStorage.getItem('exam_progress') || '{}');
 
-            for (let i = 1; i <= 5; i++) {
-                const examId = `set${i}`;
-                const prog = overallProgress[examId];
+            function renderLinks(containerId, folderPath, idPrefix) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
 
-                let progressText = 'Not started';
-                let progressFill = 0;
+                // Create the horizontal flexbox wrapper
+                const scrollWrapper = document.createElement('div');
+                scrollWrapper.className = 'horizontal-scroll-container';
 
-                if (prog && prog.answered > 0) {
-                    progressText = `${prog.correct}/${prog.answered} correct (${prog.percent}%)`;
-                    progressFill = Math.round((prog.answered / 50) * 100);
+                for (let i = 1; i <= 5; i++) {
+                    const examId = idPrefix ? `${idPrefix}set${i}` : `set${i}`;
+                    const prog = overallProgress[examId];
+
+                    let progressText = 'Not started';
+                    let progressFill = 0;
+
+                    if (prog && prog.answered > 0) {
+                        progressText = `${prog.correct}/${prog.answered} correct (${prog.percent}%)`;
+                        progressFill = Math.round((prog.answered / 50) * 100);
+                    }
+
+                    scrollWrapper.innerHTML += `
+                        <a href="exams/${folderPath}/set${i}.html" class="exam-link">
+                            Set ${i}
+                            <span class="meta">${progressText}</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${progressFill}%"></div>
+                            </div>
+                        </a>
+                    `;
                 }
 
-                examLinksContainer.innerHTML += `
-                    <a href="exams/gcp-digital-leader/set${i}.html" class="exam-link">
-                        Set ${i}
-                        <span class="meta">${progressText}</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${progressFill}%"></div>
-                        </div>
-                    </a>
-                `;
+                // Append the entire horizontal row to the parent container
+                container.appendChild(scrollWrapper);
             }
+
+            // Render identical template for all 3 core paths
+            renderLinks('exam-links', 'gcp/digital-leader', '');
+            renderLinks('gcp-proml-links', 'gcp/pro-ml', 'gcp-proml-');
+            renderLinks('aws-ai-links', 'aws/ai-practitioner', 'aws-ai-');
+            renderLinks('aws-cp-links', 'aws/cloud-practitioner', 'aws-cp-');
+            renderLinks('aws-links', 'aws/ml-specialty', 'aws-ml-');
+            renderLinks('azure-ai-links', 'azure/ai-900', 'azure-ai-');
+            renderLinks('azure-links', 'azure/dp-100', 'azure-ml-');
         });
     </script>
 </body>
+
 </html>

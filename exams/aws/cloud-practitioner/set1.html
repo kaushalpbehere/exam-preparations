@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner - Set 1</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-cp-set1">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified Cloud Practitioner</h1>
+        <h2>Set 1 (Questions 1-20)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q1. A company needs to host a static website with the lowest possible cost. (A) EC2 with
+                ALB (B) S3 Bucket (C) ECS Fargate (D) RDS</div>
+            <div class="a-line">Answer: B - S3 Static Website Hosting is the most cost-effective and scalable solution
+                for static content.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q2. Which DB service is best for a high-traffic e-commerce shopping cart needing
+                single-digit ms latency? (A) RDS MySQL (B) DynamoDB (C) Redshift (D) Neptune</div>
+            <div class="a-line">Answer: B - DynamoDB is high-performance NoSQL, perfect for key-value data like shopping
+                carts with millisecond latency.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q3. You need to store archived data for 7 years to meet compliance, access time can be
+                12 hours. (A) S3 Standard (B) S3 Glacier Instant Retrieval (C) S3 Deep Archive (D) S3
+                Intelligent-Tiering</div>
+            <div class="a-line">Answer: C - Deep Archive is lowest cost for long-term retention where retrieval time of
+                12+ hours is acceptable.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q4. Application EC2 instances are in a private subnet. They need to download updates
+                from internet. (A) Internet Gateway (B) NAT Gateway (C) Egress-Only Internet Gateway (D) VPS Peering</div>
+            <div class="a-line">Answer: B - NAT Gateway allow private instances to initiate outbound IPv4 traffic to
+                internet but blocks inbound.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q5. You want to decouple an image processing system. Uploads should trigger processing
+                asynchronously. (A) Direct EC2 call (B) SQS + Lambda (C) RDS trigger (D) ALB sticky sessions</div>
+            <div class="a-line">Answer: B - S3 event -> SQS queue -> Lambda consumer is a classic decoupled, serverless
+                pattern.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q6. Files need to be accessible by multiple Linux EC2 instances simultaneously across
+                AZs. (A) EBS (B) EFS (C) Instance Store (D) S3 Glacier</div>
+            <div class="a-line">Answer: B - EFS (Elastic File System) provides a shared NFS file system for Linux
+                instances across AZs.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q7. A global application needs users to be routed to the nearest AWS region with low
+                latency. (A) Route 53 Geolocation (B) CloudFront (C) AWS Global Accelerator (D) VPN</div>
+            <div class="a-line">Answer: C - Global Accelerator uses AWS global network and static IPs to route to
+                optimal endpoint. (Route 53 Geolocation also works but GA is often preferred for TCP/UDP performance).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q8. You need a data warehouse to analyze petabytes of data using SQL. (A) RDS (B)
+                DynamoDB (C) Redshift (D) ElastiCache</div>
+            <div class="a-line">Answer: C - Redshift is AWS's petabyte-scale data warehouse solution (OLAP).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q9. Manage encryption keys for AWS services and control rotation. (A) AWS Artifact (B)
+                KMS (C) Secrets Manager (D) Shield</div>
+            <div class="a-line">Answer: B - KMS (Key Management Service) is used to create and manage cryptographic
+                keys.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q10. Temporary access to S3 objects for mobile users without embedding credentials. (A)
+                IAM User (B) S3 Bucket Policy (C) Cognito Identity Pool / Presigned URLs (D) NACL</div>
+            <div class="a-line">Answer: C - Cognito Identity Pools or Presigned URLs allow temporary, secure access for
+                unauthenticated or federated users.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q11. Securely store database credentials and rotate them automatically. (A) KMS (B)
+                Parameter Store (C) Secrets Manager (D) S3 Encrypted</div>
+            <div class="a-line">Answer: C - Secrets Manager supports automatic rotation of secrets (DB credentials),
+                Parameter Store does not rotate natively without Lambda.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q12. Ensure an EBS volume can be recovered in another region for DR. (A) Take Snapshot
+                -> Copy to Region (B) Unmount and Move (C) Use TGW (D) VPC Peering</div>
+            <div class="a-line">Answer: A - You make a snapshot, and then copy that snapshot to the target region to
+                restore a volume there.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q13. Restrict access to an S3 bucket to only traffic coming from a specific VPC
+                Endpoint. (A) Security Group (B) Bucket Policy with aws:sourceVpce condition (C) NACL (D) IAM Role</div>
+            <div class="a-line">Answer: B - Bucket Policies can deny requests that don't come from a specific VPC
+                Endpoint ID.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q14. Run a containerized application with no server management. (A) EC2 (B) Fargate (C)
+                ECS on EC2 (D) EKS on EC2</div>
+            <div class="a-line">Answer: B - AWS Fargate is the serverless compute engine for containers (ECS/EKS).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q15. Migrate an on-premise Oracle DB to Aurora PostgreSQL with minimal downtime. (A)
+                Dump and Restore (B) AWS DMS (Database Migration Service) with SCT (C) DataSync (D) Snowball</div>
+            <div class="a-line">Answer: B - DMS handles data replication for minimal downtime; SCT (Schema Conversion
+                Tool) converts the schema.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q16. Protect a web application from SQL injection and XSS attacks. (A) Security Groups
+                (B) WAF (Web Application Firewall) (C) Shield Standard (D) GuardDuty</div>
+            <div class="a-line">Answer: B - WAF allows you to inspect traffic at Layer 7 and block SQLi, XSS, etc.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q17. High performance file system for Lustre (HPC) workloads. (A) EFS (B) FSx for Lustre
+                (C) S3 (D) EBS io2</div>
+            <div class="a-line">Answer: B - FSx for Lustre is optimized for compute-intensive workloads (HPC, ML).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q18. Route traffic based on user location to a specific version of the website (e.g.
+                French). (A) Latency Routing (B) Geolocation Routing (C) Weighted Routing (D) Failover Routing</div>
+            <div class="a-line">Answer: B - Geolocation routing lets you route traffic based on the geographic location
+                of the request.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q19. Monitor EC2 memory usage. (A) CloudWatch Default Metrics (B) CloudTrail (C)
+                CloudWatch Custom Metric (Unified Agent) (D) Config</div>
+            <div class="a-line">Answer: C - Memory is NOT a default EC2 metric (Hypervisor doesn't see inside OS). You
+                need the CloudWatch Agent.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q20. Send email notifications to admins when CPU > 80%. (A) CloudWatch Alarm -> SNS (B)
+                CloudTrail -> S3 (C) EventBridge -> Lambda (D) VPC Flow Logs</div>
+            <div class="a-line">Answer: A - CloudWatch Alarm monitors the metric and publishes to an SNS topic which
+                emails subscribers.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

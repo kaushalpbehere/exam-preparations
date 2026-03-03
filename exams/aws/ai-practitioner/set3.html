@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS AI Practitioner - Set 3</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-ai-set3">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified AI Practitioner</h1>
+        <h2>Set 3 (Questions 41-60)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q41. Forecast future sales based on time-series data. (A) Personalize (B) Forecast (C)
+                Textract (D) Polly</div>
+            <div class="a-line">Answer: B - Amazon Forecast is a time-series forecasting service.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q42. Which service can automatically create a video from a text script? (A) Rekognition
+                (B) Bedrock (with video models) / Elemental (C) Transcribe (D) Connect</div>
+            <div class="a-line">Answer: B - Bedrock (via models like Titan Image/Video or stable diffusion video
+                variants) can generate content.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q43. Optimize the cost of SageMaker training jobs by using spare capacity. (A) On-Demand
+                (B) Managed Spot Training (C) Reserved Instances (D) Dedicated Hosts</div>
+            <div class="a-line">Answer: B - Managed Spot Training uses Spot instances to reduce training costs by up to
+                90%.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q44. What is the "Temperature" setting of 0.0 likely to produce? (A) Highly random
+                output (B) The most likely/deterministic output (C) No output (D) An error</div>
+            <div class="a-line">Answer: B - 0 temperature makes the model deterministic (always picking the highest
+                probability next token).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q45. Analyze medical text for health information (PHI). (A) Comprehend Medical (B)
+                Transcribe Medical (C) HealthLake (D) All of the above</div>
+            <div class="a-line">Answer: D - These are all part of the AWS Health AI suite, but Comprehend Medical
+                specifically extracts text entities from medical notes.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q46. Which model type is "Titan"? (A) An AWS-built Foundation Model family (B) An
+                open-source model (C) A database (D) A processor</div>
+            <div class="a-line">Answer: A - Amazon Titan is AWS's own family of FMs (Text, Embeddings, Image).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q47. Automatically draft a response to a customer email. (A) Discriminative Model (B)
+                Generative Model (LLM) (C) Regression Model (D) Clustering</div>
+            <div class="a-line">Answer: B - Generative models (LLMs) are ideal for content creation tasks like email
+                drafting.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q48. Which is a visual tool to orchestrate ML workflows (Data prep, train, deploy)? (A)
+                SageMaker Pipelines (B) Step Functions (C) CodePipeline (D) Glue</div>
+            <div class="a-line">Answer: A - SageMaker Pipelines is a purpose-built CI/CD service for ML.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q49. You need to enable your application to support conversational question answering
+                based on *your* proprietary PDF manuals. (A) Train a new model (B) RAG (Retrieval Augmented Generation)
+                (C) Fine-Tuning (D) Pre-training</div>
+            <div class="a-line">Answer: B - RAG is the standard pattern for connecting an LLM to your own private data
+                sources (Knowledge Base) without training.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q50. A hospital needs to separate "PHI" (Personal Health Info) from other data in S3.
+                (A) Macie (B) GuardDuty (C) Inspector (D) WAF</div>
+            <div class="a-line">Answer: A - Macie is the service that automatically discovers, classifies, and protects
+                sensitive data (PII/PHI) in S3.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q51. Which Bedrock inference parameter limits the length of the generated response? (A)
+                Stop Sequence (B) Max Tokens (C) Temperature (D) Top-P</div>
+            <div class="a-line">Answer: B - "Max Tokens" (or Max Generation Length) defines the cutoff point for the
+                generated output.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q52. Business Analysts need to predict customer churn but don't know Python. (A)
+                SageMaker Studio (B) SageMaker Canvas (C) SageMaker JumpStart (D) EC2</div>
+            <div class="a-line">Answer: B - SageMaker Canvas is explicitly designed for "No-Code" users (Business
+                Analysts) to build ML models visually.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q53. You want to generate images of "flying cars" using Bedrock. Which model family
+                should you choose? (A) Claude (B) Titan Image Generator / Stable Diffusion (C) Jurassic-2 (D) Command</div>
+            <div class="a-line">Answer: B - Titan Image Generator and Stable Diffusion are "Text-to-Image" models.
+                Claude/Jurassic/Command are "Text-to-Text".</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q54. Which service helps you improve your application's code security by scanning for
+                hardcoded secrets? (A) Amazon Inspector (B) Amazon Q Developer (CodeWhisperer) (C) Macie (D) GuardDuty</div>
+            <div class="a-line">Answer: B - Amazon Q Developer (formerly CodeWhisperer) has security scans that run in
+                the IDE to find secrets/vulnerabilities.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q55. What is the primary use case for "SageMaker JumpStart"? (A) Write code from scratch
+                (B) One-click deploy of pre-trained models (C) Label data (D) Monitor bias</div>
+            <div class="a-line">Answer: B - JumpStart provides a hub of pre-trained, open-source models (Hugging Face,
+                etc.) that you can deploy with one click.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q56. You need to verify if an FM is producing toxic content. Which evaluation method
+                uses human reviewers? (A) Automatic Eval (B) Human Evaluation (C) Model Evaluation (D) Unit Testing</div>
+            <div class="a-line">Answer: B - Human Evaluation involves real people reviewing the model's outputs for
+                toxicity, accuracy, and style.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q57. A call center wants to analyze calls to see *why* customers are calling (Topic
+                modeling). (A) Transcribe + Comprehend (B) Polly + Translate (C) Connect + Rekognition (D) Lex</div>
+            <div class="a-line">Answer: A - Transcribe turns audio to text. Comprehend then analyzes that text to
+                extract topics and sentiment.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q58. Which vector engine option for OpenSearch is "Serverless"? (A) Provisioned (B)
+                OpenSearch Serverless (C) EC2 (D) Aurora</div>
+            <div class="a-line">Answer: B - Bedrock Knowledge Bases use "Amazon OpenSearch Serverless" to store vector
+                embeddings without managing clusters.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q59. You need to ensure your AI model cards document the intended use and limitations.
+                This aligns with which Responsible AI pillar? (A) Transparency/Explainability (B) Security (C) Privacy
+                (D) Performance</div>
+            <div class="a-line">Answer: A - "Transparency" involves documenting how the model works, its intended use,
+                and limitations (Model Cards).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q60. Improve the "Chain of Thought" reasoning of a model by asking it to: (A) "Answer
+                quickly" (B) "Think step-by-step" (C) "Be creative" (D) "Ignore context"</div>
+            <div class="a-line">Answer: B - The phrase "Think step-by-step" is the classic trigger for Chain-of-Thought
+                (CoT) prompting to improve logic.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner - Set 2</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-cp-set2">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified Cloud Practitioner</h1>
+        <h2>Set 2 (Questions 21-40)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q21. Connect an on-premise data center to VPC using private dedicated connection. (A)
+                VPN (B) Direct Connect (C) Internet Gateway (D) VPC Peering</div>
+            <div class="a-line">Answer: B - Direct Connect (DX) is a dedicated physical fiber link, avoiding the public
+                internet.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q22. Automate creation of AWS infrastructure using code. (A) CloudFormation (B)
+                CodeBuild (C) Config (D) Systems Manager</div>
+            <div class="a-line">Answer: A - CloudFormation (or Terraform/CDK) enables Infrastructure as Code (IaC).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q23. Which service helps you check service limits (quotas) and trusted advisor checks?
+                (A) AWS Trusted Advisor (B) Service Quotas (C) Inspector (D) Artifact</div>
+            <div class="a-line">Answer: A - Trusted Advisor checks for cost, performance, security, and service limits.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q24. A single fixed IP address is needed for whitelisting by a 3rd party API, but you
+                have ASG in private subnets. (A) Private IP (B) NAT Gateway IP (C) EIP on Instances (D) ALB IP</div>
+            <div class="a-line">Answer: B - Traffic from private instances goes through the NAT Gateway, which has a
+                static Elastic IP (EIP) you can whitelist.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q25. Requirement for "Read after Write" consistency for new objects. (A) DynamoDB (B)
+                EFS (C) S3 (D) ElastiCache</div>
+            <div class="a-line">Answer: C - S3 now provides strong read-after-write consistency for all object
+                operations (PUTs and DELETEs).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q26. Process real-time streaming data (clickstream). (A) SQS (B) Kinesis Data Streams
+                (C) Glacier (D) Batch</div>
+            <div class="a-line">Answer: B - Kinesis is designed for real-time big data streaming ingestion.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q27. Run a SQL query directly on JSON data sitting in S3 without loading it. (A)
+                Redshift (B) Athena (C) Aurora (D) Glue</div>
+            <div class="a-line">Answer: B - Amazon Athena is a serverless query service to analyze data in S3 using
+                standard SQL.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q28. Fastest way to transfer 500 TB of data to AWS where internet is slow. (A) VPN (B)
+                Snowball Edge (C) Multipart Upload (D) Direct Connect</div>
+            <div class="a-line">Answer: B - Snowball / Snowmobile is faster for massive data transfer when bandwidth is
+                limited (Sneakernet).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q29. Ensure RDS database is encrypted. (A) Enable encryption at creation (B) Encrypt via
+                OS (C) Use SSL (D) S3 Replication</div>
+            <div class="a-line">Answer: A - RDS encryption (using KMS) must be defined at instance/volume creation time
+                (or by copying snapshot as encrypted).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q30. Control traffic at the subnet level (Stateless firewall). (A) Security Group (B)
+                NACL (Network ACL) (C) WAF (D) Route Table</div>
+            <div class="a-line">Answer: B - NACLs are stateless and operate at the subnet boundary. Security Groups are
+                stateful and operate at the ENI/Instance level.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q31. Provide desktop-as-a-service (DaaS) to employees. (A) Workspace (B) AppStream 2.0
+                (C) EC2 (D) Connect</div>
+            <div class="a-line">Answer: A - Amazon WorkSpaces is a managed, secure Desktop-as-a-Service (DaaS) solution.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q32. Analyze logs for potential threats (e.g. crypto mining, unusual API calls). (A)
+                Inspector (B) Macie (C) GuardDuty (D) Shield</div>
+            <div class="a-line">Answer: C - GuardDuty is an intelligent threat detection service that analyzes
+                CloudTrail, VPC Flow Logs, and DNS logs.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q33. Store credit card data (PCI-DSS) with dedicated hardware requirement. (A) Dedicated
+                Instances (B) Dedicated Hosts (C) Spot Instances (D) Reserved Instances</div>
+            <div class="a-line">Answer: B - Dedicated Hosts provide physical server visibility and affinity, often
+                required for strict compliance/licensing.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q34. Distribute incoming application traffic across multiple targets in multiple AZs.
+                (A) Auto Scaling (B) ELB (Elastic Load Balancer) (C) Route 53 (D) CloudFormation</div>
+            <div class="a-line">Answer: B - ELK/ALB/NLB distributes traffic to healthy targets.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q35. Cache dynamic API responses to reduce load on DB. (A) CloudFront (B) ElastiCache
+                (C) S3 (D) DAX</div>
+            <div class="a-line">Answer: B - ElastiCache (Redis/Memcached) is used to cache DB queries/sessions. DAX is
+                specifically for DynamoDB.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q36. Serverless orchestration of workflows (state machine). (A) Lambda (B) Step
+                Functions (C) Batch (D) SQS</div>
+            <div class="a-line">Answer: B - Step Functions lets you coordinate multiple AWS services into serverless
+                workflows (State Machine).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q37. Identify PII (Personally Identifiable Information) in S3 buckets. (A) GuardDuty (B)
+                Macie (C) Inspector (D) Shield</div>
+            <div class="a-line">Answer: B - Amazon Macie uses ML to discover and protect sensitive data (PII) in S3.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q38. Block a specific IP address from accessing your subnet. (A) Security Group (B) NACL
+                (C) IAM Policy (D) Route 53</div>
+            <div class="a-line">Answer: B - Only NACLs support "DENY" rules. Security Groups are "ALLOW" only.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q39. Long-term storage for backup tapes replacement. (A) S3 Standard (B) Storage Gateway
+                Tape Gateway (C) EBS Snapshots (D) Snowball</div>
+            <div class="a-line">Answer: B - Tape Gateway (VTL) allows you to keep using existing backup software but
+                store "tapes" in S3/Glacier.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q40. Access AWS services from a VPC without traffic traversing the public internet. (A)
+                VPC Endpoint (PrivateLink) (B) NAT Gateway (C) IGW (D) VPN</div>
+            <div class="a-line">Answer: A - VPC Endpoints allow private connections to supported AWS services (S3,
+                DynamoDB, API Gateway, etc.).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

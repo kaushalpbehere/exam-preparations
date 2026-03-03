@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS AI Practitioner - Set 5</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-ai-set5">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified AI Practitioner</h1>
+        <h2>Set 5 (Questions 81-100)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q81. You need to run a sentiment analysis job on 10 million documents overnight. (A)
+                Real-time Endpoint (B) Asynchronous Inference (C) Batch Transform (D) Serverless Inference</div>
+            <div class="a-line">Answer: C - Batch Transform is designed for offline processing of large datasets where
+                latency doesn't matter.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q82. Which model is "Multi-Modal"? (A) Titan Text Embeddings (B) Claude 3 Sonnet (C)
+                Polly (D) Translate</div>
+            <div class="a-line">Answer: B - Claude 3 (and Titan Multimodal Embeddings) can understand/process both Text
+                AND Images (Vision).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q83. Reduce the size and latency of a model for mobile deployment without losing much
+                accuracy. (A) Pruning / Quantization (SageMaker Neo) (B) Training longer (C) Increasing layers (D) RAG</div>
+            <div class="a-line">Answer: A - Quantization (reducing precision from float32 to int8) and Pruning are
+                compilation techniques used by SageMaker Neo.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q84. Security team requires all Bedrock API calls to be logged for audit. (A) CloudTrail
+                (B) CloudWatch Metrics (C) VPC Flow Logs (D) GuardDuty</div>
+            <div class="a-line">Answer: A - CloudTrail logs the API activity (who, when, what) for `InvokeModel`
+                management events (and data events if enabled).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q85. What is the "Landing Zone" for an Agent? (A) Where it saves files (B) The prompt
+                (C) There isn't one (D) The final response</div>
+            <div class="a-line">Answer: C - Agents don't have a "Landing Zone". (Trick question concepts from Control
+                Tower or S3). Agents have "Action Groups".</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q86. Provide a natural language interface for querying a SQL database (Text-to-SQL). (A)
+                Bedrock / Q (B) RDS (C) DynamoDB (D) ElastiCache</div>
+            <div class="a-line">Answer: A - Generative AI (Bedrock Knowledge Bases or simple prompt engineering) enables
+                Text-to-SQL generation.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q87. Which feature allows you to "Continuously Pre-train" a model with unlabeled data?
+                (A) Fine-tuning (B) Continued Pre-training (Bedrock custom models) (C) RAG (D) Agents</div>
+            <div class="a-line">Answer: B - Continued Pre-training (Domain Adaptation) uses huge amounts of *unlabeled*
+                data to teach the model a new domain (e.g. medical/financial jargon).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q88. What is the role of the "Orchestrator" in a Bedrock Agent? (A) It runs the Lambda
+                (B) It breaks down the user request into logical steps (Chain-of-Thought) (C) It stores data (D) It pays
+                the bill</div>
+            <div class="a-line">Answer: B - The fully managed Agent Orchestrator analyzes the prompt, breaks it into
+                tasks, and decides which Action Group/KB to call.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q89. Which AWS service offers "Clinical" NLP features? (A) Amazon Comprehend Medical (B)
+                Amazon HealthLake (C) Both A and B (D) None</div>
+            <div class="a-line">Answer: C - Comprehend Medical extracts entities. HealthLake stores/queries FHIR data
+                and uses NLP integrated inside it.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q90. Your model output is cut off in mid-sentence. Why? (A) Temperature too high (B) Max
+                Tokens limit reached (C) Invalid API key (D) Internet failure</div>
+            <div class="a-line">Answer: B - If the generation hits the `max_tokens` (or `max_gen_len`) limit, it stops
+                abruptly.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q91. Can you use Amazon Bedrock in a "Disconnected" (Offline) environment? (A) Yes,
+                download the model (B) No, it's a managed cloud service (C) Only with Outposts (D) Only with Snowball</div>
+            <div class="a-line">Answer: B - Bedrock is a regional, cloud-based API service. You cannot download the
+                weights to run offline (unlike SageMaker JumpStart where you might).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q92. What is "Prompt Injection"? (A) A speed optimization (B) A security attack where
+                malicious inputs trick the model provided (C) A database query (D) A deployment method</div>
+            <div class="a-line">Answer: B - Prompt Injection is an adversarial attack to override the system
+                instructions effectively "hijacking" the model.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q93. A developer needs to extract data from a scanned driver's license. (A) Textract
+                AnalyzeID (B) Rekognition (C) Transcribe (D) Translate</div>
+            <div class="a-line">Answer: A - Textract has a specialized API `AnalyzeID` for identity documents
+                (Passports, Licenses).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q94. You are using Amazon Q within the AWS Console. What can it do? (A) Troubleshoot
+                errors (B) Suggest infrastructure (C) Chat about documentation (D) All of the above</div>
+            <div class="a-line">Answer: D - Amazon Q in the console is an expert assistant for troubleshooting,
+                architecture suggestions, and docs lookup.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q95. Which technique reduces the risk of "Model Hallucination"? (A) Increasing
+                Temperature (B) RAG (Retrieval Augmented Generation) (C) Decreasing Max Tokens (D) Zero-shot</div>
+            <div class="a-line">Answer: B - RAG grounds the model in factual data retrieved from a trusted source,
+                significantly reducing hallucinations.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q96. What is the inputs and outputs format for most Bedrock models? (A) SQL (B) JSON (C)
+                XML (D) Binary</div>
+            <div class="a-line">Answer: B - The `InvokeModel` API expects a JSON payload (prompt, parameters) and
+                returns a JSON response.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q97. Which service is best for "Predictive Maintenance"? (A) Amazon Monitron (B) Amazon
+                Personalize (C) Amazon Lex (D) Amazon Poly</div>
+            <div class="a-line">Answer: A - Monitron (hardware sensors + service) allows detecting abnormal machine
+                behavior (vibration/temp) to predict failures.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q98. A data scientist wants to share their ML model with other teams securely. (A)
+                SageMaker Model Registry (B) Email (C) S3 public bucket (D) USB drive</div>
+            <div class="a-line">Answer: A - SageMaker Model Registry tracks model versions, approval status, and
+                metadata for governance and sharing.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q99. Which AI concept involves "Giving the model a persona"? (A) System Prompting (B)
+                Temperature (C) Embeddings (D) Fine-tuning</div>
+            <div class="a-line">Answer: A - System Prompts (or System Instructions) set the behavior/persona of the
+                model (e.g. "You are a helpful banking assistant").</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q100. Why use Amazon Bedrock "Batch Inference"? (A) For real-time chat (B) To process
+                large volumes of prompts asynchronously at lower cost/urgency (C) For higher latency (D) For video
+                streaming</div>
+            <div class="a-line">Answer: B - Batch Inference is for processing millions of prompts (e.g. summarizing huge
+                archives) where immediate response isn't needed.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

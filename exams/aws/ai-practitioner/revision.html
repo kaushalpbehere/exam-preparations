@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS AI Practitioner - Revision Guide</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+    <style>
+        .concept-card {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .concept-card h3 { margin-top: 0; color: #ff9900; }
+        pre { white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+        <h1>AWS Certified AI Practitioner</h1>
+        <h2>Revision Guide</h2>
+        <div style="background:#222; padding: 10px; margin-bottom: 20px; border: 1px solid #ff9900; color: #ff9900;">
+            LAST-MINUTE CRAM: Master Bedrock (FMs, Agents, RAG, Guardrails), SageMaker (Canvas vs Studio), Trust & Safety (Clarify, Macie), and the standard AI Use Cases.
+        </div>
+        <div class='concept-card'>
+
+<h3>🧠 AWS AIF-C01 Topic Mindmap</h3>
+<pre>
+AWS AI PRACTITIONER
+├── FUNDAMENTALS
+│   ├── Concepts (GenAI vs ML vs DL)
+│   ├── Terminology (Tokens, Embeddings, Temperature)
+│   ├── Prompt Engineering (Zero-shot, Few-shot, CoT)
+│   └── Model Types (Text, Image, Multi-modal)
+├── GENERATIVE AI (BEDROCK)
+│   ├── Foundation Models (Claude, Titan, Llama, Jurassic)
+│   ├── Features (Agents, Knowledge Bases/RAG, Guardrails)
+│   ├── Pricing (On-Demand vs Provisioned)
+│   └── Security (Data Privacy, PrivateLink)
+├── MACHINE LEARNING (SAGEMAKER)
+│   ├── Low-Code (Canvas, JumpStart)
+│   ├── Core (Training, Inference Types, Pipelines)
+│   ├── Governance (Role Manager, Model Cards, Clarify)
+│   └── Human Review (Augmented AI / A2I, Ground Truth)
+├── AI SERVICES (HIGH LEVEL)
+│   ├── Vision (Rekognition, Lookout for Vision)
+│   ├── Speech/Text (Transcribe, Polly, Translate, Comprehend)
+│   ├── Documents (Textract, Kendra)
+│   ├── Industrial (Monitron, Lookout for Equipment)
+│   ├── Health (HealthLake, Comprehend Medical)
+│   └── Code/Dev (Amazon Q Developer, CodeGuru)
+└── RESPONSIBLE AI &amp; SECURITY
+    ├── Bias &amp; Fairness (Clarify)
+    ├── Explainability (Why did it say that?)
+    ├── Privacy/Security (VPC, IAM, Encryption)
+    └── Governance (Model Cards for documentation)
+            </pre>
+        </div>
+        <div class='concept-card'>
+
+<h3>📚 Key Official Resources</h3>
+<p>🔗 <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html" target="_blank">Amazon Bedrock User Guide</a> - The core of the exam.</p>
+<p>🔗 <a href="https://aws.amazon.com/ai/responsible-ai/" target="_blank">AWS Responsible
+                    AI</a> - Crucial for governance/ethics questions.</p>
+<p>🔗 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html" target="_blank">SageMaker Canvas</a> - Understand the "No-Code" Business Analyst persona.</p>
+<p>🔗 <a href="https://aws.amazon.com/q/" target="_blank">Amazon Q</a> - Know the
+                difference between Q Business vs Q Developer.</p>
+        </div>
+        <div class='concept-card'>
+
+<h3>1. Generative AI &amp; Bedrock</h3>
+<p><strong>Amazon Bedrock</strong>: Serverless service to build GenAI apps using FMs (Foundation Models).
+                Access models via API.</p>
+<p><strong>Foundation Models (FMs)</strong>: Pre-trained on vast data. Providers: AI21 Labs (Jurassic),
+                Anthropic (Claude), Cohere (Command), Meta (Llama), Mistral, Stability AI (Stable Diffusion), Amazon
+                (Titan).</p>
+<p><strong>Agents</strong>: Execute multi-step tasks by breaking them down and calling APIs.</p>
+<p><strong>Knowledge Bases</strong>: RAG (Retrieval Augmented Generation) - connect FM to your data sources
+                for accurate answers.</p>
+<p><strong>Guardrails</strong>: Filter input/output content (hate speech, PII) responsibly.</p>
+        </div>
+        <div class='concept-card'>
+
+<h3>2. Machine Learning Services (SageMaker &amp; High Level)</h3>
+<p><strong>SageMaker</strong>: Fully managed service to build, train, and deploy ML models. (Canvas = No
+                Code, JumpStart = Pre-trained models).</p>
+<p><strong>Rekognition</strong>: Image/Video analysis (Objects, Faces, Content Moderation).</p>
+<p><strong>Polly</strong>: Text-to-Speech (TTS).</p>
+<p><strong>Transcribe</strong>: Speech-to-Text (ASR).</p>
+<p><strong>Translate</strong>: Language translation.</p>
+<p><strong>Comprehend</strong>: NLP (Sentiment analysis, Entity extraction).</p>
+<p><strong>Textract</strong>: Extract text/data from physical documents (OCR+).</p>
+<p><strong>Kendra</strong>: Enterprise search (Intelligent search).</p>
+        </div>
+        <div class='concept-card'>
+
+<h3>3. Responsible AI &amp; Governance</h3>
+<p><strong>bias</strong>: Pre-training (data), Post-training (tuning). SageMaker Clarify detects bias.</p>
+<p><strong>Explainability</strong>: Understanding *why* a model made a prediction.</p>
+<p><strong>Privacy</strong>: Data sent to Bedrock is NOT used to train base models. Data stays in your VPC
+                (PrivateLink).</p>
+<p><strong>HITL (Human in the loop)</strong>: SageMaker Augmented AI (A2I) for human review of
+                low-confidence predictions.</p>
+        </div>
+    </div>
+</body>
+</html>

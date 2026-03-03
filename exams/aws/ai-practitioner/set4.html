@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS AI Practitioner - Set 4</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-ai-set4">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified AI Practitioner</h1>
+        <h2>Set 4 (Questions 61-80)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q61. Which service is a fully managed "Vector Database" compatible with MongoDB? (A)
+                DocumentDB (with vector search) (B) DynamoDB (C) Neptune (D) RDS</div>
+            <div class="a-line">Answer: A - DocumentDB (and also Atlas) now supports Vector Search for JSON documents.
+                (Though OpenSearch is the primary RAG choice).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q62. What is "Watermarking" in the context of Titan Image Generator? (A) Adding a
+                visible logo (B) Adding an invisible signature to identify AI-generated images (C) Protecting the API
+                (D) Billing tag</div>
+            <div class="a-line">Answer: B - Titan adds an invisible watermark to generated images to help identify them
+                as AI-generated (part of Responsible AI).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q63. A startup wants to use Stable Diffusion but doesn't want to manage servers. (A) EC2
+                P3 instances (B) Amazon Bedrock (C) SageMaker Training (D) ECS</div>
+            <div class="a-line">Answer: B - Bedrock offers Stable Diffusion (Stability AI) as a serverless API. No
+                servers to manage.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q64. You need to summarize a 100-page legal document. Which model feature is critical?
+                (A) Image generation (B) Large Context Window (C) Low latency (D) Speech output</div>
+            <div class="a-line">Answer: B - A Large Context Window (e.g. 100k+ tokens) is required to fit a 100-page
+                document into the prompt for summarization.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q65. Which IAM policy action is required to invoke a Bedrock model? (A)
+                bedrock:ListModels (B) bedrock:InvokeModel (C) s3:GetObject (D) sagemaker:CreateEndpoint</div>
+            <div class="a-line">Answer: B - `bedrock:InvokeModel` is the specific permission needed to run inference on
+                a model.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q66. An airline wants a chatbot that can actually *book* tickets by connecting to their
+                legacy booking system. (A) Bedrock Agents (B) Bedrock Knowledge Base (C) SageMaker Canvas (D) Amazon
+                Connect</div>
+            <div class="a-line">Answer: A - "Agents" are designed to execute multi-step tasks and interact with external
+                systems (APIs/Lambda).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q67. Minimize latency for a real-time fraud detection model. (A) Asynchronous Inference
+                (B) Real-time Inference (C) Batch Transform (D) Serverless Inference</div>
+            <div class="a-line">Answer: B - "Real-time Inference" (persistent endpoint) offers the lowest, most
+                consistent latency (ms). Serverless has cold starts.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q68. Which tool helps non-experts perform "Feature Engineering" on raw data? (A)
+                SageMaker Data Wrangler (B) SageMaker Debugger (C) SageMaker Edge (D) Bedrock</div>
+            <div class="a-line">Answer: A - SageMaker Data Wrangler provides a UI to import, visualize, clean, and
+                feature-engineer data with little/no code.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q69. A developer wants to swap out an AI model (e.g. Claude to Llama) with minimal code
+                changes. (A) Bedrock (B) SageMaker (C) EC2 (D) Lambda</div>
+            <div class="a-line">Answer: A - Bedrock provides a unified API. Swapping models is often just changing the
+                `modelId` parameter.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q70. Detect "Drift" in a deployed model (accuracy degrading over time). (A) SageMaker
+                Model Monitor (B) SageMaker Clarify (C) CloudTrail (D) Config</div>
+            <div class="a-line">Answer: A - SageMaker Model Monitor continuously monitors production endpoints for data
+                drift or model quality drift.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q71. Which pricing component applies to Provisioned Throughput? (A) Per Token (B) Hourly
+                commitment for Model Units (C) Per User (D) Free</div>
+            <div class="a-line">Answer: B - Provisioned Throughput requires purchasing "Model Units" for a committed
+                duration (1 month, 6 months) -> Hourly cost.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q72. Identify distinct speakers in an audio recording ("Speaker Diarization"). (A) Polly
+                (B) Transcribe (C) Translate (D) Rekognition</div>
+            <div class="a-line">Answer: B - Amazon Transcribe supports "Speaker Diarization" to label who said what
+                (Speaker A, Speaker B).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q73. Your Bedrock Agent needs to access a Lambda function. What defines the API schema?
+                (A) OpenAPI Schema (Swagger) / Action Group (B) Python script (C) IAM Policy (D) S3 Bucket</div>
+            <div class="a-line">Answer: A - Agents use an OpenAPI schema (JSON) to understand the inputs/outputs of the
+                Action Group (Lambda).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q74. Which specialized search service allows querying data using natural language
+                questions? (A) CloudSearch (B) Kendra (C) ElasticSearch (D) Athena</div>
+            <div class="a-line">Answer: B - Kendra is specifically built for "Semantic Search" (understanding intent),
+                unlike keyword-based search.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q75. Company policy forbids sending PII to any AI model. How to enforce this centrally?
+                (A) Bedrock Guardrails (B) Manual review (C) IAM Deny (D) VPC Endpoint</div>
+            <div class="a-line">Answer: A - Bedrock Guardrails can be configured with a "Sensitive Information Filter"
+                to block PII detection *before* it hits the model.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q76. Amazon Q Business can connect to which data sources? (A) Only S3 (B) 40+ Enterprise
+                connectors (Salesforce, ServiceNow, SharePoint, etc.) (C) Only Public Internet (D) Only DynamoDB</div>
+            <div class="a-line">Answer: B - Amazon Q Business has built-in connectors for many enterprise data silos to
+                power its chat RAG answer generation.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q77. What is "In-Context Learning"? (A) Retraining the model (B) Including
+                instructions/data/examples in the prompt itself (C) Updating weights (D) RAG</div>
+            <div class="a-line">Answer: B - In-context learning relies on the prompt content (Context Window) to teach
+                the model, without updating model weights.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q78. "Top-P" parameter in inference refers to: (A) The top probability token (B) Nucleus
+                Sampling (cumulative probability cutoff) (C) Penalty (D) Pricing</div>
+            <div class="a-line">Answer: B - Top-P (Nucleus Sampling) restricts the token choice to the top subset of
+                tokens whose cumulative probability equals P (e.g. 0.9).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q79. Which service helps you conduct a POC (Proof of Concept) for GenAI quickly? (A)
+                Bedrock Playgrounds (B) EC2 (C) SageMaker Training Job (D) EKS</div>
+            <div class="a-line">Answer: A - Bedrock Console "Playgrounds" allow you to instantly test prompts against
+                different models (Chat, Text, Image) via UI.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q80. Evaluate the "Correctness" of an RAG application. (A) RAGAS / Model Evaluation (B)
+                CloudWatch (C) Cost Explorer (D) Latency metrics</div>
+            <div class="a-line">Answer: A - Model Evaluation (in Bedrock) or frameworks like RAGAS measure
+                "Faithfulness", "Answer Relevance", and "Context Recall".</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

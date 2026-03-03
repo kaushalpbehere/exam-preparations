@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner - Set 3</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="aws-cp-set3">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>AWS Certified Cloud Practitioner</h1>
+        <h2>Set 3 (Questions 41-60)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q41. Mount a filesystem to an EC2 instance that is high performance and temporary
+                (cache). (A) EBS (B) Instance Store (Ephemeral) (C) EFS (D) S3</div>
+            <div class="a-line">Answer: B - Instance Store is physically attached to the host (fastest) but data is lost
+                on stop/terminate. Great for cache/buffers.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q42. Which ALB feature allows routing based on the URL path (e.g. /images vs /api)? (A)
+                Host-based routing (B) Path-based routing (C) Query string routing (D) Geo routing</div>
+            <div class="a-line">Answer: B - Path-based routing allows directing traffic to different target groups based
+                on URL path.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q43. Optimize costs for steady-state usage EC2 running 24/7 for 3 years. (A) Spot
+                Instances (B) On-Demand (C) Reserved Instances / Savings Plans (D) Dedicated Hosts</div>
+            <div class="a-line">Answer: C - RIs or Savings Plans offer significant (up to 72%) discounts for committed
+                usage.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q44. Deploy code changes automatically when pushed to a repo, run tests, and deploy. (A)
+                CodeCommit (B) CodePipeline (C) CloudTrail (D) X-Ray</div>
+            <div class="a-line">Answer: B - CodePipeline orchestrates the CI/CD stages (Source -> Build -> Deploy).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q45. Centralize and view logs from all EC2 instances and Lambda functions. (A)
+                CloudWatch Logs (B) S3 (C) CloudTrail (D) VPC Flow Logs</div>
+            <div class="a-line">Answer: A - CloudWatch Logs centralizes log streams from various sources.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q46. Trace user requests as they travel through microservices architecture. (A)
+                CloudWatch (B) X-Ray (C) Inspector (D) Ping</div>
+            <div class="a-line">Answer: B - AWS X-Ray helps developers analyze and debug production, distributed
+                applications (tracing).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q47. Automatically rotate secrets for RDS. (A) Secrets Manager (B) Systems Manager
+                Parameter Store (C) KMS (D) IAM</div>
+            <div class="a-line">Answer: A - Secrets Manager has native built-in rotation integration for RDS.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q48. Improve read performance of a database receiving many SELECT queries. (A) Multi-AZ
+                (B) Read Replicas (C) Sharding (D) Larger Instance</div>
+            <div class="a-line">Answer: B - Read Replicas allow you to offload read traffic from the primary instance.
+                Multi-AZ is for HA/DR, not performance.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q49. A legacy application requires multicast networking support. (A) VPC with Multicast
+                Hub (B) Transit Gateway (C) Direct Connect (D) VPN</div>
+            <div class="a-line">Answer: B - AWS Transit Gateway is the only service that natively supports IP multicast.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q50. You need to store objects. Data must be resilient if an entire AZ is destroyed, but
+                cost is critical. (A) S3 One Zone-IA (B) S3 Standard-IA (C) S3 Standard (D) EBS</div>
+            <div class="a-line">Answer: B - S3 Standard-IA stores data across 3+ AZs (resilient to AZ loss) but is
+                cheaper than Standard. One Zone-IA dies with the AZ.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q51. EC2 instance needs to access S3 bucket in another account. (A) IAM Role on Instance
+                + Bucket Policy in other account (B) Access Keys (C) VPC Peering (D) Copy data</div>
+            <div class="a-line">Answer: A - Cross-account access requires an IAM Role in the source and a Bucket Policy
+                in the destination granting access to that Role.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q52. Secure a highly sensitive DB. Ensure admins cannot delete the DB instances
+                accidentally or maliciously. (A) MFA Delete (B) IAM Condition (C) Service Control Policy (SCP) (D)
+                Deletion Protection</div>
+            <div class="a-line">Answer: D - Enabling "Deletion Protection" on the RDS instance prevents it from being
+                deleted until the flag is unchecked.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q53. A user has a Policy allowing "S3:*" but is part of a Group with a Policy "Deny
+                S3:DeleteObject". Effect? (A) Allowed (B) Denied (C) Prompted (D) Error</div>
+            <div class="a-line">Answer: B - Explicit DENY always trumps ALLOW.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q54. Company requires all EBS volumes to be encrypted. How to enforce this for new
+                volumes? (A) CloudWatch Event (B) IAM Policy (C) EBS Encryption by Default (Account Setting) (D) Lambda</div>
+            <div class="a-line">Answer: C - Enabling "EBS Encryption by Default" in the EC2 dashboard ensures every new
+                volume created in that region is encrypted.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q55. Website uses CloudFront. You need to geo-restrict content to US only. (A) Route 53
+                (B) WAF (C) CloudFront Geo Restriction (D) S3 Bucket Policy</div>
+            <div class="a-line">Answer: C - CloudFront has a native "Geo Restriction" (whitelist/blacklist) feature.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q56. DB layer needs auto-scaling for *read* traffic. (A) Multi-AZ (B) Read Replicas +
+                Aurora Auto Scaling (C) Larger Instance (D) Sharding</div>
+            <div class="a-line">Answer: B - Amazon Aurora can automatically add/remove Read Replicas based on
+                CPU/Connections logic.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q57. Which service provides a shared file system for Windows servers? (A) EFS (B) FSx
+                for Windows File Server (C) S3 (D) Storage Gateway</div>
+            <div class="a-line">Answer: B - FSx for Windows File Server provides fully managed native Microsoft Windows
+                file systems (SMB).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q58. Connect 100 VPCs together. VPC Peering is becoming a mesh nightmare. (A) Transit
+                Gateway (B) Direct Connect (C) VPN Hub (D) VPC Endpoints</div>
+            <div class="a-line">Answer: A - Transit Gateway (TGW) acts as a central hub (router) to connect thousands of
+                VPCs and on-prem networks.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q59. Disaster Recovery: RPO/RTO can be minutes. Low cost is not primary driver. (A)
+                Backup & Restore (B) Pilot Light (C) Warm Standby (D) Multi-Region Active-Passive</div>
+            <div class="a-line">Answer: C - Warm Standby implies a scaled-down version is always running, allowing
+                faster failover than Pilot Light (minutes).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q60. You need to run a script once a day for 10 minutes. (A) EC2 Reserved (B) EC2 Spot
+                (C) Lambda (if < 15min) (D) EventBridge Scheduler + Lambda</div>
+            <div class="a-line">Answer: D - EventBridge Scheduler triggers the Lambda function daily. Lambda is
+                        perfect for short, scheduled tasks.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

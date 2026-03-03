@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure ML DP-100 Flashcards</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="../../index.html" class="btn">← Dashboard</a>
+        <h1>Azure ML Flashcards</h1>
+
+        <p style="font-size: 11px; color:#888; text-align:center;">
+            Tap the <b>Left Half</b> of the screen for 'Previous', <b>Right Half</b> for 'Next'.
+        </p>
+
+        <div class="fc-viewer">
+            <!-- Invisible Touch Zones -->
+            <div class="fc-hitbox-left" id="zone-left"></div>
+            <div class="fc-hitbox-right" id="zone-right"></div>
+
+            <div class="fc-counter" id="fc-counter">1 / 50</div>
+
+            <!-- Content -->
+            <div class="fc-front" id="fc-front">Front Loading...</div>
+            <div class="fc-back" id="fc-back">Back Loading...</div>
+        </div>
+
+    </div>
+
+    <script>
+        const cards = [
+            { front: "Azure Machine Learning Workspace", back: "The foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. Groups all ML assets together." },
+            { front: "Azure ML Studio", back: "The web portal for data scientists and developers to build, train, and deploy ML models using a unified visual interface." },
+            { front: "Azure ML SDK v2 (Python)", back: "The modern, foundational library for interacting with an Azure ML workspace via Python. Heavy emphasis on declarative configuration." },
+            { front: "Azure CLI (v2 extension)", back: "Allows data scientists and MLOps teams to define ML resources (Jobs, Components, Endpoints) declaratively via YAML files." },
+            { front: "MLClient", back: "The main entry-point class in SDK v2 used to instantiate a connection to the Azure ML Workspace programmatically." },
+            { front: "Datastore", back: "A secure abstraction that stores connection details (e.g., SAS tokens, keys) to an underlying Azure storage service (like Blob or Data Lake)." },
+            { front: "Data Asset (v2)", back: "A registered, versioned reference to a specific file, folder, or SQL query located within an Azure ML Datastore." },
+            { front: "Compute Instance", back: "A fully managed, cloud-based workstation designed primarily as an interactive development environment (Jupyter/VS Code)." },
+            { front: "Compute Cluster", back: "A managed-compute infrastructure that enables scalable, distributed processing or training across a cluster of CPU/GPU nodes." },
+            { front: "Environment (v2)", back: "Encapsulates a Docker image and a set of Python dependencies (usually defined in `conda.yml`) ensuring training/deployment reproducibility." },
+            { front: "Command Job", back: "The primary execution unit in Azure ML v2. It runs a specific script (`command`) inside a defined `environment` on a designated `compute` target." },
+            { front: "MLflow", back: "Open-source platform for the complete ML lifecycle, natively integrated into Azure ML as the primary UI backend for tracking metrics and parameters." },
+            { front: "Sweep Job", back: "An Azure ML mechanism used to automate the tuning of hyperparameters by running multiple parallel trials exploring a defined set of values." },
+            { front: "Grid Sampling", back: "Hyperparameter tuning method that performs an exhaustive search over all possible combinations of the specified hyperparameter matrix." },
+            { front: "Random Sampling", back: "Hyperparameter tuning method that randomly selects combinations of values. Supports early termination policies to save cost." },
+            { front: "Bayesian Sampling", back: "Intelligent sampling method that uses the performance of previous runs to inform the selection of the next hyperparameters. Does not support early termination." },
+            { front: "Bandit Policy", back: "Early termination policy that cancels a run if its primary metric is not within a specified slack factor or slack amount of the most successful run." },
+            { front: "Truncation Selection Policy", back: "Early termination policy that cancels a specific percentage of the lowest-performing runs at specified evaluation intervals." },
+            { front: "Component (v2)", back: "Self-contained, reusable pieces of code (with specific inputs/outputs) that represent a single step within an Azure ML Pipeline." },
+            { front: "Pipeline Job", back: "An automated workflow composed of multiple linked Components/Steps, useful for orchestrating ETL, training, and evaluation asynchronously." },
+            { front: "Automated ML (AutoML)", back: "Service that automates the time-consuming iterative tasks of ML (feature engineering, algorithm selection, hyperparameter tuning)." },
+            { front: "Data Guardrails", back: "AutoML feature that automatically checks the input data for potential issues like class imbalance, missing values, or high cardinality." },
+            { front: "Model Registry", back: "A central, versioned repository within the workspace storing physical files (.pkl, .onnx) representing the learned weights of a model." },
+            { front: "Managed Online Endpoint", back: "A production-grade endpoint that securely hosts ML models for real-time inference (REST API), handling autoscaling and authentication securely." },
+            { front: "Managed Batch Endpoint", back: "Endpoint designed to asynchronously distribute and score massive datasets over compute clusters, storing the output natively in blob storage." },
+            { front: "Blue-Green Deployment", back: "Supported by Managed Endpoints. Involves routing a fraction (e.g., 10%) of live traffic to a new model version (deployment) to test it before full switchover." },
+            { front: "Scoring Script (score.py)", back: "Required for custom online deployments. Contains `init()` to load the model and `run()` to process incoming JSON payload requests." },
+            { front: "ONNX (Open Neural Network Exchange)", back: "An open format for ML models. Crucial in Azure ML for optimizing inference performance and decoupling frameworks from deployment architectures." },
+            { front: "Azure Key Vault", back: "Automatically deployed alongside an Azure ML workspace. Securely stores secrets, connection strings, and certificates." },
+            { front: "Azure Container Registry (ACR)", back: "Automatically deployed alongside a workspace. It builds, stores, and manages Docker images used by training environments and endpoints." },
+            { front: "Managed Identities", back: "Azure AD feature enabling resources (like Compute Clusters) to securely access other services (like Key Vault/Blob) without embedding credentials in code." },
+            { front: "Azure Synapse Analytics", back: "Limitless analytics service natively integrable with Azure ML for massive, Spark-based distributed data preparation before ML training." },
+            { front: "Data Drift", back: "Occurs when the statistical distribution of real-world production inference data deviates significantly from the initial training baseline, degrading accuracy." },
+            { front: "Model Interpretability (Responsible AI)", back: "Provides insights via global and local feature importance charts (e.g., SHAP wrappers) to explain exactly why a model made a specific prediction." },
+            { front: "Fairlearn", back: "Open-source toolkit (integrated in Responsible AI Dashboard) used to assess and mitigate biases or discriminatory effects algorithms might have on specific demographic cohorts." },
+            { front: "Error Analysis", back: "Component of the Responsible AI dashboard that visualizes specific slices or cohorts of data where the model exhibits the highest failure rates." },
+            { front: "Azure AI Foundry (formerly Cognitive Services)", back: "A collection of high-level, pre-trained AI services (Vision, Speech, Language) accessible via simple REST calls, requiring minimal ML expertise." },
+            { front: "Azure OpenAI Service", back: "Provides secure, enterprise-grade access to OpenAI's foundational language models (GPT-4, Embeddings) strictly isolated within a customer's Azure tenant." },
+            { front: "Document Intelligence (Form Recognizer)", back: "AI service specifically designed to extract text, key-value pairs, tables, and structures from scanned PDF documents and forms." },
+            { front: "Data Labeling Project", back: "A managed workflow in Azure ML Studio to distribute image or text annotation tasks to human reviewers, assisted by ML pre-labeling." },
+            { front: "DefaultAzureCredential", back: "From `azure.identity`. The standard, secure way to authenticate `MLClient` locally (via Azure CLI login) or on an Azure VM (via Managed Identity)." },
+            { front: "MPI / NCCL", back: "The communication backends specified in Azure ML configurations to coordinate distributed deep learning (e.g., PyTorch) across multi-GPU nodes." },
+            { front: "F1-Score / PR AUC", back: "The preferred evaluation metrics when dealing with highly imbalanced classification datasets, prioritizing the accuracy of the minority class." },
+            { front: "Continuous Training (CT) Pipeline", back: "In MLOps, this is an automated workflow triggered by new data or performance degradation that re-ingests, re-trains, and registers a new model." },
+            { front: "Local Mode (SDK v2)", back: "Allows developers to rapidly test their Command Job scripts and specific Docker environments directly on their local machine before submitting to the cloud." },
+            { front: "Virtual Network (VNet) Isolation", back: "Securing an Azure ML Workspace and a Compute Cluster behind private subnets with ExpressRoute/VPN to ensure data never traverses the public internet." },
+            { front: "Pipeline Schedule", back: "Native Azure ML artifact that triggers a published Pipeline Job at a recurring date/time (cron) or when new data modifies a Datastore." },
+            { front: "Parallel Coordinate Plot", back: "Specific visualization in ML Studio used during Sweep Jobs to correlate hundreds of hyperparameter combinations against the ultimate objective metric." },
+            { front: "Application Insights", back: "Azure Monitor service integrated with Online Endpoints to capture deep diagnostic logs, trace performance, and capture Python exceptions from `score.py`." },
+            { front: "Designer", back: "The drag-and-drop, completely visual interface within Azure ML Studio for connecting data modules and algorithms without writing pure Python code." }
+        ];
+
+        let currentIndex = 0;
+        const frontEl = document.getElementById('fc-front');
+        const backEl = document.getElementById('fc-back');
+        const counterEl = document.getElementById('fc-counter');
+
+        function updateCard() {
+            frontEl.textContent = cards[currentIndex].front;
+            backEl.textContent = cards[currentIndex].back;
+            counterEl.textContent = `${currentIndex + 1} / ${cards.length}`;
+        }
+
+        document.getElementById('zone-left').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            } else {
+                // Wrap to end
+                currentIndex = cards.length - 1;
+                updateCard();
+            }
+        });
+
+        document.getElementById('zone-right').addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateCard();
+            } else {
+                // Wrap to beginning
+                currentIndex = 0;
+                updateCard();
+            }
+        });
+
+        // Initialize
+        updateCard();
+    </script>
+</body>
+
+</html>

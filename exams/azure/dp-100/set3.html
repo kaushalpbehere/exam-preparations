@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure ML Path (DP-100) - Set 3</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-exam-id="azure-ml-set3">
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>Azure ML Path (DP-100)</h1>
+        <div class="academic-theory">
+            <strong>Key Focus (2026):</strong> Azure ML SDK v2, MLflow integration, Managed Online Endpoints, Automated ML, and Responsible AI paradigms.
+        </div>
+
+        <h2>Set 3 (Questions 1-50)</h2>
+
+        <div class="q-block">
+            <div class="q-line">Q1. Why might you use the `fairlearn` open-source package (integrated with Azure ML) alongside your trained classification model? (A) To improve the UI design (B) To assess if the model exhibits disparate impact or bias across different demographic groups (like gender or age) and apply mitigation algorithms (C) To serialize the model to ONNX (D) To compress the dataset</div>
+            <div class="a-line">Answer: B - Explanation: Fairlearn provides metrics and mitigation algorithms to evaluate models for fairness, ensuring predictions do not unfairly disadvantage specific sensitive groups, fulfilling Responsible AI mandates.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="1">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="1">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q2. When viewing the output of a Sweep Job, what does the 'Parallel coordinate plot' visually help you determine? (A) The geographic region of your data (B) The correlation between the different hyperparameter choices and the primary metric objective (C) The number of failed nodes in the cluster (D) The raw byte size of the model</div>
+            <div class="a-line">Answer: B - Explanation: The parallel coordinate plot is a visualization that helps you see how specific ranges or combinations of hyperparameters correlate with higher or lower performance metrics.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="2">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="2">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q3. In an NLP scenario, what is the primary benefit of using a pre-trained Azure OpenAI foundational model rather than training a language model from scratch in Azure ML? (A) It requires writing more custom C++ code (B) It drastically reduces training time, cost, and requires significantly less labeled data for state-of-the-art results (few-shot learning) (C) It allows complete ownership of the base model weights (D) It runs natively on your laptop without the cloud</div>
+            <div class="a-line">Answer: B - Explanation: Foundational models provided by Azure OpenAI are pre-trained on vast amounts of data, allowing developers to leverage them via APIs with minimal configuration or fine-tuning, saving immense resources.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="3">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="3">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q4. You need to deploy a model that processes large batches of data asynchronously (e.g., scoring millions of rows overnight). Which endpoint type should you use? (A) Managed Online Endpoint (B) Managed Batch Endpoint (C) Azure Kubernetes Service (AKS) Online Endpoint (D) Container Instance (ACI)</div>
+            <div class="a-line">Answer: B - Explanation: A Managed Batch Endpoint is specifically designed to distribute and execute scoring of large datasets asynchronously across compute clusters.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="4">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="4">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q5. What is the purpose of 'Data Labeling Projects' within Azure Machine Learning Studio? (A) To rename columns in a CSV (B) To manage manual or ML-assisted labeling of datasets (like drawing bounding boxes on images) utilizing internal or vendor workforces (C) To automatically translate text (D) To deploy models to Kubernetes</div>
+            <div class="a-line">Answer: B - Explanation: Data Labeling Projects orchestrate the tedious process of annotation by distributing tasks to human labelers and integrating ML-assisted pre-labeling to speed up the creation of ground-truth datasets.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="5">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="5">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q6. During AutoML, the system applies data guardrails. What is the purpose of the 'Class balancing detection' guardrail? (A) To randomly delete data until classes are equal (B) To alert the user if the training dataset is heavily skewed toward one class, which may lead to biased predictions (C) To add noise to images (D) To switch from classification to regression</div>
+            <div class="a-line">Answer: B - Explanation: Data guardrails automatically check the input data for potential issues. The class balancing guardrail flags highly imbalanced datasets so the user is aware the resulting model could be biased.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="6">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="6">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q7. When deploying a model as a real-time web service in Azure ML for high-scale, production scenarios, which target is generally recommended? (A) Azure Container Instances (ACI) (B) Azure Kubernetes Service (AKS) (C) Managed Online Endpoint (D) Both B and C are suitable for high scale</div>
+            <div class="a-line">Answer: D - Explanation: For production, real-time deployments that require high scale, autoscaling, and secure authentication, AKS or Managed Online Endpoints are the recommended deployment targets.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="7">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="7">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q8. When deploying a blue-green update to an Azure ML Managed Online Endpoint, what is the purpose of traffic splitting? (A) To balance load evenly across all world regions (B) To direct a specific percentage of inference requests (e.g., 10%) to the new 'green' deployment to test it safely before fully switching (C) To split a large dataset into training and validation sets (D) To prevent DDoS attacks</div>
+            <div class="a-line">Answer: B - Explanation: Traffic splitting natively supports safe rollouts by allowing you to route a fraction of live traffic to a new model version (deployment) to monitor its performance before shifting 100% of the traffic.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="8">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="8">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q9. Which Azure ML deployment feature ensures that your real-time endpoint automatically allocates more compute nodes when traffic spikes, and scales down when idle? (A) Autoscaling (B) Data Drift detection (C) Traffic Splitting (D) Online Testing</div>
+            <div class="a-line">Answer: A - Explanation: Autoscaling policies can be configured on Managed Online Endpoints (or AKS) to dynamically adjust the number of instances based on CPU utilization or request queues.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="9">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="9">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q10. Which Azure feature provides a centralized identity management system, allowing a Compute Cluster to authenticate to Azure Blob Storage securely without embedding passwords in code? (A) Azure Key Vault Secrets (B) Managed Identities (System-assigned or User-assigned) (C) Local Administrator accounts (D) Shared Access Signatures (SAS) in GitHub</div>
+            <div class="a-line">Answer: B - Explanation: Managed Identities allow Azure resources (like a compute cluster) to authenticate to other Azure services (like Storage or Key Vault) securely using Azure AD, eliminating credentials from code.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="10">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="10">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q11. In the Azure ML Python SDK v2, what class is instantiated to create a connection to your workspace programmatically? (A) `Workspace.from_config()` (B) `MLClient` (C) `MongoClient` (D) `AzureConnection`</div>
+            <div class="a-line">Answer: B - Explanation: The `MLClient` class is the main entry point to interact with the Azure Machine Learning workspace resources using SDK v2.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="11">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="11">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q12. When configuring an Online Deployment within an Azure ML Managed Online Endpoint, what is the 'scoring script' (`score.py`) responsible for? (A) Training the model from scratch (B) Parsing the incoming JSON request, passing it to the loaded model, and returning the prediction (C) Provisioning the virtual machine (D) Updating MLflow tracking metrics</div>
+            <div class="a-line">Answer: B - Explanation: The scoring script (`score.py`) typically contains `init()` to load the model into memory and `run()` to process incoming inference requests and output predictions.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="12">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="12">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q13. You want to automate the selection of the best-performing model algorithm and hyperparameters for a classification dataset. Which Azure ML feature should you use? (A) Azure Machine Learning Designer (B) Automated Machine Learning (AutoML) (C) MLflow Tracking (D) Azure ML Pipelines</div>
+            <div class="a-line">Answer: B - Explanation: Automated Machine Learning (AutoML) automates the iterative tasks of machine learning model development, exploring different algorithms and hyperparameters to find the optimal model.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="13">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="13">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q14. When using MLflow with Azure ML, an active `run` automatically tracks metrics. How do you log a specific accuracy value (e.g., 0.95)? (A) `mlflow.log_metric("accuracy", 0.95)` (B) `print("accuracy: 0.95")` (C) `mlflow.save_artifact("accuracy.txt")` (D) `azureml.core.Run.log_value(0.95)`</div>
+            <div class="a-line">Answer: A - Explanation: The standard MLflow command `mlflow.log_metric(key, value)` is natively captured by Azure ML when the tracking URI is correctly configured.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="14">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="14">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q15. Which Azure Machine Learning capability explicitly helps you understand the impact of different features on model predictions, fulfilling Responsible AI requirements? (A) Model Data Collector (B) Model Interpretability (e.g., interpret-community wrapper) (C) Application Insights (D) System Metrics Profiler</div>
+            <div class="a-line">Answer: B - Explanation: Model Interpretability toolkits in Azure ML help explain model behavior, providing global and local feature importance values and interactive dashboards.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="15">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="15">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q16. Which Azure ML tracking URI should you set when using MLflow to log metrics and artifacts directly to your Azure ML workspace? (A) The Azure Blob Storage connection string (B) The Azure ML Workspace MLflow tracking URI (C) A generic SQLite database URL (D) The Azure Monitor endpoint</div>
+            <div class="a-line">Answer: B - Explanation: To natively log MLflow runs into Azure ML, you configure the MLflow tracking URI to point to the specific tracking URL generated by your Azure ML workspace.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="16">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="16">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q17. In Azure ML SDK v2, which object wraps your code, environment, and compute to execute a specific task, such as training a Python script? (A) A Workspace (B) An Environment (C) A Command Job (D) A Component</div>
+            <div class="a-line">Answer: C - Explanation: In SDK v2, a 'Command Job' is the fundamental execution unit that runs a specific command (like `python train.py`) within a specified Environment on a designated Compute target.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="17">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="17">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q18. You want to monitor a deployed model in production for 'Data Drift'. What specifically are you measuring? (A) Changes in the underlying source code of the application (B) The difference in distribution between the training dataset and the actual inference dataset over time (C) Hardware degradation of the cluster (D) Security breaches on the endpoint</div>
+            <div class="a-line">Answer: B - Explanation: Data Drift occurs when the statistical properties of the incoming production data change significantly from the data used to train the model, potentially degrading accuracy.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="18">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="18">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q19. During a hyperparameter tuning process (Sweep Job), which early termination policy allows you to conserve resources by terminating runs whose primary metric falls outside the top X percent of completed runs? (A) Bandit Policy (B) Median Stopping Policy (C) Truncation Selection Policy (D) Random Search</div>
+            <div class="a-line">Answer: C - Explanation: The Truncation Selection Policy cancels a given percentage of the lowest-performing runs at specified evaluation intervals.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="19">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="19">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q20. If data is highly imbalanced in a classification problem, which evaluation metric provides a more reliable picture of model performance than raw 'Accuracy'? (A) Mean Absolute Error (MAE) (B) Area Under the Precision-Recall Curve (PR AUC) or F1-Score (C) R-Squared (D) Root Mean Square Error (RMSE)</div>
+            <div class="a-line">Answer: B - Explanation: For imbalanced datasets, Accuracy can be misleading. PR AUC or F1-Score (harmonic mean of precision and recall) focus specifically on the model's ability to identify the minority positive class.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="20">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="20">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q21. When writing a pipeline component in Azure ML using a YAML specification, what does the `command:` field dictate? (A) The physical location of the datacenter (B) The exact shell command (e.g., `python script.py --learning_rate ${{inputs.lr}}`) to execute the component's logic (C) The names of the MLflow metrics to log (D) The type of VM to provision</div>
+            <div class="a-line">Answer: B - Explanation: The `command:` block determines the exact execution string that the compute target will run inside the Docker container, pulling in defined inputs.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="21">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="21">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q22. In MLOps CI/CD pipelines managed via Azure DevOps or GitHub Actions, what triggers the Continuous Training (CT) process? (A) Writing a new unit test (B) Merging a new feature to the UI (C) Changes in the underlying code, updates to the training data, or a scheduled recurring trigger (D) Changing the font of the dashboard</div>
+            <div class="a-line">Answer: C - Explanation: Continuous Training pipelines are automated workflows triggered by code commits affecting the ML model, the arrival of new data in storage, or scheduled retraining intervals.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="22">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="22">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q23. In the Azure ML Responsible AI dashboard, what does 'Error Analysis' specifically help you identify? (A) Syntax errors in your Python script (B) Cohorts (sub-groups) of your data where the model has the highest error rates (C) REST API 500 errors during deployment (D) Kubernetes pods that failed to start</div>
+            <div class="a-line">Answer: B - Explanation: The Error Analysis component visualizes and identifies specific cohorts or slices of your dataset where the model underperforms, highlighting potential systemic flaws or biases.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="23">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="23">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q24. What is the primary function of an Azure ML 'Datastore'? (A) To execute SQL queries on tabular data (B) To serve as an abstraction over an Azure storage service (like Blob or Data Lake) to store connection information securely (C) To define specific files or folders to be used in an experiment (D) To cache intermediate experiment results in memory</div>
+            <div class="a-line">Answer: B - Explanation: A Datastore acts as a secure pointer to your actual storage resource (e.g., Azure Blob Storage), securely housing connection details like account keys or SAS tokens so scripts don't need them hardcoded.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="24">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="24">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q25. In Azure Machine Learning, which component is primarily used to manage the lifecycle of a trained model, including versioning and auditing? (A) MLflow Model Registry (B) Azure Blob Storage (C) Azure Container Registry (D) Azure DevOps</div>
+            <div class="a-line">Answer: A - Explanation: Azure ML natively integrates with MLflow's Model Registry to provide full lifecycle management, allowing users to register, version, and transition models through different stages (Staging, Production).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="25">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="25">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q26. Which Azure ML artifact primarily encapsulates the actual learned weights/parameters of an algorithm after a training job completes? (A) An Environment (B) A Data Asset (C) A Model Asset (D) A Component</div>
+            <div class="a-line">Answer: C - Explanation: A Model Asset registers the physical files (like a .pkl, .pt, or .onnx file containing learned weights) and accompanying metadata in the workspace registry.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="26">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="26">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q27. Which library enables you to programmatically define Azure ML resources (like jobs, endpoints, datasets) declaratively using YAML files and a command-line interface? (A) Azure ML SDK v1 (B) Azure CLI with the `ml` extension (v2) (C) Bicep exclusively (D) PowerShell</div>
+            <div class="a-line">Answer: B - Explanation: The Azure CLI `ml` extension (CLI v2) allows data scientists and engineers to define and manage ML resources using declarative YAML files, fully supporting MLOps CI/CD pipelines.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="27">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="27">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q28. If you need a low-code approach exclusively for developing a computer vision model in Azure, what Azure Cognitive Service capability integrates tightly with Azure ML concepts? (A) Azure Custom Vision (B) Text Analytics API (C) Form Recognizer (D) Bot Framework</div>
+            <div class="a-line">Answer: A - Explanation: Azure Custom Vision provides an accessible interface to upload images, tag them, and train custom image classification or object detection models quickly.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="28">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="28">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q29. Which of the following is an Azure Cognitive Service designed specifically to extract printed text, handwriting, and data from scanned documents or PDFs? (A) Face API (B) Speech to Text (C) Azure AI Document Intelligence (formerly Form Recognizer) (D) Immersive Reader</div>
+            <div class="a-line">Answer: C - Explanation: Azure AI Document Intelligence leverages advanced ML models to extract text, key-value pairs, tables, and structures from documents.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="29">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="29">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q30. What is the mathematical concept utilized by Gradient Boosting Machines (like LightGBM or XGBoost) supported by AutoML? (A) Building deep neural networks with millions of layers (B) Sequentially building shallow decision trees where each new tree attempts to correct the residual errors of the previous ensemble (C) Finding a hyperplane to separate data (D) Grouping data based on cosine similarity</div>
+            <div class="a-line">Answer: B - Explanation: Gradient Boosting builds an ensemble of weak prediction models, typically decision trees, in a sequential manner to optimize a differentiable loss function.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="30">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="30">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q31. To ensure your Azure ML Environment is perfectly reproducible, what is the best practice for defining it? (A) Manually `pip install` packages directly in your notebook before running (B) Define a curated image or a Custom Dockerfile with a `conda.yml` specifying exact package versions (C) Select the default Ubuntu image and rely on system packages (D) Copy site-packages from your local PC</div>
+            <div class="a-line">Answer: B - Explanation: Defining an Environment with a specific Docker image and a `conda.yml` file ensuring exact version pins guarantees reproducibility across different compute targets.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="31">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="31">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q32. You are performing a data preparation step that requires a highly distributed, big data platform utilizing Apache Spark. Which Azure service integrates seamlessly with Azure ML for this task? (A) Azure SQL Database (B) Azure Cosmos DB (C) Azure Synapse Analytics or Azure Databricks (D) Azure App Service</div>
+            <div class="a-line">Answer: C - Explanation: Azure Synapse Analytics (Synapse Spark pools) and Azure Databricks provide massive Spark computing power and integerate directly with Azure ML workspaces for seamless data-prep to ML training pipelines.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="32">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="32">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q33. You are building an Azure ML Pipeline. If you want a specific step to only run if a previous step generates a certain output (e.g., metric > 0.8), how is this managed in SDK v2? (A) Using a PipelineComponent (B) You cannot have conditional logic; you must split the pipeline (C) Using `mldesigner.component` and Python conditional statements in the pipeline function (D) Using Azure Data Factory instead</div>
+            <div class="a-line">Answer: C - Explanation: In SDK v2, pipelines are often defined using Python functions decorated with `@pipeline`. You can use control flow (like `if` statements) over component outputs if supported by the runtime, though complex conditional logic is often offloaded to Azure Logic Apps or orchestrators.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="33">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="33">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q34. To trigger an Azure ML Pipeline to retrain a model every Sunday at midnight, which integration technique is most native? (A) A cron job on a local PC (B) An Azure ML Pipeline Schedule (C) A manual click (D) Azure DevOps pull requests</div>
+            <div class="a-line">Answer: B - Explanation: Azure ML allows you to create native Job Schedules (using cron or recurrence intervals) connecting directly to published pipelines for automated execution.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="34">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="34">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q35. You require a compute target that can securely access data located strictly within your company's on-premises network via a VPN. Which setup is appropriate? (A) An Azure ML Compute Cluster deployed within your Azure Virtual Network (VNet) that is peered to on-premises (B) A standard public Compute Instance (C) Azure Databricks on the public internet (D) AutoML managed compute</div>
+            <div class="a-line">Answer: A - Explanation: By deploying the Compute Cluster into an Azure Virtual Network (VNet), and connecting that VNet to your on-premises network via ExpressRoute or VPN, the cluster can access private local data.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="35">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="35">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q36. When utilizing a Compute Instance in Azure ML, what is its primary use case? (A) Running massive, distributed training pipelines over several days (B) Serving production models with auto-scaling capabilities (C) Acting as a cloud-based development workstation for data scientists to run notebooks (D) Archiving old datasets</div>
+            <div class="a-line">Answer: C - Explanation: A Compute Instance is a fully managed, cloud-based workstation designed primarily for development, running Jupyter/VS Code, and executing interactive data exploration.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="36">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="36">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q37. What is the primary benefit of 'Local Mode' when using MLflow and the Azure ML SDK v2? (A) It provisions 100 GPUs instantly (B) It allows you to run and debug the exact training logic and container abstraction on your local PC before securely submitting it to the cloud (C) It prevents data from ever reaching the cloud (D) It disables tracking entirely</div>
+            <div class="a-line">Answer: B - Explanation: Local run modes facilitate rapid prototyping and debugging by executing the script in its designated container environment on the local machine before spending time queueing on a cloud cluster.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="37">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="37">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q38. Which sampling method for hyperparameter tuning (Sweep Job) evaluates all possible combinations of the defined hyperparameter space? (A) Random Sampling (B) Grid Sampling (C) Bayesian Sampling (D) Sobol Sampling</div>
+            <div class="a-line">Answer: B - Explanation: Grid Sampling performs an exhaustive search over all possible combinations of the specified hyperparameter values.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="38">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="38">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q39. What Azure service acts as the underlying secure key vault for storing secrets (like database passwords) associated with an Azure Machine Learning workspace? (A) Azure Security Center (B) Azure Key Vault (C) Azure Active Directory (D) Managed Identity</div>
+            <div class="a-line">Answer: B - Explanation: When an Azure ML Workspace is created, an Azure Key Vault is automatically provisioned to securely store secrets, connection strings, and access keys used by the workspace.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="39">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="39">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q40. You are creating a compute target in Azure ML specifically designed for distributed training of deep neural networks. Which compute type should you provision? (A) Compute Instance (B) Compute Cluster (C) Inference Cluster (D) Attached Compute</div>
+            <div class="a-line">Answer: B - Explanation: An Azure ML Compute Cluster is a managed-compute infrastructure that enables distributed training of models across a cluster of CPU or GPU nodes, automatically scaling up and down.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="40">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="40">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q41. If a Data Scientist wants to experiment with features offline using a local Python IDE before pushing to the cloud, how can they authenticate locally to the Azure ML Workspace? (A) Using `DefaultAzureCredential` from `azure.identity` which picks up local Azure CLI login tokens (B) By SSHing directly into the workspace API (C) They cannot; development must happen in the cloud (D) By disabling IAM</div>
+            <div class="a-line">Answer: A - Explanation: When authenticated locally via `az login`, the `DefaultAzureCredential` allows the MLClient to securely authenticate and interact with Azure ML resources directly from a local IDE.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="41">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="41">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q42. You are utilizing Azure Machine Learning Designer. What is the standard visual representation of a data processing or training step? (A) A Jupyter Cell (B) A Node/Module connected by edges (C) A bash script (D) A YAML file</div>
+            <div class="a-line">Answer: B - Explanation: Azure ML Designer provides a drag-and-drop visual interface where operations are represented as nodes (modules) connected to form a pipeline graph.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="42">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="42">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q43. What is the primary difference between a 'Data Asset' and a 'Datastore' in Azure Machine Learning? (A) A datastore stores the physical data; a data asset is a reference to a specific file or folder in a datastore. (B) They are identical concepts in v2. (C) A data asset is an external database (like SQL); a datastore is internal. (D) Data assets are only used for images; datastores are for tabular data.</div>
+            <div class="a-line">Answer: A - Explanation: While a Datastore is the connection to the storage service itself, a Data Asset is a named reference (with versions) pointing to a specific file, folder, or SQL query located within that Datastore.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="43">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="43">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q44. In Azure ML SDK v2, which artifact defines the computational environment conceptually, including the OS image, python packages, and environment variables? (A) Datastore (B) Job (C) Environment (D) Workspace</div>
+            <div class="a-line">Answer: C - Explanation: An Environment encapsulates the dependencies and Docker configurations needed to reliably reproduce the execution space for training and deployment.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="44">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="44">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q45. Which feature of Azure Machine Learning allows you to define reusable pieces of code (with defined inputs and outputs) that can be easily strung together into a Pipeline? (A) Components (B) Sweeps (C) Environments (D) Datastores</div>
+            <div class="a-line">Answer: A - Explanation: Components are self-contained, modular pieces of code that define a step in a machine learning pipeline, complete with inputs, outputs, and an execution environment.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="45">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="45">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q46. An Azure ML Sweep Job using Bayesian Sampling is restricted from using which early termination policy? (A) Bandit (B) Median Stopping (C) Early termination policies are entirely unsupported with Bayesian Sampling (D) Truncation Selection</div>
+            <div class="a-line">Answer: C - Explanation: Bayesian Sampling does not support early termination policies in Azure ML because it relies on the results of previous runs to inform the selection of the next hyperparameters.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="46">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="46">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q47. When setting up Data Drift monitoring for an endpoint, which two datasets are compared? (A) The Validation set vs the Test set (B) The original Training (Baseline) dataset vs the new Production Inference data (C) Text data vs Image data (D) Two different models' outputs</div>
+            <div class="a-line">Answer: B - Explanation: Data Drift evaluates if the statistical distribution of the live inference data is significantly diverging from the baseline dataset originally used to train the model.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="47">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="47">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q48. If you need to distribute deep learning training across multiple GPUs using PyTorch, which communication backend is commonly specified in the Azure ML Command Job configuration? (A) MPI or NCCL (B) HTTP (C) FTP (D) SMTP</div>
+            <div class="a-line">Answer: A - Explanation: For distributed PyTorch training, the process relies on NCCL (NVIDIA Collective Communication Library) to communicate between GPUs, often coordinated via MPI (Message Passing Interface).</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="48">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="48">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q49. You have trained a PyTorch model and want to optimize it for faster inference with a smaller memory footprint on specific hardware. Which Azure ML-supported tool enables this? (A) ONNX (Open Neural Network Exchange) (B) Fairlearn (C) InterpretML (D) MLflow Registry</div>
+            <div class="a-line">Answer: A - Explanation: ONNX is an open format for representing ML models. Azure ML encourages converting models to ONNX to optimize inference performance across various hardware platforms.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="49">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="49">Incorrect</button>
+            </div>
+        </div>
+        <div class="q-block">
+            <div class="q-line">Q50. What is the role of an Azure Container Registry (ACR) when linked to an Azure Machine Learning workspace? (A) It stores tabular datasets (B) It hosts the user interface for ML Studio (C) It builds, stores, and manages Docker container images used for training environments and deployments (D) It acts as the relational database for MLflow tracking</div>
+            <div class="a-line">Answer: C - Explanation: Azure ML relies on ACR to store the customized Docker images used to spin up training jobs or serve models as REST endpoints.</div>
+            <div class="score-controls">
+                <button class="score-btn correct" data-correct="true" data-qindex="50">Correct</button>
+                <button class="score-btn incorrect" data-correct="false" data-qindex="50">Incorrect</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="../../assets/engine.js"></script>
+</body>
+</html>

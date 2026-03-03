@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS ML Specialty & Associate Revision Guide</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+    <style>
+        .revision-section {
+            background-color: #1a1a2e;
+            border-left: 5px solid #0f3460;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .revision-section h2 {
+            color: #e94560;
+            margin-top: 0;
+        }
+
+        .revision-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: #4ecca3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../../index.html" class="btn">← Dashboard</a>
+
+        <h1>AWS Machine Learning Revision Guide</h1>
+        <div class="academic-theory">
+            Super-dense cheat sheet focusing on SageMaker, Bedrock, and ML Architecture.
+        </div>
+
+        <div class="revision-section">
+            <h2>1. Amazon SageMaker Ecosystem</h2>
+            <ul class="revision-list">
+                <li><span class="highlight">SageMaker Studio:</span> The centralized IDE for all ML steps. Replaces
+                    standalone notebook instances for heavy workflows.</li>
+                <li><span class="highlight">Data Wrangler:</span> Visual UI for data prep (cleansing, feature
+                    engineering) without code. Exports to pipelines.</li>
+                <li><span class="highlight">Feature Store:</span> Stores, retrieves, and shares ML features. Supports
+                    low-latency (<10ms) online retrieval for real-time inference and offline storage (S3) for batch
+                        training.</li>
+                <li><span class="highlight">Clarify:</span> Bias detection in training data and models. Feature
+                    attribution/explainability using SHAP values.</li>
+                <li><span class="highlight">Model Monitor:</span> Detects drift in production (Data drift, model quality
+                    drift, feature attribution drift, bias drift) by capturing endpoint requests/responses.</li>
+                <li><span class="highlight">Debugger:</span> Monitors training jobs in real-time. Detects vanishing
+                    gradients, overfitting, and un-optimized hardware usage.</li>
+            </ul>
+        </div>
+
+        <div class="revision-section">
+            <h2>2. Generative AI (Amazon Bedrock)</h2>
+            <ul class="revision-list">
+                <li><span class="highlight">Amazon Bedrock:</span> Serverless API access to Foundation Models (Anthropic
+                    Claude, Amazon Titan, Meta Llama).</li>
+                <li><span class="highlight">Knowledge Bases (RAG):</span> Connects FMs to private data (S3) via a vector
+                    database (e.g., OpenSearch Serverless). Automates embedding generation and chunking.</li>
+                <li><span class="highlight">Agents for Bedrock:</span> Executes multi-step tasks by allowing the LLM to
+                    call your company APIs (via Lambda and OpenAPI schemas).</li>
+                <li><span class="highlight">Guardrails:</span> Filters distinct from the FM's native safety. Blocks
+                    toxic content, redacts PII, and keeps responses on-topic based on corporate policy.</li>
+            </ul>
+        </div>
+
+        <div class="revision-section">
+            <h2>3. Storage, Ingestion, and Compute</h2>
+            <ul class="revision-list">
+                <li><span class="highlight">Fast File Mode / Pipe Mode:</span> Streams large datasets directly from S3
+                    to SageMaker containers, saving local EBS volume space and reducing cold start time.</li>
+                <li><span class="highlight">Amazon FSx for Lustre:</span> Extremely high throughput, sub-millisecond
+                    latency file system. Ideal for massive CV/NLP deep learning workloads. Linked to S3.</li>
+                <li><span class="highlight">AWS Inferentia & Trainium:</span> Custom AWS chips offering the lowest
+                    cost-per-inference and cost-to-train for deep learning models.</li>
+                <li><span class="highlight">Managed Spot Training:</span> Uses spare EC2 capacity for up to 90% savings.
+                    Your training script MUST implement checkpointing (saving state to S3) to handle interruptions.</li>
+            </ul>
+        </div>
+
+        <div class="revision-section">
+            <h2>4. Endpoint Deployment Options</h2>
+            <ul class="revision-list">
+                <li><span class="highlight">Real-time Endpoints:</span> Best for low-latency, synchronous JSON payloads.
+                    Supports Auto-scaling (target tracking).</li>
+                <li><span class="highlight">Multi-Model Endpoints (MME):</span> Hosts thousands of similar models on a
+                    single endpoint/fleet to save cost. Models are dynamically loaded/unloaded from S3.</li>
+                <li><span class="highlight">Serverless Inference:</span> No instances to manage. Best for unpredictable,
+                    intermittent traffic. Charges per millisecond of compute. Subject to cold starts.</li>
+                <li><span class="highlight">Batch Transform:</span> Asynchronous processing for massive datasets
+                    (GBs/TBs) stored in S3. Spins up compute, processes the batch, writes back to S3, and tears down.
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>
