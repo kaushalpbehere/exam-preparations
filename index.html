@@ -1,82 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Cloud & Academic ML Portal</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Multi-Cloud & Academic ML Portal</h1>
-        <p style="font-size: 11px; color: #888;">"Zero-Friction" Brute-Force Scanning UI</p>
+        <p style="font-size: 11px; color: #888; margin-bottom: 20px;">"Zero-Friction" Brute-Force Scanning UI</p>
 
-        <h2>1. GCP Digital Leader (2026)</h2>
-        <a href="flashcards.html" class="exam-link">
-            Flashcards
-            <span class="meta">Core Service Mappings</span>
-        </a>
+        <div class="dashboard-grid">
 
-        <a href="revision.html" class="exam-link">
-            Revision Guide
-            <span class="meta">High-density summary of the four 2026 GCP domains</span>
-        </a>
+            <!-- GCP SECTION -->
+            <div class="certification-card" style="border-left-color: #34A853;">
+                <h3 class="certification-title">GCP Cloud Digital Leader</h3>
+                <div class="action-buttons">
+                    <a href="exams/gcp/digital-leader/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/gcp/digital-leader/revision.html" class="exam-link">Revision</a>
+                </div>
+                <!-- Sets rendered via JS -->
+                <div class="action-buttons" id="gcp-digital-leader-links" style="margin-top: 6px;"></div>
+            </div>
 
-        <h3>Practice Exams</h3>
-        <div id="exam-links">
-            <!-- Populated by JS -->
-        </div>
+            <div class="certification-card" style="border-left-color: #34A853;">
+                <h3 class="certification-title">GCP Professional ML Engineer</h3>
+                <div class="action-buttons">
+                    <a href="exams/gcp/pro-ml/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/gcp/pro-ml/revision.html" class="exam-link">Revision</a>
+                </div>
+                <!-- Sets rendered via JS -->
+                <div class="action-buttons" id="gcp-proml-links" style="margin-top: 6px;"></div>
+            </div>
 
-        <h2>2. Creative ML Master's</h2>
-        <a href="exams/creative-ml/apprentice.html" class="exam-link">Step 1: The Apprentice (Foundations)</a>
-        <a href="exams/creative-ml/builder.html" class="exam-link">Step 2: The Builder (Classic ML)</a>
-        <a href="exams/creative-ml/architect.html" class="exam-link">Step 3: The Architect (Deep Learning)</a>
-        <a href="exams/creative-ml/pro.html" class="exam-link">Step 4: The Pro (MLOps)</a>
+            <!-- AWS SECTION -->
+            <div class="certification-card" style="border-left-color: #FF9900;">
+                <h3 class="certification-title">AWS AI Practitioner</h3>
+                <div class="action-buttons">
+                    <a href="exams/aws/ai-practitioner/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/aws/ai-practitioner/revision.html" class="exam-link">Revision</a>
+                </div>
+                <!-- Sets rendered via JS -->
+                <div class="action-buttons" id="aws-ai-links" style="margin-top: 6px;"></div>
+            </div>
 
-        <h2>3. AWS ML Path</h2>
-        <a href="exams/aws-ml/index.html" class="exam-link">AWS ML Specialty & Associate Focus</a>
+            <div class="certification-card" style="border-left-color: #FF9900;">
+                <h3 class="certification-title">AWS Cloud Practitioner</h3>
+                <div class="action-buttons">
+                    <a href="exams/aws/cloud-practitioner/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/aws/cloud-practitioner/revision.html" class="exam-link">Revision</a>
+                </div>
+                <!-- Sets rendered via JS -->
+                <div class="action-buttons" id="aws-cp-links" style="margin-top: 6px;"></div>
+            </div>
 
-        <h2>4. Azure ML Path</h2>
-        <a href="exams/azure-ml/index.html" class="exam-link">DP-100 & Azure AI Foundations</a>
+            <div class="certification-card" style="border-left-color: #FF9900;">
+                <h3 class="certification-title">AWS ML Specialty</h3>
+                <div class="action-buttons">
+                    <a href="exams/aws/ml-specialty/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/aws/ml-specialty/revision.html" class="exam-link">Revision</a>
+                </div>
+                <!-- Sets rendered via JS -->
+                <div class="action-buttons" id="aws-ml-links" style="margin-top: 6px;"></div>
+            </div>
 
-        <h2>5. Legacy Migrations</h2>
-        <a href="to-be-deleted/aws_ai.html" class="exam-link">AWS AI Practitioner (Legacy)</a>
-        <a href="to-be-deleted/aws_combined.html" class="exam-link">AWS Combined (Legacy)</a>
-        <a href="to-be-deleted/gh300.html" class="exam-link">GH300 (Legacy)</a>
-        <a href="to-be-deleted/itil-v4-exam.html" class="exam-link">ITIL v4 (Legacy)</a>
-        <a href="to-be-deleted/life_in_uk.html" class="exam-link">Life in the UK (Legacy)</a>
-        <a href="to-be-deleted/ml_handson.html" class="exam-link">ML Hands-on (Legacy)</a>
+            <!-- AZURE SECTION -->
+            <div class="certification-card" style="border-left-color: #0078D4;">
+                <h3 class="certification-title">Azure AI-900</h3>
+                <div class="action-buttons">
+                    <a href="exams/azure/ai-900/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/azure/ai-900/revision.html" class="exam-link">Revision</a>
+                </div>
+                <!-- Sets rendered via JS -->
+                <div class="action-buttons" id="azure-ai-links" style="margin-top: 6px;"></div>
+            </div>
+
+            <div class="certification-card" style="border-left-color: #0078D4;">
+                <h3 class="certification-title">Azure DP-100</h3>
+                <div class="action-buttons">
+                    <a href="exams/azure/dp-100/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/azure/dp-100/revision.html" class="exam-link">Revision</a>
+                </div>
+                <!-- Sets rendered via JS -->
+                <div class="action-buttons" id="azure-dp100-links" style="margin-top: 6px;"></div>
+            </div>
+
+            <!-- ITIL SECTION -->
+            <div class="certification-card" style="border-left-color: #6C63FF;">
+                <h3 class="certification-title">ITIL v4 Foundation</h3>
+                <div class="action-buttons">
+                    <a href="exams/itil/v4-foundation/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/itil/v4-foundation/revision.html" class="exam-link">Revision</a>
+                </div>
+                <div class="action-buttons" id="itil-v4-links" style="margin-top: 6px;"></div>
+            </div>
+
+            <div class="certification-card" style="border-left-color: #6C63FF;">
+                <h3 class="certification-title">ITIL v5 Foundation</h3>
+                <div class="action-buttons">
+                    <a href="exams/itil/v5-foundation/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/itil/v5-foundation/revision.html" class="exam-link">Revision</a>
+                </div>
+                <div class="action-buttons" id="itil-v5-links" style="margin-top: 6px;"></div>
+            </div>
+
+            <div class="certification-card" style="border-left-color: #6C63FF;">
+                <h3 class="certification-title">ITIL Specialty Certificate</h3>
+                <div class="action-buttons">
+                    <a href="exams/itil/specialty-certificate/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/itil/specialty-certificate/revision.html" class="exam-link">Revision</a>
+                </div>
+                <div class="action-buttons" id="itil-specialty-links" style="margin-top: 6px;"></div>
+            </div>
+
+            <!-- EXTRAS SECTION -->
+            <div class="certification-card" style="border-left-color: #FF5722;">
+                <h3 class="certification-title">GitHub GH300</h3>
+                <div class="action-buttons">
+                    <a href="exams/gh300/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/gh300/revision.html" class="exam-link">Revision</a>
+                </div>
+                <div class="action-buttons" id="gh300-links" style="margin-top: 6px;"></div>
+            </div>
+
+            <div class="certification-card" style="border-left-color: #FF5722;">
+                <h3 class="certification-title">Life in the UK</h3>
+                <div class="action-buttons">
+                    <a href="exams/life-in-uk/flashcards.html" class="exam-link">Flashcards</a>
+                    <a href="exams/life-in-uk/revision.html" class="exam-link">Revision</a>
+                </div>
+                <div class="action-buttons" id="life-in-uk-links" style="margin-top: 6px;"></div>
+            </div>
+
+            <!-- CREATIVE ML SECTION -->
+            <div class="certification-card" style="border-left-color: #E94560;">
+                <h3 class="certification-title">Creative ML Master's</h3>
+                <div class="action-buttons">
+                    <a href="exams/creative-ml/apprentice.html" class="exam-link btn">Foundation</a>
+                    <a href="exams/creative-ml/builder.html" class="exam-link btn">Classic ML</a>
+                    <a href="exams/creative-ml/architect.html" class="exam-link btn">Deep L.</a>
+                    <a href="exams/creative-ml/pro.html" class="exam-link btn">MLOps</a>
+                </div>
+            </div>
+
+        </div> <!-- End Dashboard Grid -->
 
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const examLinksContainer = document.getElementById('exam-links');
             const overallProgress = JSON.parse(localStorage.getItem('exam_progress') || '{}');
 
-            for (let i = 1; i <= 5; i++) {
-                const examId = `set${i}`;
-                const prog = overallProgress[examId];
+            function renderLinks(containerId, folderPath, idPrefix) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
 
-                let progressText = 'Not started';
-                let progressFill = 0;
+                for (let i = 1; i <= 5; i++) {
+                    const examId = idPrefix ? `${idPrefix}set${i}` : `set${i}`;
+                    const prog = overallProgress[examId];
 
-                if (prog && prog.answered > 0) {
-                    progressText = `${prog.correct}/${prog.answered} correct (${prog.percent}%)`;
-                    progressFill = Math.round((prog.answered / 50) * 100);
+                    let progressFill = 0;
+                    if (prog && prog.answered > 0) {
+                        progressFill = Math.round((prog.answered / 50) * 100);
+                    }
+
+                    // Render as hyper-compact squares for sets
+                    container.innerHTML += `
+                        <a href="exams/${folderPath}/set${i}.html" class="exam-link set-btn" title="Set ${i}">
+                            S${i}
+                            <div class="progress-bar progress-bar-tiny">
+                                <div class="progress-fill" style="width: ${progressFill}%"></div>
+                            </div>
+                        </a>
+                    `;
                 }
-
-                examLinksContainer.innerHTML += `
-                    <a href="exams/gcp-digital-leader/set${i}.html" class="exam-link">
-                        Set ${i}
-                        <span class="meta">${progressText}</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${progressFill}%"></div>
-                        </div>
-                    </a>
-                `;
             }
+
+            // Render identical templates into the Card Grid
+            renderLinks('gcp-digital-leader-links', 'gcp/digital-leader', '');
+            renderLinks('gcp-proml-links', 'gcp/pro-ml', 'gcp-proml-');
+            renderLinks('aws-ai-links', 'aws/ai-practitioner', 'aws-ai-');
+            renderLinks('aws-cp-links', 'aws/cloud-practitioner', 'aws-cp-');
+            renderLinks('aws-ml-links', 'aws/ml-specialty', 'aws-ml-');
+            renderLinks('azure-ai-links', 'azure/ai-900', 'azure-ai-');
+            renderLinks('azure-dp100-links', 'azure/dp-100', 'azure-ml-');
+            renderLinks('itil-v4-links', 'itil/v4-foundation', 'itil-v4-');
+            renderLinks('itil-v5-links', 'itil/v5-foundation', 'itil-v5-');
+            renderLinks('itil-specialty-links', 'itil/specialty-certificate', 'itil-specialty-');
+            renderLinks('gh300-links', 'gh300', 'gh300-');
+            renderLinks('life-in-uk-links', 'life-in-uk', 'life-in-uk-');
         });
     </script>
 </body>
+
 </html>

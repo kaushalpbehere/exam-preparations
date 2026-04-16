@@ -1,0 +1,301 @@
+const fs = require('fs');
+const path = require('path');
+
+const targetDir = path.join(__dirname, 'exams', 'itil', 'specialty-certificate');
+const targetFile = path.join(targetDir, 'flashcards.html');
+
+const template = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITIL Specialty Certificate - Flashcards</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: #161b22;
+            --text-main: #c9d1d9;
+            --accent: #58a6ff;
+            --border-muted: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .flashcard-container {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            perspective: 1000px; /* 3D effect */
+            margin-bottom: 30px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-muted);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            cursor: pointer;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Flip Action */
+        .flashcard.flipped {
+            transform: rotateX(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .card-front {
+            /* Front is default */
+        }
+
+        .card-back {
+            transform: rotateX(180deg);
+            color: #7ee787; /* Greenish tint for the answer */
+            font-size: 1.2rem;
+            overflow-y: auto; /* In case explanation is long */
+        }
+        
+        .card-label {
+            position: absolute;
+            top: 20px;
+            font-size: 0.8rem;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background-color: var(--border-muted);
+            color: var(--text-main);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: #484f58;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .progress {
+            font-size: 1rem;
+            color: #8b949e;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .instructions {
+            margin-top: 40px;
+            color: #8b949e;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="../../index.html" class="back-btn">← Dashboard</a>
+        <h2>ITIL Specialty Flashcards</h2>
+        <div style="width: 80px;"></div> <!-- Spacer -->
+    </div>
+
+    <div class="flashcard-container" onclick="flipCard()">
+        <div class="flashcard" id="card">
+            <div class="card-face card-front">
+                <span class="card-label">Specialty Concept</span>
+                <div id="question-text">Loading...</div>
+            </div>
+            <div class="card-face card-back">
+                <span class="card-label">Explanation</span>
+                <div id="answer-text">Loading...</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="nav-btn" id="prev-btn" onclick="prevCard()">&lt; Prev</button>
+        <div class="progress" id="progress-text">1 / 50</div>
+        <button class="nav-btn" id="next-btn" onclick="nextCard()">Next &gt;</button>
+    </div>
+    
+    <div class="instructions">
+        Tap the card to flip. Use Prev/Next buttons or Left/Right arrow keys to navigate.
+    </div>
+
+    <script>
+        const cards = [
+            { q: "What is a 'Digital Product'?", a: "A package combining IT services, information, and people into an offering that directly creates value for a consumer, rather than just delivering source code." },
+            { q: "Role of the Business Relationship Manager (BRM)?", a: "Acting as a strategic liaison and trusted advisor between IT and the business, ensuring IT capabilities align strictly with business goals." },
+            { q: "Lead Time vs. Cycle Time?", a: "Lead Time is from customer request to final delivery (system focus). Cycle Time is just the period the team was actively working on it (team focus)." },
+            { q: "What does 'WIP Limits' achieve in Kanban?", a: "Prevents starting new work until existing work is finished, instantly exposing bottlenecks and dramatically reducing total Lead Time." },
+            { q: "Theory of Constraints (ToC) primary rule?", a: "Every system has at least one constraint. Improving any step that isn't the constraint is an illusion; work will just pile up faster in front of it." },
+            { q: "What is 'Overproduction' in Lean IT?", a: "The worst waste. Building features or generating reports that the customer did not ask for and never uses." },
+            { q: "What is 'Minimum Viable Process'?", a: "Designing just enough governance to safely achieve an objective, resisting the urge to build massive, bureaucratic flowcharts upfront." },
+            { q: "How does High-Velocity IT handle CABs?", a: "By replacing heavy weekly CAB meetings with peer review, delegated authority, and rigorous automated CI/CD pipelines." },
+            { q: "Continuous Delivery vs Deployment?", a: "Delivery: Code is deployable, but a human pushes the button. Deployment: Code automatically goes live to users without human intervention." },
+            { q: "What is 'Immutable Infrastructure'?", a: "Servers are never patched or modified in place. When a change is needed, a fresh server is built from code (IaC) and the old one destroyed." },
+            { q: "Infrastructure as Code (IaC) main benefit?", a: "Eliminates 'configuration drift'. Environments (Dev, Staging, Prod) become identical, predictable, version-controlled text files." },
+            { q: "What is 'Toil' in SRE?", a: "Manual, repetitive, tactical work devoid of enduring value. SRE mandates automating it away so it doesn't scale linearly with the service." },
+            { q: "SLI vs SLO vs SLA?", a: "SLI: Real-time metric (Latency). SLO: Internal goal (99.9% under 20ms). SLA: External, legal contract with the customer." },
+            { q: "What is the purpose of an 'Error Budget'?", a: "It mathematically balances the tension between Product (wants features fast) and Ops (wants stability). If the budget is blown, feature deployments stop." },
+            { q: "Benefit of a 'Blameless Post-Mortem'?", a: "Finding the systemic reason why a human was allowed to make an error, rather than firing the human and leaving the fragile system intact." },
+            { q: "What is the 'OODA Loop'?", a: "Observe, Orient, Decide, Act. A cycle of continuous adaptation crucial for surviving in unpredictable, complex environments." },
+            { q: "First step in 'Design Thinking'?", a: "Empathy. Deeply understanding the human user's context and pain points before ever thinking about technological solutions." },
+            { q: "What is 'Vendor Lock-in' in the Cloud?", a: "Becoming technically/financially trapped using proprietary tools (like AWS Lambda) making it exorbitantly expensive to move to Azure." },
+            { q: "Goal of 'FinOps'?", a: "Bringing financial accountability directly to developers, ensuring they understand the real-time cost of the cloud infrastructure they spin up." },
+            { q: "What is the 'Strangler Fig Pattern'?", a: "Incrementally modernizing a massive legacy monolith by replacing small pieces of it with microservices over time, avoiding a high-risk full rewrite." },
+            { q: "Why use 'Microservices'?", a: "To break tight coupling. Allows dozens of teams to independently develop, deploy, and scale small parts of the system simultaneously without waiting on each other." },
+            { q: "What does 'Chaos Engineering' prove?", a: "Intentionally injecting failures in production proves that your automated resilience mechanisms (like auto-scaling and failover) actually work when needed." },
+            { q: "What is 'A/B Testing'?", a: "Routing users to two different variants (like a red vs blue button) and using statistical data, not opinions, to determine which drives better business outcomes." },
+            { q: "Goal of 'Safe-to-fail' experiments?", a: "Recognizing risk is required for speed. Using techniques like canary releases limits the blast radius so failures are cheap and survivable." },
+            { q: "What is an 'Information Radiator'?", a: "A highly visible display (like a large physical Kanban board) that shows teams current status instantly without needing to check an app or ask a manager." },
+            { q: "Push vs Pull work systems?", a: "Push: Management forces work onto teams regardless of capacity. Pull (Lean): Teams pull work only when they have capacity to handle it." },
+            { q: "What is 'Shift-Right'?", a: "Testing and monitoring code safely in the live production environment using real traffic, because staging environments can never truly replicate production." },
+            { q: "What is Conway’s Law?", a: "Organizations design systems that mirror their internal communication structures (4 siloed teams will build a system with exactly 4 clunky interfaces)." },
+            { q: "Inverse Conway Maneuver?", a: "Changing the human organizational structure first (creating cross-functional teams) to encourage a better software architecture to naturally emerge." },
+            { q: "Purpose of 'Value Stream Management' tools?", a: "Software that connects disparate DevOps tools (Jira, GitHub, Jenkins) into a single dashboard to visualize how fast business value is actually flowing." },
+            { q: "Role of a 'Service Integration' (SIAM) model?", a: "Acting as the orchestrator to ensure multiple external cloud/support vendors work together seamlessly to deliver a single service to the business." },
+            { q: "Key ethical concern with Generative AI?", a: "High-velocity adoption risks algorithmic bias, hallucinations, or accidentally feeding proprietary company data into public models." },
+            { q: "What is a 'Target Operating Model' (TOM)?", a: "The architectural blueprint of the desired future state (processes, tools, culture) an organization wants to reach during digital transformation." },
+            { q: "Value Stream Mapping vs Customer Journey Mapping?", a: "Value Stream maps internal IT steps. Customer Journey maps external emotional touchpoints and frustrations the user experiences." },
+            { q: "What is 'Design for Operations'?", a: "Ensuring non-functional requirements (observability, maintainability, backup/restore) are architected into the software from day one, not bolted on later." },
+            { q: "Why is 'Bimodal IT' criticized?", a: "Splitting IT into 'fast/digital' and 'slow/legacy' starves critical legacy systems of modernization and creates toxic cultural divides." },
+            { q: "How does Cloud change 'Capacity Management'?", a: "Shifts from predicting 3-year CapEx hardware purchases to managing real-time OpEx auto-scaling rules and FinOps constraints." },
+            { q: "Who retains ultimate accountability in multi-sourcing?", a: "The enterprise Service Provider. You can outsource the execution to AWS, but if AWS crashes, the customer blames YOU." },
+            { q: "What is the 'Watermelon Effect'?", a: "When IT technical SLAs are 'Green' (100% server uptime), but the actual user experience is 'Red' (the application is confusing and slow)." },
+            { q: "How do XLAs fix the Watermelon Effect?", a: "Experience Level Agreements measure human sentiment and actual business enablement, not just sterile technical metrics." },
+            { q: "What does 'AIOps' solve?", a: "Alert fatigue. It uses Machine Learning to ingest millions of log lines, filter the noise, and isolate the true root cause of complex outages automatically." },
+            { q: "What is 'Technical Debt' realistically?", a: "A strategic tool. Taking an intentional 'loan' by writing fast code to hit market early is smart, provided you dedicate time later to 'refactor' and pay it off." },
+            { q: "What is 'Dark Launching'?", a: "Deploying code to production but hiding the UI from users. Decouples deployment risk from the final business release." },
+            { q: "Blue/Green vs Canary Release?", a: "Blue/Green switches 100% of traffic instantly to a parallel environment. Canary routes 5% of traffic to test the waters, limiting the blast radius." },
+            { q: "Shift-Left in Security (DevSecOps)?", a: "Automating security and vulnerability scans directly inside the developer's IDE or CI pipeline, rather than treating security as a final gating mechanism." },
+            { q: "Outputs vs Outcomes?", a: "IT builds an Output (a new database). The business wants an Outcome (faster financial reporting). Focus entirely on Outcomes." },
+            { q: "What is 'Swarming' over Tiered Support?", a: "Abandoning L1/L2/L3 escalations for complex incidents. Bringing cross-functional experts into a shared channel instantly to resolve the issue." },
+            { q: "What is an 'Internal Developer Platform' (IDP)?", a: "A self-service platform built by Ops to hide infrastructure complexity (like Kubernetes), lowering 'cognitive load' so Devs can just write code." },
+            { q: "What is 'Distributed Tracing'?", a: "Attaching a unique ID to a user request so it can be tracked as it bounces across 50 different microservices, pinpointing exact performance bottlenecks." },
+            { q: "Final Question: What is the ultimate goal of High-Velocity IT?", a: "Not just writing code faster. It's about enabling the continuous, safe, and ethical co-creation of business value in a complex and unpredictable world." }
+        ];
+
+        let currentIndex = 0;
+        const cardElem = document.getElementById('card');
+        const qText = document.getElementById('question-text');
+        const aText = document.getElementById('answer-text');
+        const progressText = document.getElementById('progress-text');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function renderCard() {
+            // Reset rotation
+            cardElem.classList.remove('flipped');
+            
+            // Wait for flip animation to finish before changing text
+            setTimeout(() => {
+                qText.textContent = cards[currentIndex].q;
+                aText.textContent = cards[currentIndex].a;
+                progressText.textContent = \`\${currentIndex + 1} / \${cards.length}\`;
+                
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === cards.length - 1;
+            }, 100); 
+        }
+
+        function flipCard() {
+            cardElem.classList.toggle('flipped');
+        }
+
+        function nextCard() {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                renderCard();
+            }
+        }
+
+        function prevCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderCard();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextCard();
+            if (e.key === 'ArrowLeft') prevCard();
+            if (e.key === ' ' || e.key === 'Enter') {
+                flipCard();
+                e.preventDefault(); // Prevent scrolling
+            }
+        });
+
+        // Init
+        renderCard();
+
+    </script>
+</body>
+</html>`;
+
+fs.writeFileSync(targetFile, template, 'utf8');
+console.log('Specialty Flashcards generated successfully at: ' + targetFile);

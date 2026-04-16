@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS ML Specialty & Associate Flashcards</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="../../index.html" class="btn">← Dashboard</a>
+        <h1>AWS ML Flashcards</h1>
+
+        <p style="font-size: 11px; color:#888; text-align:center;">
+            Tap the <b>Left Half</b> of the screen for 'Previous', <b>Right Half</b> for 'Next'.
+        </p>
+
+        <div class="fc-viewer">
+            <!-- Invisible Touch Zones -->
+            <div class="fc-hitbox-left" id="zone-left"></div>
+            <div class="fc-hitbox-right" id="zone-right"></div>
+
+            <div class="fc-counter" id="fc-counter">1 / 50</div>
+
+            <!-- Content -->
+            <div class="fc-front" id="fc-front">Front Loading...</div>
+            <div class="fc-back" id="fc-back">Back Loading...</div>
+        </div>
+
+    </div>
+
+    <script>
+        const cards = [
+            { front: "Amazon SageMaker Studio", back: "Fully integrated development environment (IDE) for machine learning, unifying notebooks, debugging, tracking, monitoring, and pipelines." },
+            { front: "SageMaker Data Wrangler", back: "Visual interface to seamlessly import data from sources like S3 or Athena, clean it, and transform it for machine learning without writing code." },
+            { front: "SageMaker Feature Store", back: "Centralized repository for organizing ML features, supporting both low-latency online retrieval (inference) and offline retrieval (training)." },
+            { front: "SageMaker Clarify", back: "Provides insights into model behavior by identifying data or model biases and generating feature importance explanations (SHAP values)." },
+            { front: "SageMaker Debugger", back: "Automatically captures metrics and tensors during training, emitting warnings when anomalies like vanishing gradients or overfitting are detected." },
+            { front: "SageMaker Autopilot", back: "AutoML solution that explores various algorithms and hyperparameters to automatically generate the best possible model for a dataset." },
+            { front: "SageMaker Model Monitor", back: "Captures incoming inference requests and compares them against a training baseline to detect data drift, concept drift, or feature attribution drift." },
+            { front: "SageMaker Pipelines", back: "Purpose-built CI/CD service for machine learning that helps orchestrate and automate ML workflows at scale." },
+            { front: "SageMaker ML Lineage Tracking", back: "Creates and stores information about the steps of an ML workflow, linking deployments back to training data and code for auditing." },
+            { front: "SageMaker Neo", back: "Automatically compiles ML models for specific hardware architectures, optimizing them for faster inference with a smaller footprint on edge devices." },
+            { front: "SageMaker Edge Manager", back: "Manages and monitors ML models deployed to edge devices, operating alongside SageMaker Neo." },
+            { front: "SageMaker Canvas", back: "Visual, no-code ML interface that allows business analysts to build models and generate accurate predictions." },
+            { front: "Managed Spot Training", back: "Uses spare EC2 capacity for training jobs, allowing cost savings of up to 90%. Must implement checkpointing to handle interruptions." },
+            { front: "Multi-Model Endpoints (MME)", back: "Allows hosting thousands of models on a single SageMaker endpoint, sharing the underlying compute instances and dynamically loading models." },
+            { front: "Serverless Inference", back: "Abstracts instance management and automatically scales compute capacity based on traffic spikes, charging only for the duration of inference." },
+            { front: "Amazon Bedrock", back: "Fully managed service that makes foundation models (FMs) from Amazon and leading AI startups accessible via an API." },
+            { front: "Bedrock Knowledge Bases", back: "Securely connects Foundation Models to internal company data sources for fully managed Retrieval-Augmented Generation (RAG)." },
+            { front: "Bedrock Agents", back: "Uses Action Groups equipped with OpenAPI schemas and Lambda functions to connect LLMs to external APIs to execute real-world actions." },
+            { front: "Bedrock Guardrails", back: "Allows defining content filters, redacting PII, and blocking specific toxic or off-topic prompts and responses based on corporate policies." },
+            { front: "Bedrock Model Customization", back: "Allows fine-tuning and continued pre-training of models in a secure VPC environment. Customer data is strictly isolated." },
+            { front: "Amazon Titan", back: "Amazon's family of foundational models, including text generation, image generation, and high-performance embeddings." },
+            { front: "Vector Embeddings", back: "Dense mathematical vector representations of text that capture semantic meaning, essential for semantic search and RAG." },
+            { front: "Cosine Similarity", back: "Mathematical metric used to determine the semantic closeness between the user query embedding and document embeddings in a vector database." },
+            { front: "RAG (Retrieval-Augmented Generation)", back: "Architecture where an LLM is paired with an external knowledge retrieval system (like a vector DB) to ground its responses in factual data." },
+            { front: "Amazon OpenSearch Serverless (Vector Engine)", back: "Highly scalable vector database service natively integrated with Amazon Bedrock for semantic search." },
+            { front: "Amazon S3", back: "Standard, highly durable object storage used by SageMaker for ingesting training datasets and storing output model artifacts (.tar.gz)." },
+            { front: "Fast File Mode (Pipe Mode)", back: "Streams data directly from S3 to the training container, reducing local disk requirements and startup times for massive datasets." },
+            { front: "Amazon FSx for Lustre", back: "High-performance file system integrated with S3, designed to deliver sub-millisecond latencies and massive throughput for EC2 deep learning." },
+            { front: "Amazon EFS", back: "Fully managed, scalable, elastic file system. Commonly used for sharing directories across multiple containers or instances." },
+            { front: "AWS Glue", back: "Serverless data integration service utilizing distributed Apache Spark to run Extract, Transform, and Load (ETL) data pipelines." },
+            { front: "Amazon Athena", back: "Interactive, serverless query service that makes it easy to analyze data directly in S3 using standard SQL." },
+            { front: "Amazon Kinesis Data Streams", back: "Massively scalable and durable real-time data streaming service." },
+            { front: "Amazon MSK (Managed Streaming for Apache Kafka)", back: "Fully managed service that makes it easy to build and run applications that use Apache Kafka to process streaming data." },
+            { front: "Managed Service for Apache Flink", back: "Allows you to continuously process and analyze streaming data in real-time, often using SQL over live Kinesis streams." },
+            { front: "Amazon Redshift", back: "Fast, fully managed, petabyte-scale cloud data warehouse. Often integrated with ML via Redshift ML." },
+            { front: "Amazon DynamoDB", back: "Fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale." },
+            { front: "Amazon ElastiCache", back: "High-speed, in-memory datastore (Redis/Memcached), perfect for maintaining low-latency conversational history for GenAI chatbots." },
+            { front: "Amazon Neptune", back: "Fully managed graph database service optimized for storing billions of relationships and querying them with millisecond latency (e.g., fraud rings)." },
+            { front: "Amazon Augmented AI (A2I)", back: "Makes it easy to build human review workflows for ML predictions, routing low-confidence outputs to human teams for manual validation." },
+            { front: "Amazon Macie", back: "Data security service that uses machine learning to automatically discover, classify, and protect sensitive data like PII in AWS S3." },
+            { front: "AWS Inferentia & Trainium", back: "Custom-built AWS silicon accelerators designed to provide high-performance and cost-effective deep learning inference and training." },
+            { front: "Early Stopping", back: "Automatically terminates hyperparameter tuning jobs if the model's performance on the validation set stops improving, saving cost." },
+            { front: "Dropout", back: "Regularization technique where randomly selected neurons are ignored during training, preventing complex co-adaptations and reducing overfitting." },
+            { front: "Batch Normalization", back: "Standardizes the inputs to a layer for each mini-batch. Stabilizes the learning process and significantly reduces training time." },
+            { front: "Softmax Layer", back: "Normalizes the output of a network into a probability distribution over predicted output classes, where all values sum to 1." },
+            { front: "Recall (Sensitivity)", back: "Proportion of actual positive cases that were correctly identified (True Positives / (True Positives + False Negatives))." },
+            { front: "Precision", back: "Proportion of predicted positive cases that were actually positive (True Positives / (True Positives + False Positives))." },
+            { front: "F1-Score", back: "Harmonic mean of precision and recall. Often better than Accuracy for evaluating highly imbalanced datasets." },
+            { front: "ROUGE Score", back: "Measures the overlap of n-grams between system-generated text and reference human text. Standardly used for LLM summarization evaluation." },
+            { front: "Continuous Training (CT)", back: "The MLOps practice of automating the retraining of models when performance degrades or data distributions shift." }
+        ];
+
+        let currentIndex = 0;
+        const frontEl = document.getElementById('fc-front');
+        const backEl = document.getElementById('fc-back');
+        const counterEl = document.getElementById('fc-counter');
+
+        function updateCard() {
+            frontEl.textContent = cards[currentIndex].front;
+            backEl.textContent = cards[currentIndex].back;
+            counterEl.textContent = `${currentIndex + 1} / ${cards.length}`;
+        }
+
+        document.getElementById('zone-left').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            } else {
+                // Wrap to end
+                currentIndex = cards.length - 1;
+                updateCard();
+            }
+        });
+
+        document.getElementById('zone-right').addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateCard();
+            } else {
+                // Wrap to beginning
+                currentIndex = 0;
+                updateCard();
+            }
+        });
+
+        // Initialize
+        updateCard();
+    </script>
+</body>
+
+</html>

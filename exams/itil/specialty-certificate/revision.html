@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITIL Specialty Certificate - Revision Guide</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --success: #3fb950;
+            --warning: #d29922;
+            --border-muted: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--border-muted);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn:hover { background-color: #484f58; }
+
+        h1 { color: #f0f6fc; border-bottom: 1px solid var(--border-muted); padding-bottom: 10px; }
+        h2 { color: var(--accent); margin-top: 30px; }
+        h3 { color: #f0f6fc; margin-top: 25px; }
+        
+        .box {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-muted);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            background-color: rgba(63, 185, 80, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .warning-box {
+            background-color: rgba(210, 153, 34, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid var(--border-muted);
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--border-muted);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>ITIL Specialty Certificate - Cram Guide</h1>
+        <p class="text-muted">High-Velocity IT, Business Relationship Management (BRM), and Modern Cloud Operating Models (SRE/DevOps).</p>
+
+        <div class="highlight">
+            <strong>Strategic Mindset:</strong> Stop thinking about 'closing tickets'. Start thinking about flow, lead time, psychological safety, and viewing IT as an investment portfolio that co-creates business value.
+        </div>
+
+        <h2>1. High-Velocity IT Core Principles</h2>
+        <div class="box">
+            <ul>
+                <li><strong>Ethics:</strong> Speed is dangerous without ethics. AI bias, data privacy, and societal impact must be governed, not ignored for the sake of velocity.</li>
+                <li><strong>Safety Culture (Psychological Safety):</strong> The absolute foundation. If people fear being fired for mistakes, they will hide bugs and stop innovating. Blameless Post-Mortems are mandatory.</li>
+                <li><strong>Lean Thinking:</strong> Relentlessly hunt and eliminate 'Waste' (Muda), especially Wait Times, Overproduction, and Toil.</li>
+                <li><strong>Value Co-Creation:</strong> IT does not 'deliver' value. Value is generated only when the consumer actively engages with the service to achieve an outcome.</li>
+            </ul>
+        </div>
+
+        <h2>2. Business Relationship Management (BRM)</h2>
+        <div class="box">
+            <p>The BRM is not a helpdesk escalation point. They are deeply strategic.</p>
+            <ul>
+                <li><strong>Trusted Advisor:</strong> Shaping demand, challenging business assumptions, and aligning the IT portfolio with long-term corporate strategy.</li>
+                <li><strong>Empathy:</strong> Deeply understanding the customer's actual pain points, not just their stated technical requirements.</li>
+                <li><strong>Relationship Mapping:</strong> Understanding the complex political web of decision-makers and influencers within the enterprise.</li>
+                <li><strong>Voice of the Customer (VoC):</strong> Using data and interviews to drive service design based on actual consumer needs.</li>
+            </ul>
+        </div>
+
+        <h2>3. SRE & Modern Operations</h2>
+        <div class="box">
+            <table>
+                <tr>
+                    <th>Concept</th>
+                    <th>Explanation</th>
+                </tr>
+                <tr>
+                    <td><strong>Toil</strong></td>
+                    <td>Manual, repetitive work without enduring value. Must be engineered away so it doesn't scale linearly.</td>
+                </tr>
+                <tr>
+                    <td><strong>SLI/SLO/SLA</strong></td>
+                    <td><strong>SLI:</strong> The real-time metric. <strong>SLO:</strong> The internal engineering target (99.9%). <strong>SLA:</strong> The external legal contract (99.5%).</td>
+                </tr>
+                <tr>
+                    <td><strong>Error Budget</strong></td>
+                    <td>100% minus the SLO. It mathematically defines the acceptable risk for deployments. If blown, deployments halt.</td>
+                </tr>
+                <tr>
+                    <td><strong>Chaos Engineering</strong></td>
+                    <td>Intentionally breaking things in production to prove that automated recovery mechanisms actually work.</td>
+                </tr>
+                <tr>
+                    <td><strong>Observability</strong></td>
+                    <td>Unlike monitoring (checking known thresholds), Observability uses logs/traces to debug complex, unknown failures in microservices.</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>4. Flow, Velocity, and Lean Concepts</h2>
+        <div class="box">
+            <ul>
+                <li><strong>Theory of Constraints (ToC):</strong> Every system has a bottleneck. Improving anything *other* than the bottleneck is a waste of time and only increases Work In Progress (WIP).</li>
+                <li><strong>WIP Limits:</strong> "Stop starting, start finishing." Limiting active work prevents context switching and massively improves Lead Time.</li>
+                <li><strong>Lead Time vs Cycle Time:</strong> Lead time spans from customer request to final delivery. Cycle time is just the active work time.</li>
+                <li><strong>Value Stream Management (VSM):</strong> Visualizing the end-to-end flow of work across silos to eliminate wait times and bottlenecks.</li>
+            </ul>
+        </div>
+        
+        <h2>5. Architecture & Deployment Tactics</h2>
+        <div class="box">
+            <div class="warning-box">
+                <strong>Deployment &#8800; Release:</strong> Deployment is moving code to a server. Release is making it available to a user. Decouple them!
+            </div>
+            <ul>
+                <li><strong>Microservices:</strong> Breaking code into small, independent pieces so teams can deploy without waiting for a massive "Release Train."</li>
+                <li><strong>Strangler Fig Pattern:</strong> Safely retiring a legacy monolith by replacing components piecemeal over time.</li>
+                <li><strong>Immutable Infrastructure:</strong> Never patch a server. Build a fresh one from code (IaC) to prevent configuration drift.</li>
+                <li><strong>Blue/Green Deployment:</strong> Switching 100% of traffic instantly between two identical environments for zero-downtime and instant rollbacks.</li>
+                <li><strong>Canary Release:</strong> Routing 5% of traffic to the new version to test for bugs, limiting the 'blast radius'.</li>
+                <li><strong>Feature Flags:</strong> Dark launching code that is turned 'off'. It can be flipped 'on' later without a new deployment.</li>
+            </ul>
+        </div>
+
+        <h2>6. Modern Team Topologies</h2>
+        <div class="box">
+            <p>Conway's Law states that organizations design systems mirroring their communication structures. To build microservices, you must first build cross-functional teams.</p>
+            <ul>
+                <li><strong>Stream-Aligned Teams:</strong> Cross-functional (Dev+Ops+QA) teams aligned to a specific product, capable of end-to-end delivery without handoffs.</li>
+                <li><strong>Platform Teams:</strong> They build the "paved road" (Internal Developer Platforms) to abstract away infrastructure complexity and reduce cognitive load for developers.</li>
+                <li><strong>Enabling Teams:</strong> Subject matter experts (e.g., Security) who coach and upskill stream-aligned teams, rather than doing the work for them.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+const fs = require('fs');
+const path = require('path');
+
+const targetDir = path.join(__dirname, 'exams', 'itil', 'v5-foundation');
+const targetFile = path.join(targetDir, 'revision.html');
+
+const template = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITIL v5 Foundation - Revision Guide</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --success: #3fb950;
+            --warning: #d29922;
+            --border-muted: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--border-muted);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn:hover { background-color: #484f58; }
+
+        h1 { color: #f0f6fc; border-bottom: 1px solid var(--border-muted); padding-bottom: 10px; }
+        h2 { color: var(--accent); margin-top: 30px; }
+        h3 { color: #f0f6fc; margin-top: 25px; }
+        
+        .box {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-muted);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            background-color: rgba(63, 185, 80, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .warning-box {
+            background-color: rgba(210, 153, 34, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid var(--border-muted);
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--border-muted);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="../../index.html" class="btn">← Back to Dashboard</a>
+
+        <h1>ITIL v5 Foundation - Ultimate Revision Guide</h1>
+        <p class="text-muted">Focus heavily on modern concepts (AIOps, Cloud, Shift-Left, Complexity) integrated into the core ITIL framework.</p>
+
+        <div class="highlight">
+            <strong>Key Exam Mindset:</strong> Do not think like a traditional ticket-closing technician. Think like a strategic business partner who uses technology, automation, and empathy to rapidly co-create value in an unpredictable, complex world.
+        </div>
+
+        <h2>1. Core Concepts of Service Management</h2>
+        <div class="box">
+            <ul>
+                <li><strong>Value:</strong> The perceived benefits, usefulness, and importance of something. It is always determined by the consumer.</li>
+                <li><strong>Value Co-creation:</strong> Value is actively collaborated on between providers and consumers. (A gym membership has no value if you don't use it).</li>
+                <li><strong>Service:</strong> A means of enabling value co-creation by facilitating outcomes that customers want to achieve, without the customer having to manage specific costs and risks.</li>
+                <li><strong>Outcome vs Output:</strong> An Output is a physical deliverable (a report). An Outcome is the business result achieved using that output (increased sales). Focus on Outcomes!</li>
+                <li><strong>Utility vs Warranty:</strong> 
+                    <ul>
+                        <li><span style="color:var(--accent)">Utility:</span> Fit for purpose (Does it have the right features?).</li>
+                        <li><span style="color:var(--accent)">Warranty:</span> Fit for use (Is it available, secure, performant?).</li>
+                        <li><strong>Note:</strong> A service must have BOTH to create value.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>2. The Four Dimensions of Service Management</h2>
+        <div class="box">
+            <p>To ensure holistic success, organizations must consider all four dimensions simultaneously. Ignoring one leads to failure.</p>
+            <ol>
+                <li><strong>Organizations & People:</strong> Roles, skills, culture, psychological safety, breaking down silos, T-shaped professionals.</li>
+                <li><strong>Information & Technology:</strong> The tools, infrastructure, data, AI, cloud computing, and system architectures used.</li>
+                <li><strong>Partners & Suppliers:</strong> Relationships with external vendors (ranging from buying pens to strategic cloud partnerships (Service Broker)).</li>
+                <li><strong>Value Streams & Processes:</strong> How the organization works in an integrated way. Focusing on eliminating waste (Lean).</li>
+            </ol>
+            <div class="warning-box">
+                <strong>External Factors (PESTLE):</strong> Remember that Political, Economic, Social, Technological, Legal, and Environmental factors constrain all four dimensions.
+            </div>
+        </div>
+
+        <h2>3. The 7 Guiding Principles</h2>
+        <div class="box">
+            <p>These are universal and enduring recommendations that guide an organization in ALL circumstances.</p>
+            <ul>
+                <li><strong>Focus on Value:</strong> Everything must map back to creating value for the consumer. User Experience (UX) and Customer Experience (CX) are vital.</li>
+                <li><strong>Start Where You Are:</strong> Avoid 'rip and replace'. Objectively measure the current state (Go and See / Gemba) and reuse what works.</li>
+                <li><strong>Progress Iteratively with Feedback:</strong> Agile approach. Break work into small chunks, deliver fast, get feedback, and adapt. (MVPs).</li>
+                <li><strong>Collaborate and Promote Visibility:</strong> Break down silos. Work in the open (Kanban). Cross-functional teams (Swarming).</li>
+                <li><strong>Think and Work Holistically:</strong> Remember the 4 dimensions. Changing software without changing the process will fail.</li>
+                <li><strong>Keep it Simple and Practical:</strong> Lean thinking. Eliminate waste. If a step/metric provides no value, stop doing it.</li>
+                <li><strong>Optimize and Automate:</strong> ALWAYS optimize (simplify) a process first, THEN automate it to eliminate toil. Do not automate a broken process.</li>
+            </ul>
+        </div>
+
+        <h2>4. The Service Value System (SVS) & Value Chain (SVC)</h2>
+        <div class="box">
+            <p>The <strong>SVS</strong> represents how all components of an organization work together to turn <strong>Demand/Opportunity</strong> into <strong>Value</strong>.</p>
+            <p>The <strong>Service Value Chain (SVC)</strong> is the core operating model within the SVS. It has 6 activities:</p>
+            <ol>
+                <li><strong>Plan:</strong> Shared understanding of vision, current status, and direction.</li>
+                <li><strong>Improve:</strong> Continual improvement of products and practices.</li>
+                <li><strong>Engage:</strong> The "front door". Understanding stakeholder needs, transparency, relationship building (Service Desk lives here).</li>
+                <li><strong>Design & Transition:</strong> Ensuring products continually meet expectations for quality, cost, and time-to-market.</li>
+                <li><strong>Obtain/Build:</strong> Ensuring service components are available when/where needed (buying software or coding it).</li>
+                <li><strong>Deliver & Support:</strong> Ensuring services are delivered and supported to agreed specifications (Incident Mgmt lives here).</li>
+            </ol>
+        </div>
+
+        <h2>5. Key Modern ITSM Concepts (ITIL v5 Heavy Focus)</h2>
+        <div class="box">
+            <table>
+                <tr>
+                    <th>Concept</th>
+                    <th>Definition / Goal</th>
+                </tr>
+                <tr>
+                    <td><strong>Complex Systems</strong></td>
+                    <td>Modern IT is unpredictable and non-linear. You cannot plan perfectly. You must probe, sense, and respond (Chaos Engineering).</td>
+                </tr>
+                <tr>
+                    <td><strong>Technical Debt</strong></td>
+                    <td>The cost of choosing a fast/hacky solution over doing it right. It must be tracked and continually paid down (refactored).</td>
+                </tr>
+                <tr>
+                    <td><strong>Toil (SRE)</strong></td>
+                    <td>Manual, repetitive work devoid of enduring value. Automation's primary goal is to eliminate toil.</td>
+                </tr>
+                <tr>
+                    <td><strong>Shift-Left</strong></td>
+                    <td>Moving testing, security, and Level 1 support earlier in the pipeline/closer to the user to catch defects when they are cheap to fix.</td>
+                </tr>
+                <tr>
+                    <td><strong>AIOps & GenAI</strong></td>
+                    <td>Using ML to reduce alert noise, predict failures, and draft knowledge base articles automatically.</td>
+                </tr>
+                <tr>
+                    <td><strong>XLAs (Experience Level Agreements)</strong></td>
+                    <td>Moving beyond technical SLAs (uptime) to measuring human outcomes, sentiment, and actual business enablement (The Watermelon Effect).</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>6. Critical Practices to Know</h2>
+        <div class="box">
+            <ul>
+                <li><strong>Incident Management:</strong> Restoring service as quickly as possible. (Fix what is broken). Uses Swarming for Major Incidents.</li>
+                <li><strong>Problem Management:</strong> Finding the root cause to prevent incidents from happening again. Creates Workarounds and Known Errors.</li>
+                <li><strong>Service Request Management:</strong> Handling routine, pre-defined, planned requests (Password resets, software installs). Heavy focus on self-service portals and automation.</li>
+                <li><strong>Service Desk:</strong> The Single Point of Contact (SPOC). Requires intense empathy and omnichannel support. They are the face of IT.</li>
+                <li><strong>Change Enablement:</strong> Maximizing successful changes while managing risk. Standard (Pre-authorized), Normal (CAB/Peer review), Emergency (fix right now).</li>
+                <li><strong>Deployment vs. Release Management:</strong> 
+                    <ul>
+                        <li><span style="color:var(--accent)">Deployment:</span> Moving code to production (Automated CI/CD, Blue/Green, Canary).</li>
+                        <li><span style="color:var(--accent)">Release:</span> Making that code available to the user (Feature Flags / Dark Launching).</li>
+                    </ul>
+                </li>
+                <li><strong>Continual Improvement:</strong> Everyone's responsibility. Uses the Continual Improvement Register (CIR). Aligned heavily with Agile retrospectives.</li>
+                <li><strong>Information Security Management:</strong> Protects confidentiality, integrity, and availability (CIA). Security must be balanced with usability.</li>
+                <li><strong>IT Asset Management (ITAM):</strong> Manages the costs, risks, and lifecycle of hardware/software (focussing heavily on license compliance/SAM).</li>
+                <li><strong>Service Configuration Management:</strong> Manages the technical relationships and dependencies mapping between CIs in the CMDB.</li>
+                <li><strong>Relationship Management:</strong> Strategic level. Understanding stakeholder needs and ensuring a healthy provider-consumer relationship.</li>
+            </ul>
+        </div>
+
+        <div class="highlight" style="text-align: center; margin-top: 40px;">
+            <strong>Good Luck! Remember: Empathy, Automation, and Value Co-creation.</strong>
+        </div>
+
+    </div>
+
+</body>
+</html>`;
+
+fs.writeFileSync(targetFile, template, 'utf8');
+console.log('Revision guide generated effectively at: ' + targetFile);

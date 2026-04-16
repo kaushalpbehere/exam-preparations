@@ -8,7 +8,9 @@ body {
     line-height: 1.4;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     text-transform: uppercase;
     border-bottom: 1px solid #fff;
     padding-bottom: 5px;
@@ -20,7 +22,8 @@ a {
     text-decoration: underline;
 }
 
-.btn, .exam-link {
+.btn,
+.exam-link {
     display: block;
     min-height: 44px;
     min-width: 44px;
@@ -37,8 +40,37 @@ a {
     font-family: monospace;
 }
 
-.btn:hover, .exam-link:hover {
+.btn:hover,
+.exam-link:hover {
     background-color: #444;
+}
+
+/* Horizontal Scroll Layout for Dashboard */
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 5px;
+    /* Optional: hide scrollbars but keep functionality */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+/* Specific styling for items inside the horizontal scroll */
+.horizontal-scroll-container .exam-link {
+    min-width: 140px;
+    /* Minimum width so they don't crush */
+    flex-shrink: 0;
+    /* Prevent shrinking below min-width */
+    margin-bottom: 0;
+    /* Remove bottom margin inside flex row */
 }
 
 .hidden {
@@ -83,7 +115,9 @@ a {
 .score-btn.correct {
     border-color: #0f0;
 }
-.score-btn.correct:hover, .score-btn.correct.active {
+
+.score-btn.correct:hover,
+.score-btn.correct.active {
     background: #0f0;
     color: #000;
 }
@@ -91,7 +125,9 @@ a {
 .score-btn.incorrect {
     border-color: #f00;
 }
-.score-btn.incorrect:hover, .score-btn.incorrect.active {
+
+.score-btn.incorrect:hover,
+.score-btn.incorrect.active {
     background: #f00;
     color: #000;
 }
@@ -141,4 +177,68 @@ a {
     margin-bottom: 15px;
     font-size: 13px;
     color: #e94560;
+}
+
+/* Minimalist Flashcard Engine */
+.fc-viewer {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 300px;
+    background-color: #111;
+    border: 2px solid #555;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 20px;
+    user-select: none;
+}
+
+.fc-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 11px;
+    color: #888;
+}
+
+.fc-front {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.fc-back {
+    font-size: 15px;
+    color: #0f0;
+}
+
+/* Invisible click zones */
+.fc-hitbox-left,
+.fc-hitbox-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.fc-hitbox-left {
+    left: 0;
+}
+
+.fc-hitbox-right {
+    right: 0;
+}
+
+.fc-hitbox-left:active,
+.fc-hitbox-right:active {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* very subtle feedback */
 }
